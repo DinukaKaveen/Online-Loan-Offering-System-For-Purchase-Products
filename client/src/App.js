@@ -1,6 +1,5 @@
 import React from "react";
 import NavBar from "./components/admin/NavBar";
-import SideNav from "./components/admin/SideNav";
 
 export default function App() {
   return (
