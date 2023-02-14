@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function NavbarCus() {
   return (
@@ -22,12 +23,12 @@ export default function NavbarCus() {
             >
               Login
             </a>
-            <a
-              href="/"
+            <Link
+              to={"/RegisterCustomer"}
               className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-md px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
             >
               Sign up
-            </a>
+            </Link>
             <button
               data-collapse-toggle="mega-menu-icons"
               type="button"
@@ -57,13 +58,13 @@ export default function NavbarCus() {
           >
             <ul className="flex flex-col mt-4 text-md font-medium md:flex-row md:space-x-8 md:mt-0">
               <li>
-                <a
-                  href="/"
+                <Link
+                  to={"/"}
                   className="block py-2 pl-3 pr-4 text-blue-600 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-blue-500 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
                   aria-current="page"
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li>
                 <button
