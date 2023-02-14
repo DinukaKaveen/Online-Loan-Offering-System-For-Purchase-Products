@@ -340,7 +340,6 @@ export default function NavBar() {
           </ul>
         </div>
       </aside>
-
     </div>
   );
 }
