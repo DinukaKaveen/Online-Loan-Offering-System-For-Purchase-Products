@@ -53,7 +53,7 @@ export default function NavBar() {
                     <img
                       className="w-8 h-8 rounded-full"
                       src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                      alt="user photo"
+                      alt=""
                     />
                   </button>
                 </div>
@@ -78,7 +78,7 @@ export default function NavBar() {
                   <ul className="py-1" role="none">
                     <li>
                       <a
-                        href="#"
+                        href="/"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                         role="menuitem"
                       >
@@ -87,7 +87,7 @@ export default function NavBar() {
                     </li>
                     <li>
                       <a
-                        href="#"
+                        href="/"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                         role="menuitem"
                       >
@@ -96,7 +96,7 @@ export default function NavBar() {
                     </li>
                     <li>
                       <a
-                        href="#"
+                        href="/"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                         role="menuitem"
                       >
@@ -105,7 +105,7 @@ export default function NavBar() {
                     </li>
                     <li>
                       <a
-                        href="#"
+                        href="/"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                         role="menuitem"
                       >
@@ -129,7 +129,7 @@ export default function NavBar() {
           <ul className="space-y-2">
             <li>
               <a
-                href="#"
+                href="/"
                 className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <svg
@@ -188,7 +188,7 @@ export default function NavBar() {
               <ul id="dropdown-example" className="hidden py-2 space-y-2">
                 <li>
                   <a
-                    href="#"
+                    href="/"
                     className="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                   >
                     Products
@@ -196,7 +196,7 @@ export default function NavBar() {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/"
                     className="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                   >
                     Billing
@@ -204,7 +204,7 @@ export default function NavBar() {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/"
                     className="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                   >
                     Invoice
@@ -214,7 +214,7 @@ export default function NavBar() {
             </li>
             <li>
               <a
-                href="#"
+                href="/"
                 className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <svg
@@ -234,7 +234,7 @@ export default function NavBar() {
             </li>
             <li>
               <a
-                href="#"
+                href="/"
                 className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <svg
@@ -255,7 +255,7 @@ export default function NavBar() {
             </li>
             <li>
               <a
-                href="#"
+                href="/"
                 className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <svg
@@ -276,7 +276,7 @@ export default function NavBar() {
             </li>
             <li>
               <a
-                href="#"
+                href="/"
                 className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <svg
@@ -297,7 +297,7 @@ export default function NavBar() {
             </li>
             <li>
               <a
-                href="#"
+                href="/"
                 className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <svg
@@ -318,7 +318,7 @@ export default function NavBar() {
             </li>
             <li>
               <a
-                href="#"
+                href="/"
                 className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <svg

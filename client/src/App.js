@@ -1,8 +1,10 @@
 import React from "react";
+
 import NavBar from "./components/admin/NavBar";
 
 export default function App() {
   return (
+    
     <div>
       <NavBar />
       <div className="p-4 sm:ml-64">
@@ -10,6 +12,7 @@ export default function App() {
           hfgjgsdgfhdfgj
         </div>
       </div>
+      
     </div>
   );
 }
