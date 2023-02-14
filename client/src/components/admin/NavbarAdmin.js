@@ -167,12 +167,12 @@ export default function NavbarAdmin() {
                 </svg>
                 <span
                   className="flex-1 ml-3 text-left whitespace-nowrap"
-                  sidebar-toggle-item
+                  sidebar-toggle-item="true"
                 >
                   E-commerce
                 </span>
                 <svg
-                  sidebar-toggle-item
+                  sidebar-toggle-item="true"
                   className="w-6 h-6"
                   fill="currentColor"
                   viewBox="0 0 20 20"
