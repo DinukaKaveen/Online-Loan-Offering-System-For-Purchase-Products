@@ -3,6 +3,7 @@ import React from "react";
 export default function NavbarCus() {
   return (
     <div>
+      
       <nav class="bg-white border-gray-200 px-2 md:px-4 py-2.5 dark:bg-gray-900">
         <div class="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto">
           <a href="https://flowbite.com" class="flex items-center">
@@ -344,6 +345,7 @@ export default function NavbarCus() {
           </div>
         </div>
       </nav>
+
     </div>
   );
 }

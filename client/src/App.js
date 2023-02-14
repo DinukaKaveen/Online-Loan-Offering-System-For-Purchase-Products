@@ -1,18 +1,17 @@
 import React from "react";
-
-import NavBar from "./components/admin/NavBar";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import NavbarAdmin from "./components/admin/NavbarAdmin";
+import NavbarCus from "./components/customer/NavbarCus";
 
 export default function App() {
   return (
-    
+    <BrowserRouter>
     <div>
-      <NavBar />
-      <div className="p-4 sm:ml-64">
-        <div className="p-4 mt-14">
-          hfgjgsdgfhdfgj
-        </div>
-      </div>
-      
+      <NavbarCus/>
+      <Routes>
+        <Route path="/admin" element={<NavbarAdmin/>}></Route>
+      </Routes>
     </div>
+    </BrowserRouter>
   );
 }
