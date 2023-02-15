@@ -56,7 +56,10 @@ export default function Purchases() {
         <br />
 
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-          <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+          <table
+            className="w-full text-sm text-left text-gray-500 dark:text-gray-400"
+            style={{ width: "100%" }}
+          >
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-300 dark:text-gray-700">
               <tr>
                 <th scope="col" className="px-6 py-3">
@@ -93,9 +96,23 @@ export default function Purchases() {
                 <td className="px-6 py-4">
                   <a
                     href="/"
-                    className="font-medium text-red-600 dark:text-red-500 hover:underline"
+                    class="text-blue-700 border border-blue-700 hover:bg-blue-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:focus:ring-blue-800"
                   >
-                    Remove
+                    <i class="fa-solid fa-eye"></i>
+                  </a>
+                  &nbsp;
+                  <a
+                    href="/"
+                    class="text-yellow-700 border border-yellow-700 hover:bg-yellow-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-yellow-500 dark:text-yellow-500 dark:hover:text-white dark:focus:ring-yellow-800"
+                  >
+                    <i class="fa-solid fa-pen-to-square"></i>
+                  </a>
+                  &nbsp;
+                  <a
+                    href="/"
+                    class="text-red-700 border border-red-700 hover:bg-red-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:focus:ring-red-800"
+                  >
+                    <i class="fa-solid fa-trash"></i>
                   </a>
                 </td>
               </tr>
@@ -115,9 +132,23 @@ export default function Purchases() {
                 <td className="px-6 py-4">
                   <a
                     href="/"
-                    className="font-medium text-red-600 dark:text-red-500 hover:underline"
+                    class="text-blue-700 border border-blue-700 hover:bg-blue-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:focus:ring-blue-800"
                   >
-                    Remove
+                    <i class="fa-solid fa-eye"></i>
+                  </a>
+                  &nbsp;
+                  <a
+                    href="/"
+                    class="text-yellow-700 border border-yellow-700 hover:bg-yellow-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-yellow-500 dark:text-yellow-500 dark:hover:text-white dark:focus:ring-yellow-800"
+                  >
+                    <i class="fa-solid fa-pen-to-square"></i>
+                  </a>
+                  &nbsp;
+                  <a
+                    href="/"
+                    class="text-red-700 border border-red-700 hover:bg-red-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:focus:ring-red-800"
+                  >
+                    <i class="fa-solid fa-trash"></i>
                   </a>
                 </td>
               </tr>
@@ -137,9 +168,23 @@ export default function Purchases() {
                 <td className="px-6 py-4">
                   <a
                     href="/"
-                    className="font-medium text-red-600 dark:text-red-500 hover:underline"
+                    class="text-blue-700 border border-blue-700 hover:bg-blue-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:focus:ring-blue-800"
                   >
-                    Remove
+                    <i class="fa-solid fa-eye"></i>
+                  </a>
+                  &nbsp;
+                  <a
+                    href="/"
+                    class="text-yellow-700 border border-yellow-700 hover:bg-yellow-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-yellow-500 dark:text-yellow-500 dark:hover:text-white dark:focus:ring-yellow-800"
+                  >
+                    <i class="fa-solid fa-pen-to-square"></i>
+                  </a>
+                  &nbsp;
+                  <a
+                    href="/"
+                    class="text-red-700 border border-red-700 hover:bg-red-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:focus:ring-red-800"
+                  >
+                    <i class="fa-solid fa-trash"></i>
                   </a>
                 </td>
               </tr>
@@ -155,9 +200,10 @@ export default function Purchases() {
                 <th className="px-6 py-3">
                   <a
                     href="/"
-                    className="font-medium text-red-600 dark:text-red-500 hover:underline"
+                    class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
                   >
-                    Payments
+                    Payments&nbsp;&nbsp;
+                    <i class="fa-sharp fa-solid fa-angle-right"></i>
                   </a>
                 </th>
               </tr>
@@ -165,11 +211,11 @@ export default function Purchases() {
           </table>
         </div>
       </div>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <FooterCus />
     </div>
   );
