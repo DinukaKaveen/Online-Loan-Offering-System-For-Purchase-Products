@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomeAdmin from "./components/admin/HomeAdmin";
 import HomeCus from "./components/customer/HomeCus";
 import LoginCus from "./components/customer/LoginCus";
+import Purchases from "./components/customer/Purchases";
 import RegisterCus from "./components/customer/RegisterCus";
 
 export default function App() {
@@ -14,6 +15,7 @@ export default function App() {
           <Route path="/admin" element={<HomeAdmin />}></Route>
           <Route path="/RegisterCustomer" element={<RegisterCus />}></Route>
           <Route path="/LoginCustomer" element={<LoginCus />}></Route>
+          <Route path="/Purchases" element={<Purchases />}></Route>
         </Routes>
       </div>
     </BrowserRouter>
