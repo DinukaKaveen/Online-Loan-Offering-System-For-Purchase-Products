@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import FooterCus from "./FooterCus";
 import NavbarCus from "./NavbarCus";
 
 export default function RegisterCus() {
@@ -227,6 +228,7 @@ export default function RegisterCus() {
           </button>
         </form>
       </div>
+      <FooterCus />
     </div>
   );
 }
