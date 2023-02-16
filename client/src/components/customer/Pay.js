@@ -2,61 +2,49 @@ import React from "react";
 
 export default function Pay() {
   return (
-    <div>
-      <div
-        className="grid gap-6 mb-6 md:grid-cols-2"
-        style={{ padding: "30px" }}
-      >
+    <div style={{ padding: "30px" }}>
+      <div className="grid gap-6 mb-6 md:grid-cols-3">
         <div>
-          <div className="flex">
-            <span
-              className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-200 dark:text-gray-800 dark:border-gray-600"
-              style={{ width: "110px" }}
-            >
-              Total Loan
-            </span>
+          <div class="relative z-0 w-full mb-6 group">
             <input
-              type="text"
               value={"15000.00"}
-              id="website-admin"
-              className="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5  dark:bg-gray-200 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              class="block py-2.5 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-900 dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               disabled
             />
-          </div>
-          <br />
-          <div className="flex">
-            <span
-              className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-200 dark:text-gray-800 dark:border-gray-600"
-              style={{ width: "110px" }}
-            >
+            <label class="peer-focus:font-medium absolute text-lg text-gray-500 dark:text-gray-700 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
               Total Loan
-            </span>
-            <input
-              type="text"
-              value={"15000.00"}
-              id="website-admin"
-              className="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5  dark:bg-gray-200 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              disabled
-            />
-          </div>
-          <br />
-          <div className="flex">
-            <span
-              className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-200 dark:text-gray-800 dark:border-gray-600"
-              style={{ width: "110px" }}
-            >
-              Total Loan
-            </span>
-            <input
-              type="text"
-              value={"15000.00"}
-              id="website-admin"
-              className="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5  dark:bg-gray-200 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              disabled
-            />
+            </label>
           </div>
         </div>
 
+        <div>
+          <div class="relative z-0 w-full mb-6 group">
+            <input
+              value={"7000.00"}
+              class="block py-2.5 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-900 dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              disabled
+            />
+            <label class="peer-focus:font-medium absolute text-lg text-gray-500 dark:text-gray-700 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+              Used Amount
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <div class="relative z-0 w-full mb-6 group">
+            <input
+              value={"8000.00"}
+              class="block py-2.5 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-900 dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              disabled
+            />
+            <label class="peer-focus:font-medium absolute text-lg text-gray-500 dark:text-gray-700 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+              Loan Balance
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div className="grid gap-6 mb-6 md:grid-cols-2">
         <div>
           <form>
             <div className="mb-6">
@@ -75,7 +63,7 @@ export default function Pay() {
               />
             </div>
             <button
-              type="button"
+              type="submit"
               className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               <i className="fa-solid fa-credit-card"></i>&nbsp; Pay Now
