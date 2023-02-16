@@ -77,7 +77,7 @@ export default function Payments() {
           </ol>
         </nav>
         <h2 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl dark:text-gray-700">
-          Payments Details
+          Payments
         </h2>
         <br />
 
@@ -116,7 +116,7 @@ export default function Payments() {
             </li>
           </ul>
         </div>
-        
+
         <div id="myTabContent">
           <div
             className="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-200"
