@@ -5,6 +5,7 @@ import HomeCus from "./components/customer/HomeCus";
 import LoginCus from "./components/customer/LoginCus";
 import Payments from "./components/customer/payments/Payments";
 import Purchases from "./components/customer/purchases/Purchases";
+import ViewProduct from "./components/customer/purchases/ViewProduct";
 import RegisterCus from "./components/customer/RegisterCus";
 
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
           <Route path="/LoginCustomer" element={<LoginCus />}></Route>
           <Route path="/Purchases" element={<Purchases />}></Route>
           <Route path="/Payments" element={<Payments />}></Route>
+          <Route path="/ViewProduct" element={<ViewProduct />}></Route>
         </Routes>
       </div>
     </BrowserRouter>
