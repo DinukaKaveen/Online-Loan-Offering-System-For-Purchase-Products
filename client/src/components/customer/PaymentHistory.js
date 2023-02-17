@@ -20,7 +20,7 @@ export default function PaymentHistory() {
                 Payment Type
               </th>
               <th scope="col" class="px-6 py-3">
-                Amount
+                Amount 
               </th>
             </tr>
           </thead>
