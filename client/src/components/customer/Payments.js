@@ -83,9 +83,9 @@ export default function Payments() {
         </h2>
         <br />
 
-        <div className="mb-4 border-b border-gray-200 dark:border-gray-700">
+        <div className="mb-4 border-b border-gray-200 dark:border-gray-200">
           <ul
-            className="flex flex-wrap -mb-px text-sm font-medium text-center"
+            className="flex flex-wrap -mb-px text-md font-medium text-center"
             id="myTab"
             data-tabs-toggle="#myTabContent"
             role="tablist"
