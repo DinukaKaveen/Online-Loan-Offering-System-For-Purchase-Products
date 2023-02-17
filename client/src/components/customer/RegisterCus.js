@@ -89,7 +89,7 @@ export default function RegisterCus() {
                 htmlFor="age"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray"
               >
-                Age
+                Date of Birth
               </label>
               <input
                 type="number"

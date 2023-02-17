@@ -4,6 +4,9 @@ import CompletePur from "./CompletePur";
 import FooterCus from "../FooterCus";
 import NavbarCus from "../NavbarCus";
 import PendingPur from "./PendingPur";
+import TopayPur from "./TopayPur";
+import ReturnPur from "./ReturnPur";
+import CancelPur from "./CancelPur";
 
 export default function Purchases() {
   return (
@@ -136,7 +139,7 @@ export default function Purchases() {
             role="tabpanel"
             aria-labelledby="topay-tab"
           >
-            To Pay
+            <TopayPur />
           </div>
           <div
             className="hidden"
@@ -160,7 +163,7 @@ export default function Purchases() {
             role="tabpanel"
             aria-labelledby="return-tab"
           >
-            Return
+            <ReturnPur />
           </div>
           <div
             className="hidden"
@@ -168,7 +171,7 @@ export default function Purchases() {
             role="tabpanel"
             aria-labelledby="cancel-tab"
           >
-            Cancel
+            <CancelPur />
           </div>
         </div>
       </div>
