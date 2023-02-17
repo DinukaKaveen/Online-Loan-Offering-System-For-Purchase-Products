@@ -78,7 +78,7 @@ export default function Pay() {
                 htmlFor="amount"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-700"
               >
-                Amount
+                Amount*
               </label>
               <input
                 type="number"
@@ -96,7 +96,7 @@ export default function Pay() {
                 htmlFor="installment"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-700"
               >
-                Installment State
+                Installment State*
               </label>
               <select
                 id="installment"
@@ -107,6 +107,7 @@ export default function Pay() {
                 <option value={"1st Installment"}>1st Installment</option>
                 <option value={"2nd Installment"}>2nd Installment</option>
                 <option value={"3rd Installment"}>3rd Installment</option>
+                <option value={"Full Payment"}>Full Payment</option>
               </select>
             </div>
           </div>
@@ -117,13 +118,14 @@ export default function Pay() {
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-700"
             htmlFor="file_input"
           >
-            Upload file
+            Attachments
           </label>
           <input
             className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-100 dark:border-gray-600 dark:placeholder-gray-400"
             aria-describedby="file_input_help"
             id="file_input"
             type="file"
+            multiple
           />
           <p
             className="mt-1 text-sm text-gray-500 dark:text-gray-700"
@@ -141,7 +143,7 @@ export default function Pay() {
           </label>
           <textarea
             id="message"
-            rows="10"
+            rows="8"
             className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-100 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Write your thoughts here..."
             required

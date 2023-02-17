@@ -98,7 +98,7 @@ export default function Payments() {
                 type="button"
                 role="tab"
                 aria-controls="pay"
-                aria-selected="false"
+                aria-selected="true"
               >
                 Make Payment
               </button>
