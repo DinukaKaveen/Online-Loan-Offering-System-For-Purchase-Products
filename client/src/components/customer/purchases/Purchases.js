@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import CompletePur from "./CompletePur";
-import FooterCus from "./FooterCus";
-import NavbarCus from "./NavbarCus";
+import FooterCus from "../FooterCus";
+import NavbarCus from "../NavbarCus";
 import PendingPur from "./PendingPur";
 
 export default function Purchases() {
@@ -64,6 +64,19 @@ export default function Purchases() {
             <li className="w-full">
               <button
                 className="inline-block rounded-l-lg rounded-r-lg w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                id="topay-tab"
+                data-tabs-target="#topay"
+                type="button"
+                role="tab"
+                aria-controls="topay"
+                aria-selected="false"
+              >
+                To Pay
+              </button>
+            </li>
+            <li className="w-full">
+              <button
+                className="inline-block rounded-l-lg rounded-r-lg w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
                 id="pending-tab"
                 data-tabs-target="#pending"
                 type="button"
@@ -71,7 +84,7 @@ export default function Purchases() {
                 aria-controls="pending"
                 aria-selected="false"
               >
-                Pending Purchases
+                Pending
               </button>
             </li>
             <li className="w-full">
@@ -84,13 +97,47 @@ export default function Purchases() {
                 aria-controls="complete"
                 aria-selected="false"
               >
-                Complete Purchases
+                Completed
+              </button>
+            </li>
+            <li className="w-full">
+              <button
+                className="inline-block rounded-l-lg rounded-r-lg w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                id="return-tab"
+                data-tabs-target="#return"
+                type="button"
+                role="tab"
+                aria-controls="return"
+                aria-selected="false"
+              >
+                Returns
+              </button>
+            </li>
+            <li className="w-full">
+              <button
+                className="inline-block rounded-l-lg rounded-r-lg w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                id="cancel-tab"
+                data-tabs-target="#cancel"
+                type="button"
+                role="tab"
+                aria-controls="cancel"
+                aria-selected="false"
+              >
+                Cancellations
               </button>
             </li>
           </ul>
         </div>
 
         <div id="myTabContent">
+          <div
+            className="hidden"
+            id="topay"
+            role="tabpanel"
+            aria-labelledby="topay-tab"
+          >
+            To Pay
+          </div>
           <div
             className="hidden"
             id="pending"
@@ -100,12 +147,28 @@ export default function Purchases() {
             <PendingPur />
           </div>
           <div
-            className="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800"
+            className="hidden"
             id="complete"
             role="tabpanel"
             aria-labelledby="complete-tab"
           >
             <CompletePur />
+          </div>
+          <div
+            className="hidden"
+            id="return"
+            role="tabpanel"
+            aria-labelledby="return-tab"
+          >
+            Return
+          </div>
+          <div
+            className="hidden"
+            id="cancel"
+            role="tabpanel"
+            aria-labelledby="cancel-tab"
+          >
+            Cancel
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import FooterCus from "./FooterCus";
-import NavbarCus from "./NavbarCus";
+import FooterCus from "../FooterCus";
+import NavbarCus from "../NavbarCus";
 import Pay from "./Pay";
 import PaymentHistory from "./PaymentHistory";
 
