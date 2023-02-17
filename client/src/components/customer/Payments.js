@@ -129,7 +129,7 @@ export default function Payments() {
             <Pay />
           </div>
           <div
-            className="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800"
+            className="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-200"
             id="payments"
             role="tabpanel"
             aria-labelledby="payments-tab"
