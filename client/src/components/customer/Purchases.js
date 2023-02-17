@@ -56,14 +56,14 @@ export default function Purchases() {
 
         <div className="mb-4">
           <ul
-            className="text-sm font-medium text-center text-gray-500 divide-x divide-gray-200 rounded-lg shadow sm:flex dark:divide-gray-700 dark:text-gray-400"
+            className="text-md font-medium text-center text-gray-500 divide-y divide-x divide-gray-200 rounded-lg shadow sm:flex dark:divide-white dark:text-gray-400"
             data-tabs-toggle="#myTabContent"
             id="myTab"
             role="tablist"
           >
             <li className="w-full">
               <button
-                className="inline-block w-full p-4 text-gray-900 bg-gray-100 rounded-l-lg focus:ring-4 focus:ring-blue-300 active focus:outline-none dark:bg-gray-700 dark:text-white"
+                className="inline-block rounded-l-lg rounded-r-lg w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
                 id="pending-tab"
                 data-tabs-target="#pending"
                 type="button"
@@ -76,7 +76,7 @@ export default function Purchases() {
             </li>
             <li className="w-full">
               <button
-                className="inline-block w-full p-4 bg-white rounded-r-lg hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                className="inline-block rounded-l-lg rounded-r-lg w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
                 id="complete-tab"
                 data-tabs-target="#complete"
                 type="button"
@@ -92,7 +92,7 @@ export default function Purchases() {
 
         <div id="myTabContent">
           <div
-            className="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800"
+            className="hidden"
             id="pending"
             role="tabpanel"
             aria-labelledby="pending-tab"
