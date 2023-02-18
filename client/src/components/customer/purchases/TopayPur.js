@@ -4,12 +4,27 @@ import product2 from "../elements/images/products/product2.png";
 import product3 from "../elements/images/products/product3.png";
 
 export default function TopayPur() {
-  
   function openPopup() {
+    // Set the dimensions of the popup window
+    var width = 1000;
+    var height = 600;
+
+    // Calculate the position of the popup window to center it on the screen
+    var left = (window.innerWidth - width) / 2;
+    var top = (window.innerHeight - height) / 2;
+
+    // Open the popup window
     window.open(
       "/ViewProduct",
-      "popupWindow",
-      "width=1000,height=600"
+      "popup",
+      "width=" +
+        width +
+        ", height=" +
+        height +
+        ", left=" +
+        left +
+        ", top=" +
+        top
     );
   }
 
