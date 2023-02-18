@@ -2,8 +2,12 @@ import React from "react";
 
 export default function ViewProduct() {
   return (
-    <div>
-      <div className="relative overflow-x-auto shadow-md sm:rounded-lg" style={{margin: '50px'}}>
+    <div style={{ margin: "50px" }}>
+      <h2 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl dark:text-gray-700">
+        Product Details
+      </h2>
+      <br />
+      <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase dark:text-gray-100">
             <tr>
@@ -27,7 +31,9 @@ export default function ViewProduct() {
               >
                 Apple MacBook Pro 17"
               </th>
-              <td className="px-6 py-4 dark:text-gray-700 dark:bg-gray-100">Silver</td>
+              <td className="px-6 py-4 dark:text-gray-700 dark:bg-gray-100">
+                Silver
+              </td>
             </tr>
             <tr className="border-b border-gray-200 dark:border-gray-700">
               <th
@@ -36,7 +42,9 @@ export default function ViewProduct() {
               >
                 Microsoft Surface Pro
               </th>
-              <td className="px-6 py-4 dark:text-gray-700 dark:bg-gray-100">White</td>
+              <td className="px-6 py-4 dark:text-gray-700 dark:bg-gray-100">
+                White
+              </td>
             </tr>
             <tr className="border-b border-gray-200 dark:border-gray-700">
               <th
@@ -45,7 +53,9 @@ export default function ViewProduct() {
               >
                 Magic Mouse 2
               </th>
-              <td className="px-6 py-4 dark:text-gray-700 dark:bg-gray-100">Black</td>
+              <td className="px-6 py-4 dark:text-gray-700 dark:bg-gray-100">
+                Black
+              </td>
             </tr>
             <tr className="border-b border-gray-200 dark:border-gray-700">
               <th
@@ -54,7 +64,9 @@ export default function ViewProduct() {
               >
                 Google Pixel Phone
               </th>
-              <td className="px-6 py-4 dark:text-gray-700 dark:bg-gray-100">Gray</td>
+              <td className="px-6 py-4 dark:text-gray-700 dark:bg-gray-100">
+                Gray
+              </td>
             </tr>
             <tr>
               <th
@@ -63,7 +75,9 @@ export default function ViewProduct() {
               >
                 Apple Watch 5
               </th>
-              <td className="px-6 py-4 dark:text-gray-700 dark:bg-gray-100">Red</td>
+              <td className="px-6 py-4 dark:text-gray-700 dark:bg-gray-100">
+                Red
+              </td>
             </tr>
           </tbody>
         </table>
