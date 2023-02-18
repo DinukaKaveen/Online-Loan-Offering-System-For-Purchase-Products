@@ -9,7 +9,7 @@ export default function TopayPur() {
     window.open(
       "/ViewProduct",
       "popupWindow",
-      "width=400,height=400"
+      "width=1000,height=600"
     );
   }
 
