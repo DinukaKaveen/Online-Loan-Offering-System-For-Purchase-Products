@@ -256,7 +256,7 @@ export default function NavbarAdmin() {
             </li>
             <li>
               <Link
-                to={"/admin/users"}
+                to={"/admin/Users"}
                 className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <svg
@@ -276,8 +276,8 @@ export default function NavbarAdmin() {
               </Link>
             </li>
             <li>
-              <a
-                href="/"
+              <Link
+                to={"/admin/Products"}
                 className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <svg
@@ -294,7 +294,7 @@ export default function NavbarAdmin() {
                   ></path>
                 </svg>
                 <span className="flex-1 ml-3 whitespace-nowrap">Products</span>
-              </a>
+              </Link>
             </li>
             <li>
               <a
