@@ -3,7 +3,7 @@ import React from "react";
 export default function ViewProduct() {
   return (
     <div style={{ margin: "30px" }}>
-      {/* <h2 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl dark:text-gray-700">
+      <h2 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl dark:text-gray-700">
         Product Details
       </h2>
       <br />
@@ -81,7 +81,7 @@ export default function ViewProduct() {
             </tr>
           </tbody>
         </table>
-      </div> */}
+      </div> 
 
     </div>
   );
