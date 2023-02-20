@@ -17,6 +17,9 @@ export default function PaymentHistory() {
                 Time
               </th>
               <th scope="col" className="px-6 py-3">
+                Installment State
+              </th>
+              <th scope="col" className="px-6 py-3">
                 Payment Type
               </th>
               <th scope="col" className="px-6 py-3">
@@ -34,6 +37,7 @@ export default function PaymentHistory() {
               </th>
               <td className="px-6 py-4">14/02/2023</td>
               <td className="px-6 py-4">17:23:55</td>
+              <td className="px-6 py-4">1st Installment</td>
               <td className="px-6 py-4">Credit/Debit</td>
               <td className="px-6 py-4">$2999</td>
             </tr>
@@ -46,6 +50,7 @@ export default function PaymentHistory() {
               </th>
               <td className="px-6 py-4">17/02/2023</td>
               <td className="px-6 py-4">7:21:44</td>
+              <td className="px-6 py-4">2nd Installment</td>
               <td className="px-6 py-4">Credit/Debit</td>
               <td className="px-6 py-4">$1999</td>
             </tr>
@@ -58,6 +63,7 @@ export default function PaymentHistory() {
               </th>
               <td className="px-6 py-4">10/01/2023</td>
               <td className="px-6 py-4">10:27:25</td>
+              <td className="px-6 py-4">3rd Installment</td>
               <td className="px-6 py-4">Credit/Debit</td>
               <td className="px-6 py-4">$99</td>
             </tr>
@@ -67,6 +73,7 @@ export default function PaymentHistory() {
               <th scope="row" className="px-6 py-3 text-base">
                 Total
               </th>
+              <td className="px-6 py-3"></td>
               <td className="px-6 py-3"></td>
               <td className="px-6 py-3"></td>
               <td className="px-6 py-3"></td>
