@@ -11,21 +11,23 @@ import ViewProduct from "./components/customer/purchases/ViewProduct";
 import RegisterCus from "./components/customer/RegisterCus";
 
 export default function App() {
+
   return (
-    <div>
-      <BrowserRouter>
+  
+    <BrowserRouter>
+      <div>
         <Routes>
           <Route path="/" exact element={<HomeCus />}></Route>
-          <Route path="/admin" element={<HomeAdmin />}></Route>
           <Route path="/RegisterCustomer" element={<RegisterCus />}></Route>
-          <Route path="/LoginCustomer" element={<LoginCus />}></Route>
+          <Route path="/LoginCustomer" element={<LoginCus />}></Route> 
           <Route path="/Purchases" element={<Purchases />}></Route>
           <Route path="/Payments" element={<Payments />}></Route>
           <Route path="/ViewProduct" element={<ViewProduct />}></Route>
-          <Route path="admin/Users" element={<Users />}></Route>
-          <Route path="admin/Products" element={<Products />}></Route>
+          <Route path="/admin" element={<HomeAdmin />}></Route>
+          <Route path="/admin/Users" element={<Users />}></Route>
+          <Route path="/admin/Products" element={<Products />}></Route>
         </Routes>
-      </BrowserRouter>
-    </div>
+      </div>
+    </BrowserRouter>
   );
 }
