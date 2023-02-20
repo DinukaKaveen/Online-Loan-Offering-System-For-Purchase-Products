@@ -1,20 +1,25 @@
 import React from "react";
-import "jquery/dist/jquery.min.js";
+//import "jquery/dist/jquery.min.js";
 import "datatables.net-dt/js/dataTables.dataTables";
-import "datatables.net-dt/css/jquery.dataTables.min.css";
-import 'datatables.net-responsive-dt';
+//import "datatables.net-dt/css/jquery.dataTables.min.css";
+import "datatables.net-responsive-dt";
 import $ from "jquery";
 
 export default function Users() {
-    $(document).ready(function() {
-        $('#example').DataTable( {
-            responsive: true
-        } );
-    } );
+  $(document).ready(function () {
+    $("#example").DataTable({
+      responsive: true,
+      destroy: true,
+    });
+  });
 
   return (
     <div>
-      <table id="example" className="display responsive nowrap" style={{ width: "100%" }}>
+      <table
+        id="example"
+        className="display responsive nowrap"
+        style={{ width: "100%" }}
+      >
         <thead>
           <tr>
             <th>Name</th>
