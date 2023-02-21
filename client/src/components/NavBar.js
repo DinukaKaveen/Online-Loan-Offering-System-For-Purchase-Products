@@ -4,6 +4,7 @@ import NavbarAdmin from "./admin/NavbarAdmin";
 import NavbarCus from "./customer/NavbarCus";
 
 export default function NavBar() {
+  
   const location = useLocation();
 
   if (

@@ -12,16 +12,14 @@ import RegisterCus from "./components/customer/RegisterCus";
 import NavBar from "./components/NavBar";
 
 export default function App() {
-
   return (
-  
     <BrowserRouter>
       <div>
-        <NavBar/>
+        <NavBar />
         <Routes>
           <Route path="/" exact element={<HomeCus />}></Route>
           <Route path="/RegisterCustomer" element={<RegisterCus />}></Route>
-          <Route path="/LoginCustomer" element={<LoginCus />}></Route> 
+          <Route path="/LoginCustomer" element={<LoginCus />}></Route>
           <Route path="/Purchases" element={<Purchases />}></Route>
           <Route path="/Payments" element={<Payments />}></Route>
           <Route path="/ViewProduct" element={<ViewProduct />}></Route>
