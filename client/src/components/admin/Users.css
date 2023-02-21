@@ -1,0 +1,16 @@
+.dropdown button {
+  cursor: default;
+}
+.dropdown ul {
+  display: none;
+  position: absolute;
+  right: 0;
+}
+
+.dropdown button:focus {
+  pointer-events: none;
+}
+
+.dropdown button:focus + ul {
+  display: block;
+}
