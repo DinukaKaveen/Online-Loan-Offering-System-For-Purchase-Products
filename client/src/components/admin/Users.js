@@ -1,5 +1,4 @@
 import React from "react";
-import NavbarAdmin from "./NavbarAdmin";
 //import "jquery/dist/jquery.min.js";
 import "datatables.net-dt/js/dataTables.dataTables";
 //import "datatables.net-dt/css/jquery.dataTables.min.css";
@@ -7,7 +6,6 @@ import "datatables.net-responsive-dt";
 import $ from "jquery";
 
 export default function Users() {
-    
   $(document).ready(function () {
     $("#example").DataTable({
       responsive: true,
@@ -17,8 +15,6 @@ export default function Users() {
 
   return (
     <div>
-      <NavbarAdmin />
-
       <div className="p-4 sm:ml-64">
         <div className="p-4 mt-14">
           <table

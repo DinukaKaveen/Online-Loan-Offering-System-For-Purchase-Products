@@ -1,12 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import FooterCus from "./FooterCus";
-import NavbarCus from "./NavbarCus";
 
 export default function RegisterCus() {
   return (
     <div>
-      <NavbarCus />
       <div style={{ padding: "50px" }}>
         <nav className="flex mb-4" aria-label="Breadcrumb">
           <ol className="inline-flex items-center space-x-1 md:space-x-3">

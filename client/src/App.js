@@ -9,6 +9,7 @@ import Payments from "./components/customer/payments/Payments";
 import Purchases from "./components/customer/purchases/Purchases";
 import ViewProduct from "./components/customer/purchases/ViewProduct";
 import RegisterCus from "./components/customer/RegisterCus";
+import NavBar from "./components/NavBar";
 
 export default function App() {
 
@@ -16,6 +17,7 @@ export default function App() {
   
     <BrowserRouter>
       <div>
+        <NavBar/>
         <Routes>
           <Route path="/" exact element={<HomeCus />}></Route>
           <Route path="/RegisterCustomer" element={<RegisterCus />}></Route>

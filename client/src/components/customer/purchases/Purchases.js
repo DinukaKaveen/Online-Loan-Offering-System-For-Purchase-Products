@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import CompletePur from "./CompletePur";
 import FooterCus from "../FooterCus";
-import NavbarCus from "../NavbarCus";
 import PendingPur from "./PendingPur";
 import TopayPur from "./TopayPur";
 import ReturnPur from "./ReturnPur";
@@ -11,7 +10,6 @@ import CancelPur from "./CancelPur";
 export default function Purchases() {
   return (
     <div>
-      <NavbarCus />
       <div style={{ margin: "50px" }}>
         <nav className="flex mb-4" aria-label="Breadcrumb">
           <ol className="inline-flex items-center space-x-1 md:space-x-3">
