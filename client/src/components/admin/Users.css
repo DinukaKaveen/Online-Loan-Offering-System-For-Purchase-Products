@@ -4,7 +4,7 @@
 .dropdown ul {
   display: none;
   position: absolute;
-  right: 0; 
+  right: 0;  
 }
 
 .dropdown button:focus {
