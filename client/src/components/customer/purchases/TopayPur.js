@@ -41,6 +41,12 @@ export default function TopayPur() {
   return (
     <div>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <h6
+          className="text-md font-bold dark:text-gray-700 dark:bg-gray-300"
+          style={{ padding: "10px" }}
+        >
+          Order #<u>243329845788</u> 
+        </h6>
         <table
           className="w-full text-sm text-left text-gray-500 dark:text-gray-400"
           style={{ width: "100%" }}
@@ -52,6 +58,9 @@ export default function TopayPur() {
               </th>
               <th scope="col" className="px-6 py-3">
                 Product
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Purchased Date/Time
               </th>
               <th scope="col" className="px-6 py-3">
                 Qty
@@ -71,6 +80,10 @@ export default function TopayPur() {
               </td>
               <td className="px-6 py-4 font-semibold text-gray-900 dark:text-gray">
                 Apple Watch
+              </td>
+              <td className="px-6 py-4 font-semibold text-gray-900 dark:text-gray">
+                12 Feb 2023
+                23:54:54
               </td>
               <td className="px-6 py-4 font-semibold text-gray-900 dark:text-gray">
                 2
@@ -102,6 +115,10 @@ export default function TopayPur() {
                 Apple Watch
               </td>
               <td className="px-6 py-4 font-semibold text-gray-900 dark:text-gray">
+                12 Feb 2023
+                23:54:54
+              </td>
+              <td className="px-6 py-4 font-semibold text-gray-900 dark:text-gray">
                 1
               </td>
               <td className="px-6 py-4 font-semibold text-gray-900 dark:text-gray">
@@ -130,6 +147,10 @@ export default function TopayPur() {
                 Apple Watch
               </td>
               <td className="px-6 py-4 font-semibold text-gray-900 dark:text-gray">
+                12 Feb 2023
+                23:54:54
+              </td>
+              <td className="px-6 py-4 font-semibold text-gray-900 dark:text-gray">
                 3
               </td>
               <td className="px-6 py-4 font-semibold text-gray-900 dark:text-gray">
@@ -156,6 +177,7 @@ export default function TopayPur() {
               <th scope="row" className="px-6 py-3 text-base">
                 Total
               </th>
+              <th className="px-6 py-3"></th>
               <th className="px-6 py-3"></th>
               <th className="px-6 py-3">6</th>
               <th className="px-6 py-3">$1800</th>
