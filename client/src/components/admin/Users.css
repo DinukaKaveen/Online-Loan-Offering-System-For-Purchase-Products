@@ -5,12 +5,12 @@
   display: none;
   position: absolute;
   right: 0;   
-  background-color:rgb(243, 238, 238);
+  background-color:rgb(233, 233, 233);
   color: rgb(51, 51, 51);
   margin-top: 8px;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 12px;
-  box-shadow: 0 0 5px #ccc;
+  box-shadow: 0 0 5px #a1a1a1;
 }
 
 hr {
