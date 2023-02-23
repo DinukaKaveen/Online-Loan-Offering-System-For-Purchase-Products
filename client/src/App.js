@@ -2,6 +2,8 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomeAdmin from "./components/admin/HomeAdmin";
 import Products from "./components/admin/Products";
+import UserPayments from "./components/admin/UserPayments";
+import UserPurchases from "./components/admin/UserPurchases";
 import Users from "./components/admin/Users";
 import HomeCus from "./components/customer/HomeCus";
 import LoginCus from "./components/customer/LoginCus";
@@ -26,6 +28,8 @@ export default function App() {
           <Route path="/admin" element={<HomeAdmin />}></Route>
           <Route path="/admin/Users" element={<Users />}></Route>
           <Route path="/admin/Products" element={<Products />}></Route>
+          <Route path="/admin/UserPurchases" element={<UserPurchases />}></Route>
+          <Route path="/admin/UserPayments" element={<UserPayments />}></Route>
         </Routes>
       </div>
     </BrowserRouter>

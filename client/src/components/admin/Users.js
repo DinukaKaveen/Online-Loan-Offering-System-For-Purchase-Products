@@ -35,6 +35,10 @@ export default function Users() {
                     <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
                   </svg>
                   Dashboard
+                </Link>
+              </li>
+              <li aria-current="page">
+                <div className="flex items-center">
                   <svg
                     className="w-6 h-6 text-gray-400"
                     fill="currentColor"
@@ -47,10 +51,6 @@ export default function Users() {
                       clipRule="evenodd"
                     ></path>
                   </svg>
-                </Link>
-              </li>
-              <li aria-current="page">
-                <div className="flex items-center">
                   <span className="ml-1 text-sm font-medium text-gray-500 md:ml-2 dark:text-gray-400">
                     User Details
                   </span>
@@ -104,20 +104,20 @@ export default function Users() {
                   >
                     <i className="fa-solid fa-trash"></i>
                   </button>
-                  <Link
-                    to={"/admin/Purchases"}
+                  <a
+                    href="/admin/UserPurchases"
                     type="button"
                     className="px-3 py-2 text-sm font-medium text-center mr-2 mb-2 text-white bg-blue-700 rounded-lg hover:bg-blue-800 dark:bg-blue-800 dark:hover:bg-blue-700"
                   >
                     Purchases
-                  </Link>
-                  <Link
-                    to={"/admin/Payments"}
+                  </a>
+                  <a
+                    href="/admin/UserPayments"
                     type="button"
                     className="px-3 py-2 text-sm font-medium text-center mr-2 mb-2 text-white bg-blue-700 rounded-lg hover:bg-blue-800 dark:bg-blue-900 dark:hover:bg-blue-700"
                   >
                     Payments
-                  </Link>
+                  </a>
 
                   <div
                     className="dropdown"
