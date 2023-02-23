@@ -38,9 +38,9 @@ export default function UserPurchases() {
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                      clip-rule="evenodd"
+                      clipRule="evenodd"
                     ></path>
                   </svg>
                   <Link
@@ -60,9 +60,9 @@ export default function UserPurchases() {
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                      clip-rule="evenodd"
+                      clipRule="evenodd"
                     ></path>
                   </svg>
                   <span className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray">
@@ -77,16 +77,16 @@ export default function UserPurchases() {
           </h2>
           <br />
 
-          <div className="mb-4">
+          <div className="mb-4 border-b border-gray-200 dark:border-gray-200">
             <ul
-              className="text-md font-medium text-center text-gray-500 divide-y divide-x divide-gray-200 rounded-lg shadow sm:flex dark:divide-white dark:text-gray-400"
+              className="flex flex-wrap -mb-px text-md font-medium text-center"
               data-tabs-toggle="#myTabContent"
               id="myTab"
               role="tablist"
             >
-              <li className="w-full">
+              <li className="mr-2">
                 <button
-                  className="inline-block rounded-l-lg rounded-r-lg w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                  className="inline-block p-4 border-b-2 rounded-t-lg"
                   id="topay-tab"
                   data-tabs-target="#topay"
                   type="button"
@@ -97,9 +97,9 @@ export default function UserPurchases() {
                   To Pay
                 </button>
               </li>
-              <li className="w-full">
+              <li className="mr-2">
                 <button
-                  className="inline-block rounded-l-lg rounded-r-lg w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                  className="inline-block p-4 border-b-2 rounded-t-lg"
                   id="pending-tab"
                   data-tabs-target="#pending"
                   type="button"
@@ -110,9 +110,9 @@ export default function UserPurchases() {
                   Pending
                 </button>
               </li>
-              <li className="w-full">
+              <li className="mr-2">
                 <button
-                  className="inline-block rounded-l-lg rounded-r-lg w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                  className="inline-block p-4 border-b-2 rounded-t-lg"
                   id="complete-tab"
                   data-tabs-target="#complete"
                   type="button"
@@ -123,9 +123,9 @@ export default function UserPurchases() {
                   Completed
                 </button>
               </li>
-              <li className="w-full">
+              <li className="mr-2">
                 <button
-                  className="inline-block rounded-l-lg rounded-r-lg w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                  className="inline-block p-4 border-b-2 rounded-t-lg"
                   id="return-tab"
                   data-tabs-target="#return"
                   type="button"
@@ -136,9 +136,9 @@ export default function UserPurchases() {
                   Returns
                 </button>
               </li>
-              <li className="w-full">
+              <li className="mr-2">
                 <button
-                  className="inline-block rounded-l-lg rounded-r-lg w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                  className="inline-block p-4 border-b-2 rounded-t-lg"
                   id="cancel-tab"
                   data-tabs-target="#cancel"
                   type="button"
