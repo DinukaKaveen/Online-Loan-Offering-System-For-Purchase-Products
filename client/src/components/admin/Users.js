@@ -104,24 +104,23 @@ export default function Users() {
                   </button>
                   <button
                     type="button"
-                    className="px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 dark:bg-blue-800 dark:hover:bg-blue-700"
+                    className="px-3 py-2 text-sm font-medium text-center mr-2 mb-2 text-white bg-blue-700 rounded-lg hover:bg-blue-800 dark:bg-blue-800 dark:hover:bg-blue-700"
                   >
                     Purchases
                   </button>
-                  &nbsp;
                   <button
                     type="button"
-                    className="px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 dark:bg-blue-900 dark:hover:bg-blue-700"
+                    className="px-3 py-2 text-sm font-medium text-center mr-2 mb-2 text-white bg-blue-700 rounded-lg hover:bg-blue-800 dark:bg-blue-900 dark:hover:bg-blue-700"
                   >
                     Payments
                   </button>
-                  &nbsp;
+                  
                   <div
                     className="dropdown"
                     style={{ display: "inline-block", position: "relative" }}
                   >
                     <button
-                      className="px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700"
+                      className="px-2.5 py-1 text-md font-medium text-center mr-2 mb-2 text-black bg-gray-700 rounded-md border border-gray-200 dark:border-gray-300 hover:bg-gray-800 dark:bg-transparent dark:hover:bg-gray-200"
                       type="button"
                     >
                       <i className="fa-solid fa-ellipsis-vertical"></i>
