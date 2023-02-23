@@ -82,7 +82,7 @@ export default function Users() {
                 <td>23445</td>
                 <td>Integration Specialist</td>
                 <td>NewYork@gmail.com</td>
-                <td>Complete</td>
+                <td><label className="status-Complete">Complete</label></td>
                 <td>
                   <button
                     type="button"
@@ -114,7 +114,7 @@ export default function Users() {
                   >
                     Payments
                   </button>
-                  
+
                   <div
                     className="dropdown"
                     style={{ display: "inline-block", position: "relative" }}
@@ -165,8 +165,84 @@ export default function Users() {
                 <td>23445</td>
                 <td>Integration Specialist</td>
                 <td>NewYork@gmail.com</td>
-                <td>Complete</td>
-                <td></td>
+                <td><label className="status-Not-Paid">Not-Paid</label></td>
+                <td>
+                  <button
+                    type="button"
+                    className="text-green-700 hover:text-white border border-green-700 hover:bg-green-800 font-medium rounded-lg px-2.5 py-1.5 text-sm text-center mr-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600"
+                  >
+                    <i className="fa-solid fa-eye"></i>
+                  </button>
+                  <button
+                    type="button"
+                    className="text-yellow-700 hover:text-white border border-yellow-700 hover:bg-yellow-800 font-medium rounded-lg px-2.5 py-1.5 text-sm text-center mr-2 mb-2 dark:border-yellow-500 dark:text-yellow-500 dark:hover:text-white dark:hover:bg-yellow-600"
+                  >
+                    <i className="fa-solid fa-edit"></i>
+                  </button>
+                  <button
+                    type="button"
+                    className="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 font-medium rounded-lg px-2.5 py-1.5 text-sm text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600"
+                  >
+                    <i className="fa-solid fa-trash"></i>
+                  </button>
+                  <button
+                    type="button"
+                    className="px-3 py-2 text-sm font-medium text-center mr-2 mb-2 text-white bg-blue-700 rounded-lg hover:bg-blue-800 dark:bg-blue-800 dark:hover:bg-blue-700"
+                  >
+                    Purchases
+                  </button>
+                  <button
+                    type="button"
+                    className="px-3 py-2 text-sm font-medium text-center mr-2 mb-2 text-white bg-blue-700 rounded-lg hover:bg-blue-800 dark:bg-blue-900 dark:hover:bg-blue-700"
+                  >
+                    Payments
+                  </button>
+
+                  <div
+                    className="dropdown"
+                    style={{ display: "inline-block", position: "relative" }}
+                  >
+                    <button
+                      className="px-2.5 py-1 text-md font-medium text-center mr-2 mb-2 text-black bg-gray-700 rounded-md border border-gray-200 dark:border-gray-300 hover:bg-gray-800 dark:bg-transparent dark:hover:bg-gray-200"
+                      type="button"
+                    >
+                      <i className="fa-solid fa-ellipsis-vertical"></i>
+                    </button>
+                    <ul>
+                      <li>
+                        <p style={{ textAlign: "center" }}>
+                          <strong>Loan Details</strong>
+                          <hr />
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>Total Loan: </strong>15000.00
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>Used Amount: </strong>7000.00
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>Paid Amount: </strong>3000.00
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>Pending Amount: </strong>4000.00
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>Loan Balance: </strong>8000.00
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+                </td>
               </tr>
             </tbody>
           </table>
