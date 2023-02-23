@@ -82,7 +82,9 @@ export default function Users() {
                 <td>23445</td>
                 <td>Integration Specialist</td>
                 <td>NewYork@gmail.com</td>
-                <td><label className="status-Complete">Complete</label></td>
+                <td>
+                  <label className="status-Complete">Complete</label>
+                </td>
                 <td>
                   <button
                     type="button"
@@ -102,18 +104,20 @@ export default function Users() {
                   >
                     <i className="fa-solid fa-trash"></i>
                   </button>
-                  <button
+                  <Link
+                    to={"/admin/Purchases"}
                     type="button"
                     className="px-3 py-2 text-sm font-medium text-center mr-2 mb-2 text-white bg-blue-700 rounded-lg hover:bg-blue-800 dark:bg-blue-800 dark:hover:bg-blue-700"
                   >
                     Purchases
-                  </button>
-                  <button
+                  </Link>
+                  <Link
+                    to={"/admin/Payments"}
                     type="button"
                     className="px-3 py-2 text-sm font-medium text-center mr-2 mb-2 text-white bg-blue-700 rounded-lg hover:bg-blue-800 dark:bg-blue-900 dark:hover:bg-blue-700"
                   >
                     Payments
-                  </button>
+                  </Link>
 
                   <div
                     className="dropdown"
@@ -165,7 +169,9 @@ export default function Users() {
                 <td>23445</td>
                 <td>Integration Specialist</td>
                 <td>NewYork@gmail.com</td>
-                <td><label className="status-Not-Paid">Not-Paid</label></td>
+                <td>
+                  <label className="status-Not-Paid">Not-Paid</label>
+                </td>
                 <td>
                   <button
                     type="button"

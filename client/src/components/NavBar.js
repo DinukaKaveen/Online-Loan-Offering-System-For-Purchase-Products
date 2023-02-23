@@ -17,7 +17,9 @@ export default function NavBar() {
   } else if (
     location.pathname === "/admin" ||
     location.pathname === "/admin/Users" ||
-    location.pathname === "/admin/Products"
+    location.pathname === "/admin/Products" ||
+    location.pathname === "/admin/Purchases" ||
+    location.pathname === "/admin/Payments"
   ) {
     return <NavbarAdmin />;
   }
