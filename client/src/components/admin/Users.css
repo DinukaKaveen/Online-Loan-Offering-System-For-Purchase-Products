@@ -5,7 +5,19 @@
   display: none;
   position: absolute;
   right: 0;   
+  background-color:rgb(243, 238, 238);
+  color: rgb(51, 51, 51);
+  margin-top: 8px;
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0 0 5px #ccc;
 }
+
+hr {
+    border-top: 1px solid rgb(156, 156, 156);
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
 
 .dropdown button:focus {
   pointer-events: none;

@@ -63,7 +63,11 @@ export default function Users() {
           </h2>
           <br />
 
-          <table id="example" className="display responsive nowrap">
+          <table
+            id="example"
+            className="display responsive nowrap"
+            style={{ width: "100%" }}
+          >
             <thead>
               <tr>
                 <th>User ID</th>
@@ -91,14 +95,14 @@ export default function Users() {
                     type="button"
                     className="px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700"
                   >
-                    <i className="fa-solid fa-eye"></i>
+                    <i className="fa-solid fa-edit"></i>
                   </button>
                   &nbsp;
                   <button
                     type="button"
                     className="px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700"
                   >
-                    <i className="fa-solid fa-eye"></i>
+                    <i className="fa-solid fa-trash"></i>
                   </button>
                   &nbsp;
                   <button
@@ -127,13 +131,35 @@ export default function Users() {
                     </button>
                     <ul>
                       <li>
-                        <p>Total Loan: 15000.00</p>
+                        <p style={{ textAlign: "center" }}>
+                          <strong>Loan Details</strong>
+                          <hr />
+                        </p>
                       </li>
                       <li>
-                        <p>Total Loan: 15000.00</p>
+                        <p>
+                          <strong>Total Loan: </strong>15000.00
+                        </p>
                       </li>
                       <li>
-                        <p>Total Loan: 15000.00</p>
+                        <p>
+                          <strong>Used Amount: </strong>7000.00
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>Paid Amount: </strong>3000.00
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>Pending Amount: </strong>4000.00
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>Loan Balance: </strong>8000.00
+                        </p>
                       </li>
                     </ul>
                   </div>
