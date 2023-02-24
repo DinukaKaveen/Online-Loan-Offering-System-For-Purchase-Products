@@ -6,7 +6,6 @@ import "datatables.net-responsive-dt";
 import $ from "jquery";
 
 export default function Purchases() {
-    
   $(document).ready(function () {
     $("#example3").DataTable({
       responsive: true,
@@ -19,12 +18,12 @@ export default function Purchases() {
       <table id="example3" className="display" style={{ width: "100%" }}>
         <thead>
           <tr>
-            <th>Name3</th>
-            <th>Position</th>
-            <th>Office</th>
-            <th>Age</th>
-            <th>Start date</th>
-            <th>Salary</th>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Order ID</th>
+            <th>User ID</th>
+            <th>Date/Time</th>
+            <th>Purchase Status</th>
           </tr>
         </thead>
         <tbody>
@@ -39,12 +38,12 @@ export default function Purchases() {
         </tbody>
         <tfoot>
           <tr>
-            <th>Name</th>
-            <th>Position</th>
-            <th>Office</th>
-            <th>Age</th>
-            <th>Start date</th>
-            <th>Salary</th>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Order ID</th>
+            <th>User ID</th>
+            <th>Date/Time</th>
+            <th>Purchase Status</th>
           </tr>
         </tfoot>
       </table>
