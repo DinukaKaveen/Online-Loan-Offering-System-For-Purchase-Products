@@ -21,8 +21,8 @@ export default function Transactions() {
             <th>Payment ID</th>
             <th>Order ID</th>
             <th>User ID</th>
-            <th>Date/Time</th>
             <th>Amount</th>
+            <th>Date/Time</th>
             <th>Payment State</th>
             <th>Payment Type</th>
           </tr>
@@ -52,8 +52,8 @@ export default function Transactions() {
             <th>Payment ID</th>
             <th>Order ID</th>
             <th>User ID</th>
-            <th>Date/Time</th>
             <th>Amount</th>
+            <th>Date/Time</th>
             <th>Payment State</th>
             <th>Payment Type</th>
           </tr>
