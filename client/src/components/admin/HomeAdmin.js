@@ -80,7 +80,7 @@ export default function HomeAdmin() {
 
           <div id="myTabContent">
             <div
-              className="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-200"
+              className="hidden p-4 rounded-lg"
               id="transactions"
               role="tabpanel"
               aria-labelledby="transactions-tab"
@@ -88,7 +88,7 @@ export default function HomeAdmin() {
               <Transactions />
             </div>
             <div
-              className="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-200"
+              className="hidden p-4 rounded-lg"
               id="orders"
               role="tabpanel"
               aria-labelledby="orders-tab"
@@ -96,7 +96,7 @@ export default function HomeAdmin() {
               <Orders />
             </div>
             <div
-              className="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-200"
+              className="hidden p-4 rounded-lg"
               id="purchases"
               role="tabpanel"
               aria-labelledby="purchases-tab"
