@@ -25,7 +25,76 @@ export default function HomeAdmin() {
           <h2 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl dark:text-gray-700">
             Dashboard
           </h2>
-          <br />
+
+          <div className="mb-4 border-b border-gray-200 dark:border-gray-200">
+            <ul
+              className="flex flex-wrap -mb-px text-md font-medium text-center"
+              id="myTab"
+              data-tabs-toggle="#myTabContent"
+              role="tablist"
+            >
+              <li className="mr-2" role="presentation">
+                <button
+                  className="inline-block p-4 border-b-2 rounded-t-lg"
+                  id="transactions-tab"
+                  data-tabs-target="#transactions"
+                  type="button"
+                  role="tab"
+                  aria-controls="transactions"
+                  aria-selected="true"
+                >
+                  Transactions
+                </button>
+              </li>
+              <li className="mr-2" role="presentation">
+                <button
+                  className="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+                  id="orders-tab"
+                  data-tabs-target="#orders"
+                  type="button"
+                  role="tab"
+                  aria-controls="orders"
+                  aria-selected="false"
+                >
+                  Orders
+                </button>
+              </li>
+              <li className="mr-2" role="presentation">
+                <button
+                  className="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+                  id="purchases-tab"
+                  data-tabs-target="#purchases"
+                  type="button"
+                  role="tab"
+                  aria-controls="purchases"
+                  aria-selected="false"
+                >
+                  Purchases
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <div id="myTabContent">
+            <div
+              className="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-200"
+              id="transactions"
+              role="tabpanel"
+              aria-labelledby="transactions-tab"
+            ></div>
+            <div
+              className="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-200"
+              id="purchases"
+              role="tabpanel"
+              aria-labelledby="purchases-tab"
+            ></div>
+            <div
+              className="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-200"
+              id="orders"
+              role="tabpanel"
+              aria-labelledby="orders-tab"
+            ></div>
+          </div>
         </div>
       </div>
     </div>
