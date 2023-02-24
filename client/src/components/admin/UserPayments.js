@@ -8,7 +8,7 @@ export default function UserPayments() {
     <div>
       <div className="p-4 sm:ml-64">
         <div className="p-4 mt-14">
-        <nav className="flex mb-4" aria-label="Breadcrumb">
+          <nav className="flex mb-4" aria-label="Breadcrumb">
             <ol className="inline-flex items-center space-x-1 md:space-x-3">
               <li className="inline-flex items-center">
                 <Link
