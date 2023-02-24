@@ -1,4 +1,7 @@
 import React from "react";
+import Orders from "./Orders";
+import Purchases from "./Purchases";
+import Transactions from "./Transactions";
 
 export default function HomeAdmin() {
   return (
@@ -81,19 +84,25 @@ export default function HomeAdmin() {
               id="transactions"
               role="tabpanel"
               aria-labelledby="transactions-tab"
-            ></div>
-            <div
-              className="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-200"
-              id="purchases"
-              role="tabpanel"
-              aria-labelledby="purchases-tab"
-            ></div>
+            >
+              <Transactions />
+            </div>
             <div
               className="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-200"
               id="orders"
               role="tabpanel"
               aria-labelledby="orders-tab"
-            ></div>
+            >
+              <Orders />
+            </div>
+            <div
+              className="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-200"
+              id="purchases"
+              role="tabpanel"
+              aria-labelledby="purchases-tab"
+            >
+              <Purchases />
+            </div>
           </div>
         </div>
       </div>
