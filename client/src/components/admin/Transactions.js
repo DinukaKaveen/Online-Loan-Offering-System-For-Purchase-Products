@@ -6,7 +6,6 @@ import "datatables.net-responsive-dt";
 import $ from "jquery";
 
 export default function Transactions() {
-    
   $(document).ready(function () {
     $("#example1").DataTable({
       responsive: true,
@@ -19,12 +18,13 @@ export default function Transactions() {
       <table id="example1" className="display" style={{ width: "100%" }}>
         <thead>
           <tr>
-            <th>Name1</th>
-            <th>Position</th>
-            <th>Office</th>
-            <th>Age</th>
-            <th>Start date</th>
-            <th>Salary</th>
+            <th>Payment ID</th>
+            <th>Order ID</th>
+            <th>User ID</th>
+            <th>Date/Time</th>
+            <th>Amount</th>
+            <th>Payment State</th>
+            <th>Payment Type</th>
           </tr>
         </thead>
         <tbody>
@@ -35,6 +35,7 @@ export default function Transactions() {
             <td>61</td>
             <td>2011-04-25</td>
             <td>$320,800</td>
+            <td>Edinburgh</td>
           </tr>
           <tr>
             <td>Garrett Winters</td>
@@ -43,16 +44,18 @@ export default function Transactions() {
             <td>63</td>
             <td>2011-07-25</td>
             <td>$170,750</td>
+            <td>Edinburgh</td>
           </tr>
         </tbody>
         <tfoot>
           <tr>
-            <th>Name</th>
-            <th>Position</th>
-            <th>Office</th>
-            <th>Age</th>
-            <th>Start date</th>
-            <th>Salary</th>
+            <th>Payment ID</th>
+            <th>Order ID</th>
+            <th>User ID</th>
+            <th>Date/Time</th>
+            <th>Amount</th>
+            <th>Payment State</th>
+            <th>Payment Type</th>
           </tr>
         </tfoot>
       </table>
