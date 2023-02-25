@@ -1,4 +1,4 @@
-package com.dinuka.bumblebeebackend.models;
+package com.dinuka.bumblebeebackend.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
