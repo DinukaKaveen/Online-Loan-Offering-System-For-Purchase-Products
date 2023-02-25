@@ -13,7 +13,9 @@ export default function NavBar() {
     location.pathname === "/Purchases" ||
     location.pathname === "/Payments"
   ) {
+
     return <NavbarCus />;
+
   } else if (
     location.pathname === "/admin" ||
     location.pathname === "/admin/Users" ||
@@ -21,7 +23,9 @@ export default function NavBar() {
     location.pathname === "/admin/UserPurchases" ||
     location.pathname === "/admin/UserPayments"
   ) {
+
     return <NavbarAdmin />;
+    
   }
 
   return <div></div>;
