@@ -1,12 +1,16 @@
 package com.dinuka.bumblebeebackend.models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 
 import java.util.Date;
 
 @Entity //automatically generate table
 public class User {
 
+    @Id
+    @GeneratedValue
     private Long user_id;
     private String first_name;
     private String last_name;
@@ -88,5 +92,4 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
 }
