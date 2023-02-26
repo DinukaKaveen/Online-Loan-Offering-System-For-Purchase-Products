@@ -12,7 +12,7 @@
 	<artifactId>bumblebee-backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>bumblebee-backend</name>
-	<description>BumbleBee back-end project for Spring Boot</description>
+	<description>BumbleBee Back End Application</description>
 	<properties>
 		<java.version>19</java.version>
 	</properties>
@@ -43,7 +43,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>3.0.3</version>
 			</plugin>
 		</plugins>
 	</build>
