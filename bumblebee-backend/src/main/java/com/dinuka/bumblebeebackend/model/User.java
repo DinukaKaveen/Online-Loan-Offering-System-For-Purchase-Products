@@ -4,9 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
-import java.sql.Date;
-
-
 @Entity
 public class User {
 
@@ -15,7 +12,6 @@ public class User {
     private Long id;
     private String first_name;
     private String last_name;
-    private Date date_of_birth;
     private String nic;
     private String phone_no;
     private String email;
@@ -44,14 +40,6 @@ public class User {
 
     public void setLast_name(String last_name) {
         this.last_name = last_name;
-    }
-
-    public Date getDate_of_birth() {
-        return date_of_birth;
-    }
-
-    public void setDate_of_birth(Date date_of_birth) {
-        this.date_of_birth = date_of_birth;
     }
 
     public String getNic() {
