@@ -4,7 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
-import java.util.Date;
+import java.sql.Date;
+
 
 @Entity
 public class User {
@@ -14,7 +15,8 @@ public class User {
     private Integer user_id;
     private String first_name;
     private String last_name;
-    private java.util.Date date_of_birth;
+    private Date date_of_birth;
+
     private String nic;
     private String mobile_no;
     private String email;
