@@ -1,10 +1,10 @@
-package com.dinuka.bumblebeebackend;
+package com.bumblebee.backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BumblebeeBackendApplicationTests {
+class BackendApplicationTests {
 
 	@Test
 	void contextLoads() {

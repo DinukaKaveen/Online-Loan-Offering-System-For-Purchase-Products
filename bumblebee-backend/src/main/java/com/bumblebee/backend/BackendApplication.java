@@ -1,13 +1,13 @@
-package com.dinuka.bumblebeebackend;
+package com.bumblebee.backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BumblebeeBackendApplication {
+public class BackendApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BumblebeeBackendApplication.class, args);
+		SpringApplication.run(BackendApplication.class, args);
 	}
 
 }
