@@ -27,6 +27,14 @@ hr {
   display: block;
 }
 
+.status-No-Purchases {
+  color: rgb(231, 231, 231);
+  background-color: gray;
+  font-size: smaller;
+  padding: 5px;
+  border-radius: 5px;
+}
+
 .status-Complete {
   color: rgb(231, 231, 231);
   background-color:green;
@@ -43,7 +51,7 @@ hr {
   border-radius: 5px;
 }
 
-.status-Not-Paid {
+.status-Unpaid {
   color: rgb(231, 231, 231);
   background-color: red;
   font-size: smaller;

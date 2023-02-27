@@ -16,12 +16,12 @@ public class User {
     private String first_name;
     private String last_name;
     private Date date_of_birth;
-
     private String nic;
     private String mobile_no;
     private String email;
     private String address;
     private String password;
+    private String payment_status;
 
     public Integer getId() {
         return user_id;
@@ -93,5 +93,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getPayment_status() {
+        return payment_status;
+    }
+
+    public void setPayment_status(String payment_status) {
+        this.payment_status = payment_status;
     }
 }
