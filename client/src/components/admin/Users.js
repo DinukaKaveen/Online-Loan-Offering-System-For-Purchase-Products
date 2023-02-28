@@ -19,18 +19,18 @@ export default function Users() {
   const columns = [
     {
       name: "User ID",
-      selector: (row) => row.user_id,
-      sortable: true
+      selector: (row) => row.id,
+      sortable: true,
     },
     {
       name: "Name",
-      selector: (row) => row.name,
-      sortable: true
+      selector: (row) => row.first_name,
+      sortable: true,
     },
     {
       name: "Email",
       selector: (row) => row.email,
-      sortable: true
+      sortable: true,
     },
     {
       name: "Payment Status",
@@ -38,25 +38,37 @@ export default function Users() {
     },
     {
       name: "Action",
-      selector: (row) => row.action,
+      selector: (row) => (
+        <button
+          type="button"
+          onClick={() => alert(row.last_name)}
+          className="text-green-700 hover:text-white border border-green-700 hover:bg-green-800 font-medium rounded-lg px-2.5 py-1.5 text-sm text-center mr-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600"
+        >
+          <i className="fa-solid fa-eye"></i>
+        </button>
+      ),
     },
   ];
-  const data = [
-    {
-      user_id: 1,
-      name: "dinuka",
-      email: "dinuka@gmail.com",
-      payment_status: "complete",
-      action: "action",
-    },
-    {
-      user_id: 2,
-      name: "kaveen",
-      email: "kaveen@gmail.com",
-      payment_status: "complete",
-      action: "action",
-    },
-  ];
+
+  const [searchText, setSearchText] = useState("");
+
+  const handleSearch = (event) => {
+    setSearchText(event.target.value);
+  };
+
+  const filteredData = users.filter(
+    (item) =>
+      item.first_name.toLowerCase().includes(searchText.toLowerCase()) ||
+      item.email.toLowerCase().includes(searchText.toLowerCase())
+  );
+
+  // const rows = users.map((user, index) => ({
+  //   id: index + 1,
+  //   first_name: user.first_name,
+  //   email: user.email,
+  //   payment_status: user.payment_status,
+  //   action: "Action",
+  // }));
 
   return (
     <div>
@@ -115,7 +127,23 @@ export default function Users() {
           <br />
           <br />
 
-          <DataTable columns={columns} data={data}></DataTable>
+          <DataTable
+            columns={columns}
+            data={filteredData}
+            fixedHeader
+            responsive
+            highlightOnHover
+            pagination
+            subHeader
+            subHeaderComponent={
+              <input
+                type="text"
+                placeholder="Search"
+                value={searchText}
+                onChange={handleSearch}
+              />
+            }
+          ></DataTable>
         </div>
       </div>
     </div>

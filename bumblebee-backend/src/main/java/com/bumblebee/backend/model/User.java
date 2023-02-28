@@ -27,8 +27,8 @@ public class User {
         return user_id;
     }
 
-    public void setId(Integer id) {
-        this.user_id = id;
+    public void setId(Integer user_id) {
+        this.user_id = user_id;
     }
 
     public String getFirst_name() {
