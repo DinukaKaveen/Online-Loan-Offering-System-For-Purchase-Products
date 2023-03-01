@@ -5,6 +5,7 @@ import "../admin/Users.css";
 import DataTable from "react-data-table-component";
 
 export default function Users() {
+  
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -59,7 +60,9 @@ export default function Users() {
   const filteredData = users.filter(
     (item) =>
       item.first_name.toLowerCase().includes(searchText.toLowerCase()) ||
-      item.email.toLowerCase().includes(searchText.toLowerCase())
+      item.email.toLowerCase().includes(searchText.toLowerCase()) ||
+      item.payment_status.toLowerCase().includes(searchText.toLowerCase()) ||
+      item.id.toString().toLowerCase().includes(searchText.toString().toLowerCase())
   );
 
   // const rows = users.map((user, index) => ({
