@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "../admin/Users.css";
 import DataTable from "react-data-table-component";
+import Tooltip from "./Tooltip";
 
 export default function Users() {
   const [users, setUsers] = useState([]);
@@ -21,7 +22,7 @@ export default function Users() {
       name: "User ID",
       selector: (row) => row.id,
       sortable: true,
-      width: '110px',
+      width: "110px",
     },
     {
       name: "Name",
@@ -39,7 +40,7 @@ export default function Users() {
     },
     {
       name: "Action",
-      width: '353px',
+      width: "388px",
       selector: (row) => (
         <div>
           <button
@@ -61,18 +62,39 @@ export default function Users() {
           >
             <i className="fa-solid fa-trash"></i>
           </button>
-          <button
+          <a
+            href="/admin/UserPurchases"
             type="button"
             className="px-3 py-2 text-sm font-medium text-center mr-2 mb-2 text-white bg-blue-700 rounded-lg hover:bg-blue-800 dark:bg-blue-800 dark:hover:bg-blue-700"
           >
             Purchases
-          </button>
-          <button
+          </a>
+          <a
+            href="/admin/UserPayments"
             type="button"
             className="px-3 py-2 text-sm font-medium text-center mr-2 mb-2 text-white bg-blue-700 rounded-lg hover:bg-blue-800 dark:bg-blue-900 dark:hover:bg-blue-700"
           >
             Payments
-          </button>
+          </a>
+
+          <div>
+            <button
+              data-tooltip-target="tooltip-click"
+              data-tooltip-trigger="click"
+              className="px-2.5 py-1 text-md font-medium text-center mr-2 mb-2 text-black bg-gray-700 rounded-md border border-gray-200 dark:border-gray-300 hover:bg-gray-800 dark:bg-transparent dark:hover:bg-gray-200"
+              type="button"
+            >
+              <i className="fa-solid fa-ellipsis-vertical"></i>
+            </button>
+            <div
+              id="tooltip-click"
+              role="tooltip"
+              className="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+            >
+              <Tooltip />
+              <div className="tooltip-arrow" data-popper-arrow></div>
+            </div>
+          </div>
         </div>
       ),
     },
