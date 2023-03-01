@@ -124,8 +124,6 @@ export default function Users() {
           >
             <i className="fa-solid fa-user-plus"></i>&nbsp;ADD NEW USER
           </button>
-          <br />
-          <br />
 
           <DataTable
             columns={columns}
