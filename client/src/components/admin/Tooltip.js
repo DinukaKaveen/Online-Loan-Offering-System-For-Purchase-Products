@@ -7,8 +7,8 @@ export default function Tooltip() {
         <li>
           <p style={{ textAlign: "center" }}>
             <strong>Loan Details</strong>
-            <hr />
           </p>
+          <hr />
         </li>
         <li>
           <p>
