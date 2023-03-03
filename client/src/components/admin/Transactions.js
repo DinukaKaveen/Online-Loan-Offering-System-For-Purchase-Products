@@ -4,39 +4,59 @@ import DataTable from "react-data-table-component";
 export default function Transactions() {
   const columns = [
     {
-      name: "User ID",
+      name: "Payment ID",
+      selector: (row) => row.payment_id,
+      sortable: true,
+    },
+    {
+      name: "Order ID",
+      selector: (row) => row.order_id,
       sortable: true,
     },
     {
       name: "User ID",
+      selector: (row) => row.user_id,
       sortable: true,
     },
     {
-      name: "User ID",
+      name: "Amount",
+      selector: (row) => row.amount,
       sortable: true,
     },
     {
-      name: "User ID",
+      name: "Date/Time",
+      selector: (row) => row.date_time,
       sortable: true,
     },
     {
-      name: "User ID",
+      name: "Payment State",
+      selector: (row) => row.payment_state,
       sortable: true,
     },
     {
-      name: "User ID",
-      sortable: true,
-    },
-    {
-      name: "User ID",
+      name: "Payment Type",
+      selector: (row) => row.payment_type,
       sortable: true,
     },
   ];
+
+  const data = [
+    {
+      payment_id: 1,
+      order_id: 12,
+      user_id: 25,
+      amount: 25000,
+      date_time: "03-03-2023",
+      payment_state: "Complete",
+      payment_type: "Credit/Debit",
+    }
+  ]
 
   return (
     <div>
       <DataTable
         columns={columns}
+        data={data}
         fixedHeader
         responsive
         highlightOnHover
