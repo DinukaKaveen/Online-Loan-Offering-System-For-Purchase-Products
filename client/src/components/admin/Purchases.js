@@ -42,7 +42,7 @@ export default function Purchases() {
       order_id: 25000,
       user_id: "03-03-2023",
       date_time: "Complete",
-      purchase_status: "Credit/Debit",  
+      purchase_status: "Credit/Debit",   
     },
   ];
 
