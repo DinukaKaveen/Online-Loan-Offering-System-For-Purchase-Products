@@ -49,8 +49,8 @@ export default function Transactions() {
       date_time: "03-03-2023",
       payment_state: "Complete",
       payment_type: "Credit/Debit",
-    }
-  ]
+    },
+  ];
 
   return (
     <div>
