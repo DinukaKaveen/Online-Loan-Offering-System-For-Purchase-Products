@@ -1,8 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import FooterCus from "./FooterCus";
 
 export default function RegisterCus() {
+  const [user, setUser] = useState({
+    first_name: "",
+    last_name: "",
+    date_of_birth: "",
+    mobile_no: "",
+    nic: "",
+    email: "",
+    address: "",
+    password: "",
+  });
+
+  const {
+    first_name,
+    last_name,
+    date_of_birth,
+    mobile_no,
+    nic,
+    email,
+    address,
+    password,
+  } = user;
+
+  const onInputChange = (e) => {
+    setUser({ ...user, [e.target.name]: e.target.value });
+  };
+
   return (
     <div>
       <div style={{ padding: "50px" }}>
@@ -64,6 +90,9 @@ export default function RegisterCus() {
                 id="first_name"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="John"
+                name="first_name"
+                value={first_name}
+                onChange={(e) => onInputChange(e)}
                 required
               />
             </div>
@@ -79,6 +108,9 @@ export default function RegisterCus() {
                 id="last_name"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Doe"
+                name="last_name"
+                value={last_name}
+                onChange={(e) => onInputChange(e)}
                 required
               />
             </div>
@@ -91,8 +123,11 @@ export default function RegisterCus() {
               </label>
               <input
                 type="date"
-                id="age"
+                id="date_of_birth"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                name="date_of_birth"
+                value={date_of_birth}
+                onChange={(e) => onInputChange(e)}
                 required
               />
             </div>
@@ -105,10 +140,13 @@ export default function RegisterCus() {
               </label>
               <input
                 type="tel"
-                id="phone"
+                id="mobile_no"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="123-45-678"
                 pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+                name="mobile_no"
+                value={mobile_no}
+                onChange={(e) => onInputChange(e)}
                 required
               />
             </div>
@@ -124,6 +162,9 @@ export default function RegisterCus() {
                 id="nic"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="98157400280"
+                name="nic"
+                value={nic}
+                onChange={(e) => onInputChange(e)}
                 required
               />
             </div>
@@ -139,6 +180,9 @@ export default function RegisterCus() {
                 id="email"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="john.doe@company.com"
+                name="email"
+                value={email}
+                onChange={(e) => onInputChange(e)}
                 required
               />
             </div>
@@ -155,6 +199,9 @@ export default function RegisterCus() {
               id="address"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder=""
+              name="address"
+              value={address}
+              onChange={(e) => onInputChange(e)}
               required
             />
           </div>
@@ -170,6 +217,9 @@ export default function RegisterCus() {
               id="password"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="•••••••••"
+              name="password"
+              value={password}
+              onChange={(e) => onInputChange(e)}
               required
             />
           </div>
