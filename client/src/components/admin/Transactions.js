@@ -1,64 +1,78 @@
 import React from "react";
-//import "jquery/dist/jquery.min.js";
-import "datatables.net-dt/js/dataTables.dataTables";
-//import "datatables.net-dt/css/jquery.dataTables.min.css";
-import "datatables.net-responsive-dt";
-import $ from "jquery";
+import DataTable from "react-data-table-component";
 
 export default function Transactions() {
-  $(document).ready(function () {
-    $("#example1").DataTable({
-      responsive: true,
-      destroy: true,
-    });
-  });
+  const columns = [
+    {
+      name: "User ID",
+      sortable: true,
+    },
+    {
+      name: "User ID",
+      sortable: true,
+    },
+    {
+      name: "User ID",
+      sortable: true,
+    },
+    {
+      name: "User ID",
+      sortable: true,
+    },
+    {
+      name: "User ID",
+      sortable: true,
+    },
+    {
+      name: "User ID",
+      sortable: true,
+    },
+    {
+      name: "User ID",
+      sortable: true,
+    },
+  ];
 
   return (
     <div>
-      <table id="example1" className="display" style={{ width: "100%" }}>
-        <thead>
-          <tr>
-            <th>Payment ID</th>
-            <th>Order ID</th>
-            <th>User ID</th>
-            <th>Amount</th>
-            <th>Date/Time</th>
-            <th>Payment State</th>
-            <th>Payment Type</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Tiger Nixon1</td>
-            <td>System Architect</td>
-            <td>Edinburgh</td>
-            <td>61</td>
-            <td>2011-04-25</td>
-            <td>$320,800</td>
-            <td>Edinburgh</td>
-          </tr>
-          <tr>
-            <td>Garrett Winters</td>
-            <td>Accountant</td>
-            <td>Tokyo</td>
-            <td>63</td>
-            <td>2011-07-25</td>
-            <td>$170,750</td>
-            <td>Edinburgh</td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <th>Payment ID</th>
-            <th>Order ID</th>
-            <th>User ID</th>
-            <th>Amount</th>
-            <th>Date/Time</th>
-            <th>Payment State</th>
-            <th>Payment Type</th>
-          </tr>
-        </tfoot>
-      </table>
+      <DataTable
+        columns={columns}
+        fixedHeader
+        responsive
+        highlightOnHover
+        pagination
+        subHeader
+        subHeaderComponent={
+          <div>
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <svg
+                  aria-hidden="true"
+                  className="w-5 h-5 text-gray-500 dark:text-gray-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  ></path>
+                </svg>
+              </div>
+              <input
+                
+                type="search"
+                id="search"
+                className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-50 dark:border-gray-300 dark:placeholder-gray-500 dark:text-gray-500 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Search"
+              />
+            </div>
+          </div>
+        }
+      ></DataTable>
     </div>
   );
 }
