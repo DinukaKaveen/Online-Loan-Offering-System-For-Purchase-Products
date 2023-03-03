@@ -1,52 +1,91 @@
 import React from "react";
-//import "jquery/dist/jquery.min.js";
-import "datatables.net-dt/js/dataTables.dataTables";
-//import "datatables.net-dt/css/jquery.dataTables.min.css";
-import "datatables.net-responsive-dt";
-import $ from "jquery";
+import DataTable from "react-data-table-component";
 
 export default function Purchases() {
-  $(document).ready(function () {
-    $("#example3").DataTable({
-      responsive: true,
-      destroy: true,
-    });
-  });
+  const columns = [
+    {
+      name: "Product ID",
+      selector: (row) => row.product_id,
+      sortable: true,
+    },
+    {
+      name: "Product Name",
+      selector: (row) => row.product_name,
+      sortable: true,
+    },
+    {
+      name: "Order ID",
+      selector: (row) => row.order_id,
+      sortable: true,
+    },
+    {
+      name: "User ID",
+      selector: (row) => row.user_id,
+      sortable: true,
+    },
+    {
+      name: "Date/Time",
+      selector: (row) => row.date_time,
+      sortable: true,
+    },
+    {
+      name: "Purchase Status",
+      selector: (row) => row.purchase_status,
+      sortable: true,
+    },
+  ];
+
+  const data = [
+    {
+      product_id: 12,
+      product_name: 25,
+      order_id: 25000,
+      user_id: "03-03-2023",
+      date_time: "Complete",
+      purchase_status: "Credit/Debit",
+    },
+  ];
 
   return (
     <div>
-      <table id="example3" className="display" style={{ width: "100%" }}>
-        <thead>
-          <tr>
-            <th>Product ID</th>
-            <th>Product Name</th>
-            <th>Order ID</th>
-            <th>User ID</th>
-            <th>Date/Time</th>
-            <th>Purchase Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Tiger Nixon3</td>
-            <td>System Architect</td>
-            <td>Edinburgh</td>
-            <td>61</td>
-            <td>2011-04-25</td>
-            <td>$320,800</td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <th>Product ID</th>
-            <th>Product Name</th>
-            <th>Order ID</th>
-            <th>User ID</th>
-            <th>Date/Time</th>
-            <th>Purchase Status</th>
-          </tr>
-        </tfoot>
-      </table>
+      <DataTable
+        columns={columns}
+        data={data}
+        fixedHeader
+        responsive
+        highlightOnHover
+        pagination
+        subHeader
+        subHeaderComponent={
+          <div>
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <svg
+                  aria-hidden="true"
+                  className="w-5 h-5 text-gray-500 dark:text-gray-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  ></path>
+                </svg>
+              </div>
+              <input
+                type="search"
+                id="search"
+                className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-50 dark:border-gray-300 dark:placeholder-gray-500 dark:text-gray-500 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Search"
+              />
+            </div>
+          </div>
+        }
+      ></DataTable>
     </div>
   );
 }
