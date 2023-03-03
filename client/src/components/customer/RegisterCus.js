@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import FooterCus from "./FooterCus";
@@ -27,6 +28,10 @@ export default function RegisterCus() {
 
   const onInputChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
+  };
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    await axios.post("http://localhost:8080/RegisterCustomer", user);
   };
 
   return (
@@ -76,7 +81,7 @@ export default function RegisterCus() {
         </h2>
         <br />
 
-        <form>
+        <form onSubmit={(e) => onSubmit(e)}>
           <div className="grid gap-6 mb-6 md:grid-cols-2">
             <div>
               <label
@@ -143,7 +148,6 @@ export default function RegisterCus() {
                 id="mobile_no"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="123-45-678"
-                pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
                 name="mobile_no"
                 value={mobile_no}
                 onChange={(e) => onInputChange(e)}
