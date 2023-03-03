@@ -30,11 +30,6 @@ export default function Users() {
       sortable: true,
     },
     {
-      name: "Email",
-      selector: (row) => row.email,
-      sortable: true,
-    },
-    {
       name: "Payment Status",
       selector: (row) => row.payment_status,
     },
@@ -77,23 +72,21 @@ export default function Users() {
             Payments
           </a>
 
-          <div>
-            <button
-              data-tooltip-target="tooltip-click"
-              data-tooltip-trigger="click"
-              className="px-2.5 py-1 text-md font-medium text-center mr-2 mb-2 text-black bg-gray-700 rounded-md border border-gray-200 dark:border-gray-300 hover:bg-gray-800 dark:bg-transparent dark:hover:bg-gray-200"
-              type="button"
-            >
-              <i className="fa-solid fa-ellipsis-vertical"></i>
-            </button>
-            <div
-              id="tooltip-click"
-              role="tooltip"
-              className="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
-            >
-              <Tooltip />
-              <div className="tooltip-arrow" data-popper-arrow></div>
-            </div>
+          <button
+            data-tooltip-target="tooltip-click"
+            data-tooltip-trigger="click"
+            className="px-2.5 py-1 text-md font-medium text-center mr-2 mb-2 text-black bg-gray-700 rounded-md border border-gray-200 dark:border-gray-300 hover:bg-gray-800 dark:bg-transparent dark:hover:bg-gray-200"
+            type="button"
+          >
+            <i className="fa-solid fa-ellipsis-vertical"></i>
+          </button>
+          <div
+            id="tooltip-click"
+            role="tooltip"
+            className="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+          >
+            <Tooltip />
+            <div className="tooltip-arrow" data-popper-arrow></div>
           </div>
         </div>
       ),
@@ -110,7 +103,6 @@ export default function Users() {
     (item) =>
       item.first_name.toLowerCase().includes(searchText.toLowerCase()) ||
       item.last_name.toLowerCase().includes(searchText.toLowerCase()) ||
-      item.email.toLowerCase().includes(searchText.toLowerCase()) ||
       item.payment_status.toLowerCase().includes(searchText.toLowerCase()) ||
       item.id
         .toString()
