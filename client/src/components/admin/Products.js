@@ -4,51 +4,115 @@ import DataTable from "react-data-table-component";
 export default function Products() {
   const columns = [
     {
-      name: "Payment ID",
-      selector: (row) => row.payment_id,
+      name: "Product ID",
+      selector: (row) => row.product_id,
       sortable: true,
     },
     {
-      name: "Order ID",
-      selector: (row) => row.order_id,
+      name: "Image",
+      selector: (row) => row.image,
       sortable: true,
     },
     {
-      name: "User ID",
-      selector: (row) => row.user_id,
+      name: "Product Name",
+      selector: (row) => row.product_name,
       sortable: true,
     },
     {
-      name: "Amount",
-      selector: (row) => row.amount,
+      name: "Price",
+      selector: (row) => row.price,
       sortable: true,
     },
     {
-      name: "Date/Time",
-      selector: (row) => row.date_time,
+      name: "Stock Count",
+      selector: (row) => row.stock,
       sortable: true,
     },
     {
-      name: "Payment State",
-      selector: (row) => row.payment_state,
+      name: "Status",
+      selector: (row) => row.status,
       sortable: true,
     },
     {
-      name: "Payment Type",
-      selector: (row) => row.payment_type,
+      name: "Action",
+      width: "164px",
+      selector: (row) => (
+        <div>
+          <button
+            data-tooltip-target="tooltip-click"
+            data-tooltip-trigger="click"
+            className="text-green-700 hover:text-white border border-green-700 hover:bg-green-800 font-medium rounded-lg px-2.5 py-1.5 text-sm text-center mr-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600"
+            type="button"
+          >
+            <i className="fa-solid fa-eye"></i>
+          </button>
+          <div
+            id="tooltip-click"
+            role="tooltip"
+            className="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+          >
+            <ul>
+              <li>
+                <p style={{ textAlign: "center" }}>
+                  <strong>Loan Details</strong>
+                </p>
+                <hr />
+              </li>
+              <li>
+                <p>
+                  <strong>Total Loan: </strong>15000.00
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong>Used Amount: </strong>7000.00
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong>Paid Amount: </strong>3000.00
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong>Pending Amount: </strong>4000.00
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong>Loan Balance: </strong>8000.00
+                </p>
+              </li>
+            </ul>
+            <div className="tooltip-arrow" data-popper-arrow></div>
+          </div>
+
+          <button
+            type="button"
+            className="text-yellow-700 hover:text-white border border-yellow-700 hover:bg-yellow-800 font-medium rounded-lg px-2.5 py-1.5 text-sm text-center mr-2 mb-2 dark:border-yellow-500 dark:text-yellow-500 dark:hover:text-white dark:hover:bg-yellow-600"
+          >
+            <i className="fa-solid fa-edit"></i>
+          </button>
+          <button
+            type="button"
+            className="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 font-medium rounded-lg px-2.5 py-1.5 text-sm text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600"
+          >
+            <i className="fa-solid fa-trash"></i>
+          </button>
+        </div>
+      ),
       sortable: true,
     },
   ];
 
   const data = [
     {
-      payment_id: 1,
-      order_id: 12,
-      user_id: 25,
-      amount: 25000,
-      date_time: "03-03-2023",
-      payment_state: "Complete",
-      payment_type: "Credit/Debit",
+      product_id: 1,
+      image: 12,
+      product_name: 25,
+      price: 25000,
+      stock: "03-03-2023",
+      status: "Complete",
     },
   ];
 
