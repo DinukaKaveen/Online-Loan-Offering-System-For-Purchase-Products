@@ -21,7 +21,8 @@ export default function NavBar() {
     location.pathname === "/admin/Users" ||
     location.pathname === "/admin/Products" ||
     location.pathname === "/admin/UserPurchases" ||
-    location.pathname === "/admin/UserPayments"
+    location.pathname === "/admin/UserPayments" ||
+    location.pathname === "/admin/NewProduct"
   ) {
 
     return <NavbarAdmin />;

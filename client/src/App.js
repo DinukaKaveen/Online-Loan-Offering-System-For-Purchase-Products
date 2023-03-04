@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomeAdmin from "./components/admin/HomeAdmin";
+import NewProduct from "./components/admin/NewProduct";
 import Products from "./components/admin/Products";
 import UserPayments from "./components/admin/UserPayments";
 import UserPurchases from "./components/admin/UserPurchases";
@@ -30,6 +31,7 @@ export default function App() {
           <Route path="/admin/Products" element={<Products />}></Route>
           <Route path="/admin/UserPurchases" element={<UserPurchases />}></Route>
           <Route path="/admin/UserPayments" element={<UserPayments />}></Route>
+          <Route path="/admin/NewProduct" element={<NewProduct />}></Route>
         </Routes>
       </div>
     </BrowserRouter>
