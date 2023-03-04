@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import "../admin/Users.css";
 import DataTable from "react-data-table-component";
@@ -125,8 +124,8 @@ export default function Users() {
           <nav className="flex mb-4" aria-label="Breadcrumb">
             <ol className="inline-flex items-center space-x-1 md:space-x-3">
               <li className="inline-flex items-center">
-                <Link
-                  to={"/admin"}
+                <a
+                  href="/admin"
                   className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray"
                 >
                   <svg
@@ -138,7 +137,7 @@ export default function Users() {
                     <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
                   </svg>
                   Dashboard
-                </Link>
+                </a>
               </li>
               <li aria-current="page">
                 <div className="flex items-center">
@@ -155,14 +154,14 @@ export default function Users() {
                     ></path>
                   </svg>
                   <span className="ml-1 text-sm font-medium text-gray-500 md:ml-2 dark:text-gray-400">
-                    User Details
+                    Users
                   </span>
                 </div>
               </li>
             </ol>
           </nav>
           <h2 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl dark:text-gray-700">
-            User Details
+            Users Details
           </h2>
           <br />
 
