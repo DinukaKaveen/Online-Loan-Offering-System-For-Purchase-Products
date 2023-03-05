@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
 
 export default function Products() {
-
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -48,7 +47,7 @@ export default function Products() {
     },
     {
       name: "Action",
-      width: "164px",
+      width: "210px",
       selector: (row) => (
         <div>
           <button
@@ -73,32 +72,32 @@ export default function Products() {
               </li>
               <li>
                 <p>
-                  <strong>Supplier ID: </strong>{row.supplier_id}
+                  <strong>Supplier ID: </strong>
+                  {row.supplier_id}
                 </p>
               </li>
               <li>
                 <p>
-                  <strong>Product ID: </strong>{row.product_id}
+                  <strong>Product ID: </strong>
+                  {row.product_id}
                 </p>
               </li>
               <li>
                 <p>
-                  <strong>Main Category: </strong>{row.main_category}
+                  <strong>Main Category: </strong>
+                  {row.main_category}
                 </p>
               </li>
               <li>
                 <p>
-                  <strong>Sub Category: </strong>{row.sub_category}
+                  <strong>Sub Category: </strong>
+                  {row.sub_category}
                 </p>
               </li>
               <li>
                 <p>
-                  <strong>Warranty: </strong>{row.warranty}
-                </p>
-              </li>
-              <li>
-                <p>
-                  <strong>Product Status: </strong>{row.status}
+                  <strong>Warranty: </strong>
+                  {row.warranty}
                 </p>
               </li>
             </ul>
@@ -118,7 +117,7 @@ export default function Products() {
             <i className="fa-solid fa-trash"></i>
           </button>
         </div>
-      ),
+      )
     },
   ];
 
@@ -181,7 +180,7 @@ export default function Products() {
           <DataTable
             columns={columns}
             data={products}
-            fixedHeader
+            //fixedHeader
             responsive
             highlightOnHover
             pagination
