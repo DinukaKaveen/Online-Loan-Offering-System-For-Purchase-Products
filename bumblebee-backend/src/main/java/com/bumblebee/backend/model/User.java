@@ -6,7 +6,6 @@ import jakarta.persistence.Id;
 
 import java.sql.Date;
 
-
 @Entity
 public class User {
 
