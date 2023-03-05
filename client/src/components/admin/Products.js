@@ -17,8 +17,8 @@ export default function Products() {
 
   const columns = [
     {
-      name: "Product ID",
-      selector: (row) => row.product_id,
+      name: "Product Code",
+      selector: (row) => row.product_code,
       sortable: true,
     },
     {
@@ -67,33 +67,38 @@ export default function Products() {
             <ul>
               <li>
                 <p style={{ textAlign: "center" }}>
-                  <strong>Loan Details</strong>
+                  <strong>Additional Details</strong>
                 </p>
                 <hr />
               </li>
               <li>
                 <p>
-                  <strong>Total Loan: </strong>15000.00
+                  <strong>Supplier ID: </strong>{row.supplier_id}
                 </p>
               </li>
               <li>
                 <p>
-                  <strong>Used Amount: </strong>7000.00
+                  <strong>Product ID: </strong>{row.product_id}
                 </p>
               </li>
               <li>
                 <p>
-                  <strong>Paid Amount: </strong>3000.00
+                  <strong>Main Category: </strong>{row.main_category}
                 </p>
               </li>
               <li>
                 <p>
-                  <strong>Pending Amount: </strong>4000.00
+                  <strong>Sub Category: </strong>{row.sub_category}
                 </p>
               </li>
               <li>
                 <p>
-                  <strong>Loan Balance: </strong>8000.00
+                  <strong>Warranty: </strong>{row.warranty}
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong>Product Status: </strong>{row.status}
                 </p>
               </li>
             </ul>
@@ -114,7 +119,6 @@ export default function Products() {
           </button>
         </div>
       ),
-      sortable: true,
     },
   ];
 
