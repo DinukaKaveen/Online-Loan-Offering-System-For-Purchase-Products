@@ -31,7 +31,7 @@ export default function NewProduct() {
   };
   const onSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:8080/RegisterCustomer", product);
+    await axios.post("http://localhost:8080/admin/NewProduct", product);
   };
 
   return (
