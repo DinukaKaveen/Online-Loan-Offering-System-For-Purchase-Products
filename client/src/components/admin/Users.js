@@ -180,7 +180,7 @@ export default function Users() {
           <DataTable
             columns={columns}
             data={filteredData}
-            fixedHeader
+            //fixedHeader
             responsive
             highlightOnHover
             pagination
