@@ -38,7 +38,7 @@ export default function Products() {
     },
     {
       name: "Stock Count",
-      selector: (row) => row.stock,
+      selector: (row) => row.qty,
       sortable: true,
     },
     {
@@ -115,17 +115,6 @@ export default function Products() {
         </div>
       ),
       sortable: true,
-    },
-  ];
-
-  const data = [
-    {
-      product_id: 1,
-      image: 12,
-      product_name: 25,
-      price: 25000,
-      stock: "03-03-2023",
-      status: "Complete",
     },
   ];
 

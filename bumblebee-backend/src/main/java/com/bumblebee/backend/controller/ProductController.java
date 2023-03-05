@@ -21,7 +21,7 @@ public class ProductController {
     }
 
     @GetMapping("/admin/Products")
-    List<Product> getAllUsers(){
+    List<Product> getAllProducts(){
         return ProductRepository.findAll();
     }
 }
