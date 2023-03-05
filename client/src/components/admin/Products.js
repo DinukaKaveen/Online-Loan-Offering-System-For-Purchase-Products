@@ -1,7 +1,20 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
 
 export default function Products() {
+
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    loadProducts();
+  }, []);
+
+  const loadProducts = async () => {
+    const result = await axios.get("http://localhost:8080/admin/Products");
+    setProducts(result.data);
+  };
+
   const columns = [
     {
       name: "Product ID",
@@ -174,7 +187,7 @@ export default function Products() {
 
           <DataTable
             columns={columns}
-            data={data}
+            data={products}
             fixedHeader
             responsive
             highlightOnHover
