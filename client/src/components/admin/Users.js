@@ -16,6 +16,11 @@ export default function Users() {
     setUsers(result.data);
   };
 
+  // users.map((user) => (
+  //    console.log(user.first_name)
+  // ))
+  
+
   const columns = [
     {
       name: "User ID",
