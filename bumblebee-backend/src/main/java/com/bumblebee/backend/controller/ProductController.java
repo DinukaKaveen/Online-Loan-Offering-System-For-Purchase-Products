@@ -1,7 +1,7 @@
 package com.bumblebee.backend.controller;
 
-import com.bumblebee.backend.model.User;
-import com.bumblebee.backend.repository.UserRepository;
+import com.bumblebee.backend.model.Product;
+import com.bumblebee.backend.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductController {
 
     @Autowired
-    private UserRepository userRepository;
+    private ProductRepository ProductRepository;
 
-    @PostMapping("admin/Products")
-    User newProduct(@RequestBody User newProduct){
-        return userRepository.save(newProduct);
+    @PostMapping("admin/NewProduct")
+    Product newProduct(@RequestBody Product newProduct){
+        return ProductRepository.save(newProduct);
     }
 }
