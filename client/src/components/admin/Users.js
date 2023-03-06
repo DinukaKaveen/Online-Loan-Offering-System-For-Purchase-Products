@@ -26,7 +26,6 @@ export default function Users() {
       name: "User ID",
       selector: (row) => row.id,
       sortable: true,
-      width: "110px",
     },
     {
       name: "Name",
