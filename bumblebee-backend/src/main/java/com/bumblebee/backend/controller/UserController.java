@@ -1,5 +1,6 @@
 package com.bumblebee.backend.controller;
 
+import com.bumblebee.backend.exception.UserNotFoundException;
 import com.bumblebee.backend.model.User;
 import com.bumblebee.backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,12 @@ public class UserController {
     @GetMapping("/admin/Users")
     List<User> getAllUsers(){
         return userRepository.findAll();
+    }
+
+    @GetMapping("/admin/User/{id}")
+    User getUserById(@PathVariable Integer id){
+        return userRepository.findById(id)
+                .orElseThrow(() -> new UserNotFoundException(id));
     }
 
 }

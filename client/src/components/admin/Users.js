@@ -3,9 +3,9 @@ import axios from "axios";
 import "../admin/Users.css";
 import DataTable from "react-data-table-component";
 
-
 export default function Users() {
   const [rowval, setRowval] = useState([]);
+
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -50,7 +50,7 @@ export default function Users() {
 
           <button
             type="button"
-            onClick={() => setRowval(row.nic)}
+            onClick={() => setRowval(row.first_name)}
             data-modal-target="defaultModal"
             data-modal-toggle="defaultModal"
             className="text-yellow-700 hover:text-white border border-yellow-700 hover:bg-yellow-800 font-medium rounded-lg px-2.5 py-1.5 text-sm text-center mr-2 mb-2 dark:border-yellow-500 dark:text-yellow-500 dark:hover:text-white dark:hover:bg-yellow-600"

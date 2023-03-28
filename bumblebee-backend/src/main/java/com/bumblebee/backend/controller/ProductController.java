@@ -15,7 +15,7 @@ public class ProductController {
     @Autowired
     private ProductRepository ProductRepository;
 
-    @PostMapping("admin/NewProduct")
+    @PostMapping("/admin/NewProduct")
     Product newProduct(@RequestBody Product newProduct){
         return ProductRepository.save(newProduct);
     }
