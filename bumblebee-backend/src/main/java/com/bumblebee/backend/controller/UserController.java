@@ -48,4 +48,13 @@ public class UserController {
                 }).orElseThrow(() -> new UserNotFoundException(id));
     }
 
+    @DeleteMapping("/admin/User/{id}")
+    String deleteUser(@PathVariable Integer id){
+        if (!userRepository.existsById(id)){
+            throw new UserNotFoundException(id);
+        }
+        userRepository.deleteById(id);
+        return "User with id "+id+" has been deleted successfully";
+    }
+
 }
