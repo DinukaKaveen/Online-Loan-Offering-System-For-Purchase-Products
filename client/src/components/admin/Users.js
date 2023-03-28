@@ -3,7 +3,9 @@ import axios from "axios";
 import "../admin/Users.css";
 import DataTable from "react-data-table-component";
 
+
 export default function Users() {
+  const [rowval, setRowval] = useState([]);
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -41,20 +43,21 @@ export default function Users() {
         <div>
           <button
             type="button"
-            onClick={() => alert(row.last_name)}
             className="text-green-700 hover:text-white border border-green-700 hover:bg-green-800 font-medium rounded-lg px-2.5 py-1.5 text-sm text-center mr-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600"
           >
             <i className="fa-solid fa-eye"></i>
           </button>
 
           <button
+            type="button"
+            onClick={() => setRowval(row.nic)}
             data-modal-target="defaultModal"
             data-modal-toggle="defaultModal"
-            type="button"
             className="text-yellow-700 hover:text-white border border-yellow-700 hover:bg-yellow-800 font-medium rounded-lg px-2.5 py-1.5 text-sm text-center mr-2 mb-2 dark:border-yellow-500 dark:text-yellow-500 dark:hover:text-white dark:hover:bg-yellow-600"
           >
             <i className="fa-solid fa-edit"></i>
           </button>
+
           <div
             id="defaultModal"
             tabIndex="-1"
@@ -65,7 +68,7 @@ export default function Users() {
               <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
                 <div className="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                    Terms of Service
+                    {rowval}
                   </h3>
                   <button
                     type="button"
@@ -90,7 +93,20 @@ export default function Users() {
                 </div>
 
                 <div className="p-6 space-y-6">
-                  {row.last_name}
+                  <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                    With less than a month to go before the European Union
+                    enacts new consumer privacy laws for its citizens, companies
+                    around the world are updating their terms of service
+                    agreements to comply.
+                  </p>
+                  <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                    The European Union’s General Data Protection Regulation
+                    (G.D.P.R.) goes into effect on May 25 and is meant to ensure
+                    a common set of data rights in the European Union. It
+                    requires organizations to notify users as soon as possible
+                    of high-risk data breaches that could personally affect
+                    them.
+                  </p>
                 </div>
 
                 <div className="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
