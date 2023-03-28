@@ -5,8 +5,7 @@ import DataTable from "react-data-table-component";
 import { useParams } from "react-router-dom";
 
 export default function Users() {
-  
-  const id = useParams();
+  const { id } = useParams();
   //const [rowval, setRowval] = useState([]);
 
   const [users, setUsers] = useState([]);
@@ -18,6 +17,11 @@ export default function Users() {
   const loadUsers = async () => {
     const result = await axios.get("http://localhost:8080/admin/Users");
     setUsers(result.data);
+  };
+
+  const deleteUser = async (id) => {
+    await axios.delete(`http://localhost:8080/admin/DeleteUser/${id}`);
+    loadUsers();
   };
 
   // users.map((user) => (
@@ -61,6 +65,7 @@ export default function Users() {
 
           <button
             type="button"
+            onClick={() => deleteUser(row.id)}
             className="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 font-medium rounded-lg px-2.5 py-1.5 text-sm text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600"
           >
             <i className="fa-solid fa-trash"></i>
