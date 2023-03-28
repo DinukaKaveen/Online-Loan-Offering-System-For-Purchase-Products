@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomeAdmin from "./components/admin/HomeAdmin";
 import NewProduct from "./components/admin/NewProduct";
+import EditUser from "./components/admin/EditUser";
 import Products from "./components/admin/Products";
 import UserPayments from "./components/admin/UserPayments";
 import UserPurchases from "./components/admin/UserPurchases";
@@ -28,9 +29,10 @@ export default function App() {
           <Route path="/ViewProduct" element={<ViewProduct />}></Route>
           <Route path="/admin" element={<HomeAdmin />}></Route>
           <Route path="/admin/Users" element={<Users />}></Route>
-          <Route path="/admin/Products" element={<Products />}></Route>
+          <Route path="/admin/EditUser/:id" element={<EditUser />}></Route>
           <Route path="/admin/UserPurchases" element={<UserPurchases />}></Route>
           <Route path="/admin/UserPayments" element={<UserPayments />}></Route>
+          <Route path="/admin/Products" element={<Products />}></Route>
           <Route path="/admin/NewProduct" element={<NewProduct />}></Route>
         </Routes>
       </div>
