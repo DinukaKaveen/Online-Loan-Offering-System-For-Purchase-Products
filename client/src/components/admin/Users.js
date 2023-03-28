@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 
 export default function Users() {
   
-  const {id} = useParams()
+  const {id} = useParams();
   //const [rowval, setRowval] = useState([]);
 
   const [users, setUsers] = useState([]);
