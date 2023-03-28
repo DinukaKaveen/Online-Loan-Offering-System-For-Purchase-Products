@@ -1,9 +1,11 @@
 import axios from "axios";
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import NavbarAdmin from "./NavbarAdmin";
 
 export default function RegisterCus() {
+  const { id } = useParams();
+
   const [user, setUser] = useState({
     first_name: "",
     last_name: "",
@@ -31,7 +33,16 @@ export default function RegisterCus() {
   };
   const onSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:8080/RegisterCustomer", user);
+    await axios.put(`http://localhost:8080/admin/EditUser/${id}`, user);
+  };
+
+  useEffect(() => {
+    loadUser();
+  }, []);
+
+  const loadUser = async () => {
+    const result = await axios.get(`http://localhost:8080/admin/User/${id}`);
+    setUser(result.data);
   };
 
   return (
@@ -264,6 +275,7 @@ export default function RegisterCus() {
                 id="confirm_password"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="•••••••••"
+                value={password}
                 required
               />
             </div>
