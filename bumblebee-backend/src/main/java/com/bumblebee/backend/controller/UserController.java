@@ -32,4 +32,20 @@ public class UserController {
                 .orElseThrow(() -> new UserNotFoundException(id));
     }
 
+    @PutMapping("/admin/EditUser/{id}")
+    User updateUser(@RequestBody User newUser, @PathVariable Integer id){
+        return userRepository.findById(id)
+                .map(user -> {
+                    user.setFirst_name(newUser.getFirst_name());
+                    user.setLast_name((newUser.getLast_name()));
+                    user.setDate_of_birth((newUser.getDate_of_birth()));
+                    user.setNic((newUser.getNic()));
+                    user.setAddress((newUser.getAddress()));
+                    user.setEmail((newUser.getEmail()));
+                    user.setMobile_no((newUser.getMobile_no()));
+
+                    return userRepository.save(user);
+                }).orElseThrow(() -> new UserNotFoundException(id));
+    }
+
 }
