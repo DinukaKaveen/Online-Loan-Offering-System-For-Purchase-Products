@@ -4,6 +4,7 @@ import HomeAdmin from "./components/admin/HomeAdmin";
 import NewProduct from "./components/admin/NewProduct";
 import EditUser from "./components/admin/EditUser";
 import Products from "./components/admin/Products";
+import EditProduct from "./components/admin/EditProduct";
 import UserPayments from "./components/admin/UserPayments";
 import UserPurchases from "./components/admin/UserPurchases";
 import Users from "./components/admin/Users";
@@ -34,6 +35,7 @@ export default function App() {
           <Route path="/admin/UserPayments" element={<UserPayments />}></Route>
           <Route path="/admin/Products" element={<Products />}></Route>
           <Route path="/admin/NewProduct" element={<NewProduct />}></Route>
+          <Route path="/admin/EditProduct/:id" element={<EditProduct />}></Route>
         </Routes>
       </div>
     </BrowserRouter>

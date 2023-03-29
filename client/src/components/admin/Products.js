@@ -100,12 +100,13 @@ export default function Products() {
             <div className="tooltip-arrow" data-popper-arrow></div>
           </div>
 
-          <button
+          <a
+            href={`/admin/EditProduct/${row.product_id}`}
             type="button"
             className="text-yellow-700 hover:text-white border border-yellow-700 hover:bg-yellow-800 font-medium rounded-lg px-2.5 py-1.5 text-sm text-center mr-2 mb-2 dark:border-yellow-500 dark:text-yellow-500 dark:hover:text-white dark:hover:bg-yellow-600"
           >
             <i className="fa-solid fa-edit"></i>
-          </button>
+          </a>
           <button
             type="button"
             className="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 font-medium rounded-lg px-2.5 py-1.5 text-sm text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600"
@@ -113,7 +114,7 @@ export default function Products() {
             <i className="fa-solid fa-trash"></i>
           </button>
         </div>
-      )
+      ),
     },
   ];
 
