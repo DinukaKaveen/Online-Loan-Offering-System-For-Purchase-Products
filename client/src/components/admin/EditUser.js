@@ -1,10 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import NavbarAdmin from "./NavbarAdmin";
 
 export default function RegisterCus() {
   const { id } = useParams();
+  let navigate = useNavigate();
 
   const [user, setUser] = useState({
     first_name: "",
@@ -34,6 +35,7 @@ export default function RegisterCus() {
   const onSubmit = async (e) => {
     e.preventDefault();
     await axios.put(`http://localhost:8080/admin/EditUser/${id}`, user);
+    navigate("/admin/Users");
   };
 
   useEffect(() => {
