@@ -2,14 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../admin/Users.css";
 import DataTable from "react-data-table-component";
-import { useParams } from "react-router-dom";
 
 export default function Users() {
-  const { id } = useParams();
-  //const [rowval, setRowval] = useState([]);
-
+  
   const [users, setUsers] = useState([]);
-
   const [user, setUser] = useState([]);
 
   useEffect(() => {

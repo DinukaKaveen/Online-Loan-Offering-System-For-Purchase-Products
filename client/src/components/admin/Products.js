@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
 
 export default function Products() {
+
+  const [product, setProduct] = useState([]);
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -12,6 +14,11 @@ export default function Products() {
   const loadProducts = async () => {
     const result = await axios.get("http://localhost:8080/admin/Products");
     setProducts(result.data);
+  };
+
+  const viewProduct = async (id) => {
+    const view = await axios.get(`http://localhost:8080/admin/Product/${id}`);
+    setProduct(view.data);
   };
 
   const columns = [
@@ -46,6 +53,7 @@ export default function Products() {
       selector: (row) => (
         <div>
           <button
+            onClick={() => viewProduct(row.product_id)}
             data-tooltip-target="tooltip-click"
             data-tooltip-trigger="click"
             data-tooltip-placement="left"
@@ -69,31 +77,31 @@ export default function Products() {
               <li>
                 <p>
                   <strong>Supplier ID: </strong>
-                  {row.supplier_id}
+                  {product.supplier_id}
                 </p>
               </li>
               <li>
                 <p>
                   <strong>Product ID: </strong>
-                  {row.product_id}
+                  {product.product_id}
                 </p>
               </li>
               <li>
                 <p>
                   <strong>Main Category: </strong>
-                  {row.main_category}
+                  {product.main_category}
                 </p>
               </li>
               <li>
                 <p>
                   <strong>Sub Category: </strong>
-                  {row.sub_category}
+                  {product.sub_category}
                 </p>
               </li>
               <li>
                 <p>
                   <strong>Warranty: </strong>
-                  {row.warranty}
+                  {product.warranty}
                 </p>
               </li>
             </ul>
