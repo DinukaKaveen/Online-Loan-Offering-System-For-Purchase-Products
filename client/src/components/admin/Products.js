@@ -21,11 +21,6 @@ export default function Products() {
       sortable: true,
     },
     {
-      name: "Image",
-      selector: (row) => row.image,
-      sortable: true,
-    },
-    {
       name: "Product Name",
       selector: (row) => row.product_name,
       sortable: true,
@@ -47,7 +42,7 @@ export default function Products() {
     },
     {
       name: "Action",
-      width: "210px",
+      width: "170px",
       selector: (row) => (
         <div>
           <button
