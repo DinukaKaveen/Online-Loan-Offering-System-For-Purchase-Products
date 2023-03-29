@@ -48,6 +48,7 @@ export default function Products() {
           <button
             data-tooltip-target="tooltip-click"
             data-tooltip-trigger="click"
+            data-tooltip-placement="left"
             className="text-green-700 hover:text-white border border-green-700 hover:bg-green-800 font-medium rounded-lg px-2.5 py-1.5 text-sm text-center mr-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600"
             type="button"
           >
