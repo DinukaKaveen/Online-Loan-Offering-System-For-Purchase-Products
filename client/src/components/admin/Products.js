@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
 
 export default function Products() {
-
   const [product, setProduct] = useState([]);
   const [products, setProducts] = useState([]);
 
@@ -19,6 +18,11 @@ export default function Products() {
   const viewProduct = async (id) => {
     const view = await axios.get(`http://localhost:8080/admin/Product/${id}`);
     setProduct(view.data);
+  };
+
+  const deleteProduct = async (id) => {
+    await axios.delete(`http://localhost:8080/admin/DeleteProduct/${id}`);
+    loadProducts();
   };
 
   const columns = [
@@ -117,6 +121,7 @@ export default function Products() {
           </a>
           <button
             type="button"
+            onClick={() => deleteProduct(row.product_id)}
             className="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 font-medium rounded-lg px-2.5 py-1.5 text-sm text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600"
           >
             <i className="fa-solid fa-trash"></i>

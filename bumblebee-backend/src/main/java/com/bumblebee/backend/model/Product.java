@@ -19,6 +19,15 @@ public class Product {
     private String warranty;
     private String supplier_id;
     private String status;
+    private Byte image;
+
+    public Byte getImage() {
+        return image;
+    }
+
+    public void setImage(Byte image) {
+        this.image = image;
+    }
 
     public Integer getProduct_id() {
         return product_id;

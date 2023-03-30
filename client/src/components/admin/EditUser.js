@@ -33,7 +33,15 @@ export default function RegisterCus() {
   };
   const onSubmit = async (e) => {
     e.preventDefault();
-    await axios.put(`http://localhost:8080/admin/EditUser/${id}`, user);
+    await axios
+      .put(`http://localhost:8080/admin/EditUser/${id}`, user)
+      .then(() => {
+        alert("success");
+      })
+      .catch((error) => {
+        console.error(error);
+        alert("fail");
+      });
   };
 
   useEffect(() => {
