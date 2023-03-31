@@ -3,6 +3,7 @@ package com.bumblebee.backend.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 public class Product {
@@ -19,15 +20,7 @@ public class Product {
     private String warranty;
     private String supplier_id;
     private String status;
-    private Byte image;
-
-    public Byte getImage() {
-        return image;
-    }
-
-    public void setImage(Byte image) {
-        this.image = image;
-    }
+    private MultipartFile image;
 
     public Integer getProduct_id() {
         return product_id;
@@ -107,5 +100,13 @@ public class Product {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public MultipartFile getImage() {
+        return image;
+    }
+
+    public void setImage(MultipartFile image) {
+        this.image = image;
     }
 }

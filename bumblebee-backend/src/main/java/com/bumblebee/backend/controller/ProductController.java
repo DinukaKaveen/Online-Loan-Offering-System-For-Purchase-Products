@@ -2,10 +2,12 @@ package com.bumblebee.backend.controller;
 
 import com.bumblebee.backend.exception.UserNotFoundException;
 import com.bumblebee.backend.model.Product;
-import com.bumblebee.backend.model.User;
 import com.bumblebee.backend.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -17,8 +19,31 @@ public class ProductController {
     private ProductRepository ProductRepository;
 
     @PostMapping("/admin/NewProduct")
-    Product newProduct(@RequestBody Product newProduct) {
-        return ProductRepository.save(newProduct);
+    public ResponseEntity<String> uploadData(@RequestParam("product_code") String product_code,
+                                             @RequestParam("product_name") String product_name,
+                                             @RequestParam("price") String price,
+                                             @RequestParam("qty") Integer qty,
+                                             @RequestParam("main_category") String main_category,
+                                             @RequestParam("sub_category") String sub_category,
+                                             @RequestParam("warranty") String warranty,
+                                             @RequestParam("supplier_id") String supplier_id,
+                                             @RequestParam("status") String status,
+                                             @RequestParam("image") MultipartFile image){
+
+        Product upload = new Product();
+        upload.setProduct_code(product_code);
+        upload.setProduct_name(product_name);
+        upload.setPrice(price);
+        upload.setQty(qty);
+        upload.setMain_category(main_category);
+        upload.setSub_category(sub_category);
+        upload.setWarranty(warranty);
+        upload.setSupplier_id(supplier_id);
+        upload.setStatus(status);
+        upload.setImage(image);
+
+        ProductRepository.save(upload);
+        return new ResponseEntity<>("success", HttpStatus.OK);
     }
 
     @GetMapping("/admin/Products")

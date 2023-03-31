@@ -12,26 +12,37 @@ export default function NewProduct() {
     warranty: "",
     supplier_id: "",
     status: "",
+    image: null,
   });
-
-  const {
-    product_code,
-    product_name,
-    price,
-    qty,
-    main_category,
-    sub_category,
-    warranty,
-    supplier_id,
-    status,
-  } = product;
 
   const onInputChange = (e) => {
     setproduct({ ...product, [e.target.name]: e.target.value });
   };
+  const onImageChange = (e) => {
+    setproduct({ ...product, image: e.target.files[0] });
+  };
   const onSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:8080/admin/NewProduct", product);
+    const formData = new FormData();
+    formData.append("product_code", product.product_code);
+    formData.append("product_name", product.product_name);
+    formData.append("price", product.price);
+    formData.append("qty", product.qty);
+    formData.append("main_category", product.main_category);
+    formData.append("sub_category", product.sub_category);
+    formData.append("warranty", product.warranty);
+    formData.append("supplier_id", product.supplier_id);
+    formData.append("status", product.status);
+    formData.append("image", product.image);
+
+    await axios
+      .post("http://localhost:8080/admin/NewProduct", formData)
+      .then(() => {
+        alert("success");
+      })
+      .catch((error) => {
+        alert(error);
+      });
   };
 
   return (
@@ -119,7 +130,7 @@ export default function NewProduct() {
                   id="product_code"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   name="product_code"
-                  value={product_code}
+                  value={product.product_code}
                   onChange={(e) => onInputChange(e)}
                   required
                 />
@@ -136,7 +147,7 @@ export default function NewProduct() {
                   id="product_name"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   name="product_name"
-                  value={product_name}
+                  value={product.product_name}
                   onChange={(e) => onInputChange(e)}
                   required
                 />
@@ -144,7 +155,7 @@ export default function NewProduct() {
               <div>
                 <label
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray"
-                  for="file_input"
+                  htmlFor="file_input"
                 >
                   Upload Product Image
                 </label>
@@ -153,9 +164,12 @@ export default function NewProduct() {
                   aria-describedby="file_input_help"
                   id="file_input"
                   type="file"
+                  name="image"
+                  value={product.image}
+                  onChange={(e) => onImageChange(e)}
                 />
                 <p
-                  class="mt-1 text-sm text-gray-500 dark:text-gray-600"
+                  className="mt-1 text-sm text-gray-500 dark:text-gray-600"
                   id="file_input_help"
                 >
                   SVG, PNG, JPG or GIF (MAX. 800x400px).
@@ -173,7 +187,7 @@ export default function NewProduct() {
                   id="price"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   name="price"
-                  value={price}
+                  value={product.price}
                   onChange={(e) => onInputChange(e)}
                   required
                 />
@@ -190,7 +204,7 @@ export default function NewProduct() {
                   id="qty"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   name="qty"
-                  value={qty}
+                  value={product.qty}
                   onChange={(e) => onInputChange(e)}
                   required
                 />
@@ -205,7 +219,7 @@ export default function NewProduct() {
                 <select
                   id="main_category"
                   name="main_category"
-                  value={main_category}
+                  value={product.main_category}
                   onChange={(e) => onInputChange(e)}
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 >
@@ -226,7 +240,7 @@ export default function NewProduct() {
                 <select
                   id="sub_category"
                   name="sub_category"
-                  value={sub_category}
+                  value={product.sub_category}
                   onChange={(e) => onInputChange(e)}
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 >
@@ -249,7 +263,7 @@ export default function NewProduct() {
                   id="warranty"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   name="warranty"
-                  value={warranty}
+                  value={product.warranty}
                   onChange={(e) => onInputChange(e)}
                   required
                 />
@@ -266,7 +280,7 @@ export default function NewProduct() {
                   id="supplier_id"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   name="supplier_id"
-                  value={supplier_id}
+                  value={product.supplier_id}
                   onChange={(e) => onInputChange(e)}
                   required
                 />
@@ -281,7 +295,7 @@ export default function NewProduct() {
                 <select
                   id="status"
                   name="status"
-                  value={status}
+                  value={product.status}
                   onChange={(e) => onInputChange(e)}
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 >
