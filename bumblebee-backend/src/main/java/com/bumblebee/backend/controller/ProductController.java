@@ -45,7 +45,7 @@ public class ProductController {
         upload.setImage(image.getBytes());
 
         ProductRepository.save(upload);
-        return new ResponseEntity<>("success", HttpStatus.OK);
+        return new ResponseEntity<>("Image uploaded successfully", HttpStatus.OK);
     }
 
     @GetMapping("/admin/Products")
