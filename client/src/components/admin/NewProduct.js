@@ -165,7 +165,7 @@ export default function NewProduct() {
                   id="file_input"
                   type="file"
                   name="image"
-                  value={product.image}
+                  accept="image/*"
                   onChange={(e) => onImageChange(e)}
                 />
                 <p

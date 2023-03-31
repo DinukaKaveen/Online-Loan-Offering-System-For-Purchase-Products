@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -28,9 +29,10 @@ public class ProductController {
                                              @RequestParam("warranty") String warranty,
                                              @RequestParam("supplier_id") String supplier_id,
                                              @RequestParam("status") String status,
-                                             @RequestParam("image") MultipartFile image){
+                                             @RequestParam("image") MultipartFile image) throws IOException {
 
         Product upload = new Product();
+
         upload.setProduct_code(product_code);
         upload.setProduct_name(product_name);
         upload.setPrice(price);
@@ -40,7 +42,7 @@ public class ProductController {
         upload.setWarranty(warranty);
         upload.setSupplier_id(supplier_id);
         upload.setStatus(status);
-        upload.setImage(image);
+        upload.setImage(image.getBytes());
 
         ProductRepository.save(upload);
         return new ResponseEntity<>("success", HttpStatus.OK);
