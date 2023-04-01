@@ -21,6 +21,7 @@ public class Product {
     private String warranty;
     private String supplier_id;
     private String status;
+    @Lob
     private byte[] image;
 
     public Integer getProduct_id() {
