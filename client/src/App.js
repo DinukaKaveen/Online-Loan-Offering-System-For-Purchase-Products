@@ -24,7 +24,7 @@ export default function App() {
         <Routes>
           <Route path="/" exact element={<HomeCus />}></Route>
           <Route path="/RegisterCustomer" element={<RegisterCus />}></Route>
-          <Route path="/LoginCustomer" element={<LoginCus />}></Route>
+          <Route path="/Login" element={<LoginCus />}></Route>
           <Route path="/Purchases" element={<Purchases />}></Route>
           <Route path="/Payments" element={<Payments />}></Route>
           <Route path="/ViewProduct" element={<ViewProduct />}></Route>
