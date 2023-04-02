@@ -31,6 +31,7 @@ export default function RegisterCus() {
   const onInputChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
+  
   const onSubmit = async (e) => {
     e.preventDefault();
     await axios
