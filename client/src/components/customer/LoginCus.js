@@ -15,7 +15,7 @@ export default function LoginCus() {
         password,
       });
       sessionStorage.setItem("user_id", response.data);
-      window.location.href = "/";
+      window.location.href = "/Home";
     } catch (error) {
       setErrorMessage(error.response.data);
     }

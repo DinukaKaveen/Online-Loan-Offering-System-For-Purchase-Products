@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomeAdmin from "./components/admin/HomeAdmin";
+import HomeCus from "./components/customer/HomeCus";
 import NewProduct from "./components/admin/NewProduct";
 import EditUser from "./components/admin/EditUser";
 import Products from "./components/admin/Products";
@@ -8,7 +9,6 @@ import EditProduct from "./components/admin/EditProduct";
 import UserPayments from "./components/admin/UserPayments";
 import UserPurchases from "./components/admin/UserPurchases";
 import Users from "./components/admin/Users";
-import HomeCus from "./components/customer/HomeCus";
 import LoginCus from "./components/customer/LoginCus";
 import Payments from "./components/customer/payments/Payments";
 import Purchases from "./components/customer/purchases/Purchases";
@@ -22,9 +22,9 @@ export default function App() {
       <div>
         <NavBar />
         <Routes>
-          <Route path="/" exact element={<HomeCus />}></Route>
+          <Route path="/" exact element={<LoginCus />}></Route>
+          <Route path="/Home" exact element={<HomeCus />}></Route>
           <Route path="/RegisterCustomer" element={<RegisterCus />}></Route>
-          <Route path="/Login" element={<LoginCus />}></Route>
           <Route path="/Purchases" element={<Purchases />}></Route>
           <Route path="/Payments" element={<Payments />}></Route>
           <Route path="/ViewProduct" element={<ViewProduct />}></Route>
