@@ -1,14 +1,12 @@
-package com.bumblebee.backend.model;
+package com.dinukakaveen.bumblebeebackend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.sql.Date;
 
 @Entity
 public class User {
-
     @Id
     @GeneratedValue
     private Integer user_id;
@@ -19,14 +17,34 @@ public class User {
     private String mobile_no;
     private String email;
     private String address;
+    private String user_role;
+    private String username;
     private String password;
     private String payment_status;
 
-    public Integer getId() {
+    @Override
+    public String toString() {
+        return "User{" +
+                "user_id=" + user_id +
+                ", first_name='" + first_name + '\'' +
+                ", last_name='" + last_name + '\'' +
+                ", date_of_birth=" + date_of_birth +
+                ", nic='" + nic + '\'' +
+                ", mobile_no='" + mobile_no + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", user_role='" + user_role + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", payment_status='" + payment_status + '\'' +
+                '}';
+    }
+
+    public Integer getUser_id() {
         return user_id;
     }
 
-    public void setId(Integer user_id) {
+    public void setUser_id(Integer user_id) {
         this.user_id = user_id;
     }
 
@@ -84,6 +102,22 @@ public class User {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getUser_role() {
+        return user_role;
+    }
+
+    public void setUser_role(String user_role) {
+        this.user_role = user_role;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {

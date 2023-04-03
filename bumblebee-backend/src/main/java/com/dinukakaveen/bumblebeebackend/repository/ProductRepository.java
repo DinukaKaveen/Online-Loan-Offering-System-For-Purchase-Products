@@ -1,6 +1,6 @@
-package com.bumblebee.backend.repository;
+package com.dinukakaveen.bumblebeebackend.repository;
 
-import com.bumblebee.backend.model.Product;
+import com.dinukakaveen.bumblebeebackend.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ProductRepository extends JpaRepository<Product,Integer> {

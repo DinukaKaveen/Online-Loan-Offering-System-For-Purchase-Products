@@ -1,4 +1,4 @@
-package com.bumblebee.backend.exception;
+package com.dinukakaveen.bumblebeebackend.exception;
 
 public class UserNotFoundException extends RuntimeException{
 

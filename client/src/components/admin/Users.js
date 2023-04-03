@@ -34,7 +34,7 @@ export default function Users() {
   const columns = [
     {
       name: "User ID",
-      selector: (row) => row.id,
+      selector: (row) => row.user_id,
       sortable: true,
     },
     {
@@ -53,7 +53,7 @@ export default function Users() {
         <div>
           <button
             type="button"
-            onClick={() => viewUser(row.id)}
+            onClick={() => viewUser(row.user_id)}
             data-modal-target="defaultModal"
             data-modal-toggle="defaultModal"
             className="text-green-700 hover:text-white border border-green-700 hover:bg-green-800 font-medium rounded-lg px-2.5 py-1.5 text-sm text-center mr-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600"
@@ -218,7 +218,7 @@ export default function Users() {
           </div>
 
           <a
-            href={`/admin/EditUser/${row.id}`}
+            href={`/admin/EditUser/${row.user_id}`}
             type="button"
             className="text-yellow-700 hover:text-white border border-yellow-700 hover:bg-yellow-800 font-medium rounded-lg px-2.5 py-1.5 text-sm text-center mr-2 mb-2 dark:border-yellow-500 dark:text-yellow-500 dark:hover:text-white dark:hover:bg-yellow-600"
           >
@@ -227,7 +227,7 @@ export default function Users() {
 
           <button
             type="button"
-            onClick={() => deleteUser(row.id)}
+            onClick={() => deleteUser(row.user_id)}
             className="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 font-medium rounded-lg px-2.5 py-1.5 text-sm text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600"
           >
             <i className="fa-solid fa-trash"></i>

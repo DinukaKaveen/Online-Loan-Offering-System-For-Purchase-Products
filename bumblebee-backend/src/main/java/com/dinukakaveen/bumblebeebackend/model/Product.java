@@ -1,13 +1,13 @@
-package com.bumblebee.backend.model;
+package com.dinukakaveen.bumblebeebackend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
-import org.springframework.web.multipart.MultipartFile;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Lob;
 
 @Entity
 public class Product {
+
 
     @Id
     @GeneratedValue
@@ -111,4 +111,5 @@ public class Product {
     public void setImage(byte[] image) {
         this.image = image;
     }
+
 }

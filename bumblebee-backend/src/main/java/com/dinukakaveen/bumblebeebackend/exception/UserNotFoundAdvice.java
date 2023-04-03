@@ -1,4 +1,4 @@
-package com.bumblebee.backend.exception;
+package com.dinukakaveen.bumblebeebackend.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -21,5 +21,4 @@ public class UserNotFoundAdvice {
         errorMap.put("errorMessage", exception.getMessage());
         return errorMap;
     }
-
 }
