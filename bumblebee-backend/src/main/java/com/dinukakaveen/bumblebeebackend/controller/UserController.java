@@ -4,6 +4,8 @@ import com.dinukakaveen.bumblebeebackend.exception.UserNotFoundException;
 import com.dinukakaveen.bumblebeebackend.model.User;
 import com.dinukakaveen.bumblebeebackend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,6 +16,23 @@ public class UserController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @PostMapping("/Login")
+    public ResponseEntity<?> login(@RequestBody User loginRequest){
+        String username = loginRequest.getUsername();
+        String password = loginRequest.getPassword();
+
+        User user = userRepository.findByUsername(username);
+
+        if (user == null){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid username or password");
+        }
+        if (!password.equals(user.getPassword())){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid username or password");
+        }
+        return ResponseEntity.ok(user.getUser_id());
+    }
+
 
     @PostMapping("/RegisterCustomer")
     User newUser(@RequestBody User newUser){
