@@ -16,7 +16,6 @@ import java.util.List;
 @CrossOrigin("http://localhost:3000")
 public class ProductController {
 
-
     @Autowired
     private ProductRepository ProductRepository;
 

@@ -1,5 +1,6 @@
 package com.dinukakaveen.bumblebeebackend.controller;
 
+import com.dinukakaveen.bumblebeebackend.exception.UserNotFoundException;
 import com.dinukakaveen.bumblebeebackend.model.Purchase;
 import com.dinukakaveen.bumblebeebackend.repository.PurchaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,5 +19,11 @@ public class PurchaseController {
     public List<Purchase> getPurchaseByStatus(@PathVariable Integer userId,
                                               @PathVariable String status){
         return purchaseRepository.findByUserIdAndStatus(userId, status);
+    }
+
+    @GetMapping("/Purchase/{id}")
+    Purchase getPurchaseById(@PathVariable Integer id){
+        return purchaseRepository.findById(id)
+                .orElseThrow(() -> new UserNotFoundException(id));
     }
 }
