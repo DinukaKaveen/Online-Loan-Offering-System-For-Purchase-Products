@@ -3,10 +3,7 @@ package com.dinukakaveen.bumblebeebackend.controller;
 import com.dinukakaveen.bumblebeebackend.model.Purchase;
 import com.dinukakaveen.bumblebeebackend.repository.PurchaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,8 +14,9 @@ public class PurchaseController {
     @Autowired
     private PurchaseRepository purchaseRepository;
 
-    @GetMapping("/Purchase/{status}")
-    public List<Purchase> getPurchaseByStatus(@PathVariable String status){
-        return purchaseRepository.findByStatus(status);
+    @GetMapping("/Purchase/{userId}/{status}")
+    public List<Purchase> getPurchaseByStatus(@PathVariable Integer userId,
+                                              @PathVariable String status){
+        return purchaseRepository.findByUserIdAndStatus(userId, status);
     }
 }

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
 
 export default function PendingPur() {
+  const logging_id = sessionStorage.getItem("user_id");
   const [PendingProducts, setPendingProducts] = useState([]);
 
   useEffect(() => {
@@ -10,7 +11,7 @@ export default function PendingPur() {
   }, []);
 
   const loadPendingProducts = async () => {
-    const result = await axios.get("http://localhost:8080/Purchase/Pending");
+    const result = await axios.get(`http://localhost:8080/Purchase/${logging_id}/Pending`);
     setPendingProducts(result.data);
   };
 

@@ -12,7 +12,7 @@ public class Purchase {
     @GeneratedValue
     private Integer purchase_id;
     private Integer product_id;
-    private Integer user_id;
+    private Integer userId;
     private Integer qty;
     private BigDecimal purchase_amount;
     private BigDecimal paid_amount;
@@ -36,12 +36,12 @@ public class Purchase {
         this.product_id = product_id;
     }
 
-    public Integer getUser_id() {
-        return user_id;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public Integer getQty() {

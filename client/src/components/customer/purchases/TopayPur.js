@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
 
 export default function TopayPur() {
+  const logging_id = sessionStorage.getItem("user_id");
   const [product, setProduct] = useState([]);
   const [UnpaidProducts, setUnpaidProducts] = useState([]);
 
@@ -11,7 +12,7 @@ export default function TopayPur() {
   }, []);
 
   const loadUnpaidProducts = async () => {
-    const result = await axios.get("http://localhost:8080/Purchase/Unpaid");
+    const result = await axios.get(`http://localhost:8080/Purchase/${logging_id}/Unpaid`);
     setUnpaidProducts(result.data);
   };
 
