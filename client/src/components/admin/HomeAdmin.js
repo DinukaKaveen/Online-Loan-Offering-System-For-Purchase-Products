@@ -52,19 +52,6 @@ export default function HomeAdmin() {
               <li className="mr-2" role="presentation">
                 <button
                   className="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
-                  id="orders-tab"
-                  data-tabs-target="#orders"
-                  type="button"
-                  role="tab"
-                  aria-controls="orders"
-                  aria-selected="false"
-                >
-                  Orders
-                </button>
-              </li>
-              <li className="mr-2" role="presentation">
-                <button
-                  className="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
                   id="purchases-tab"
                   data-tabs-target="#purchases"
                   type="button"
@@ -86,14 +73,6 @@ export default function HomeAdmin() {
               aria-labelledby="transactions-tab"
             >
               <Transactions />
-            </div>
-            <div
-              className="hidden p-4 rounded-lg"
-              id="orders"
-              role="tabpanel"
-              aria-labelledby="orders-tab"
-            >
-              <Orders />
             </div>
             <div
               className="hidden p-4 rounded-lg"
