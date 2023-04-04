@@ -4,7 +4,6 @@ import DataTable from "react-data-table-component";
 
 export default function TopayPur() {
   const logging_id = sessionStorage.getItem("user_id");
-  const [product, setProduct] = useState([]);
   const [UnpaidProducts, setUnpaidProducts] = useState([]);
 
   useEffect(() => {
