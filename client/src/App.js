@@ -15,6 +15,7 @@ import Purchases from "./components/customer/purchases/Purchases";
 import ViewProduct from "./components/customer/purchases/ViewProduct";
 import RegisterCus from "./components/customer/RegisterCus";
 import NavBar from "./components/NavBar";
+import TopayPur from "./components/customer/purchases/TopayPur";
 
 export default function App() {
   return (
@@ -36,6 +37,8 @@ export default function App() {
           <Route path="/admin/Products" element={<Products />}></Route>
           <Route path="/admin/NewProduct" element={<NewProduct />}></Route>
           <Route path="/admin/EditProduct/:id" element={<EditProduct />}></Route>
+
+          <Route path="/ToPay" element={<TopayPur />}></Route>
         </Routes>
       </div>
     </BrowserRouter>
