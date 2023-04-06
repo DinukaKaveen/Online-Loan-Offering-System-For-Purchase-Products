@@ -12,6 +12,7 @@ public class Purchase {
     @GeneratedValue
     private Integer purchase_id;
     private Integer product_id;
+    private String product_name;
     private Integer userId;
     private Integer qty;
     private BigDecimal purchase_amount;
