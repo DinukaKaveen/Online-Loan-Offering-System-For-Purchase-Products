@@ -7,30 +7,25 @@ export default function Pay() {
   const [Purchase, setPurchase] = useState({
     purchase_id: "",
     product_id: "",
-    user_id: "",
     product_name: "",
+    userId: "",
     paid_amount: "",
     pending_amount: "",
+    status: ""
   });
-
-  const {
-    purchase_id,
-    product_id,
-    user_id,
-    product_name,
-    paid_amount,
-    pending_amount,
-  } = Purchase;
-
-  const purid = purchase_id;
 
   const [Payment, setPayment] = useState({
-    amount: "",
+    payment_amount: "",
     installment_state: "",
-    remarks: "",
+    remarks: ""
   });
 
-  const { amount, installment_state, remarks } = Payment;
+  const paidAmount = Purchase.paid_amount + Payment.payment_amount;
+  const pendingAmount = Purchase.pending_amount - Payment.payment_amount;
+
+  console.log(paidAmount);
+  console.log(pendingAmount);
+  
 
   useEffect(() => {
     loadPurchase();
@@ -47,6 +42,21 @@ export default function Pay() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+
+    const formDataPayment = new FormData();
+    const formDataPurchase = new FormData();
+
+    formDataPayment.append("payment_amount", Payment.payment_amount);
+    formDataPayment.append("installment_state", Payment.installment_state);
+    formDataPayment.append("remarks", Payment.remarks);
+    formDataPayment.append("product_id", Purchase.product_id);
+    formDataPayment.append("purchase_id", Purchase.purchase_id);
+    formDataPayment.append("user_id", Purchase.userId);
+
+    formDataPurchase.append("installment_state", Payment.installment_state);
+    //formDataPurchase.append("paid_amount", paidAmount);
+    //formDataPurchase.append("pending_amount", pendingAmount);
+    //formDataPurchase.append("status", PayPurchase.status);
   };
 
   return (
@@ -81,7 +91,7 @@ export default function Pay() {
         <div>
           <div className="relative z-0 w-full mb-6 group">
             <input
-              value={paid_amount}
+              value={Purchase.paid_amount}
               className="block py-2.5 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-900 dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               disabled
             />
@@ -94,7 +104,7 @@ export default function Pay() {
         <div>
           <div className="relative z-0 w-full mb-6 group">
             <input
-              value={pending_amount}
+              value={Purchase.pending_amount}
               className="block py-2.5 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-900 dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               disabled
             />
@@ -133,7 +143,7 @@ export default function Pay() {
                 id="purchase_id"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-100 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder=""
-                value={purchase_id}
+                value={Purchase.purchase_id}
                 disabled
               />
             </div>
@@ -150,7 +160,8 @@ export default function Pay() {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-100 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder=""
                 required
-                value
+                name="payment_amount"
+                value={Payment.payment_amount}
                 onChange={(e) => onInputChange(e)}
               />
             </div>
@@ -169,7 +180,7 @@ export default function Pay() {
                 id="product_name"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-100 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder=""
-                value={product_id}
+                value={Purchase.product_id}
                 disabled
               />
             </div>
@@ -184,7 +195,8 @@ export default function Pay() {
                 id="installment"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-100 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 required
-                value
+                name="installment_state"
+                value={Payment.installment_state}
                 onChange={(e) => onInputChange(e)}
               >
                 <option selected>Select Installment State</option>
@@ -198,18 +210,19 @@ export default function Pay() {
         </div>
         <div className="mb-6">
           <label
-            htmlFor="amount"
+            htmlFor="remarks"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-700"
           >
             Remarks
           </label>
           <textarea
-            id="message"
+            id="remarks"
             rows="8"
             className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-100 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Write your thoughts here..."
             required
-            value
+            name="remarks"
+            value={Payment.remarks}
             onChange={(e) => onInputChange(e)}
           ></textarea>
         </div>

@@ -13,9 +13,10 @@ public class Payment {
     private Integer payment_id;
     private Integer purchase_id;
     private Integer product_id;
+    private String product_name;
     private Integer user_id;
     private BigDecimal payment_amount;
-    private String payment_state;
+    private String installment_state;
     private String remarks;
 
     public Integer getPayment_id() {
@@ -42,6 +43,14 @@ public class Payment {
         this.product_id = product_id;
     }
 
+    public String getProduct_name() {
+        return product_name;
+    }
+
+    public void setProduct_name(String product_name) {
+        this.product_name = product_name;
+    }
+
     public Integer getUser_id() {
         return user_id;
     }
@@ -58,12 +67,12 @@ public class Payment {
         this.payment_amount = payment_amount;
     }
 
-    public String getPayment_state() {
-        return payment_state;
+    public String getInstallment_state() {
+        return installment_state;
     }
 
-    public void setPayment_state(String payment_state) {
-        this.payment_state = payment_state;
+    public void setInstallment_state(String installment_state) {
+        this.installment_state = installment_state;
     }
 
     public String getRemarks() {
