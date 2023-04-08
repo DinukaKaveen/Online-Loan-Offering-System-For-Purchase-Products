@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 
 export default function Pay() {
   const { id } = useParams();
+
   const [Purchase, setPurchase] = useState({
     purchase_id: "",
     product_id: "",
@@ -12,30 +13,29 @@ export default function Pay() {
     purchase_amount: "",
     paid_amount: "",
     pending_amount: "",
-    status: ""
+    status: "",
   });
 
   const [Payment, setPayment] = useState({
     payment_amount: "",
     installment_state: "",
-    remarks: ""
+    remarks: "",
   });
 
   const paidAmount = Purchase.paid_amount + Payment.payment_amount;
   const pendingAmount = Purchase.pending_amount - Payment.payment_amount;
   let purStatus = "";
 
-  if(paidAmount < Purchase.purchase_amount){
+  if (paidAmount < Purchase.purchase_amount) {
     purStatus = "Pending";
   }
-  if(paidAmount == Purchase.purchase_amount){
+  if (paidAmount == Purchase.purchase_amount) {
     purStatus = "Complete";
   }
 
   //console.log(paidAmount);
   //console.log(pendingAmount);
   //console.log(purStatus);
-  
 
   useEffect(() => {
     loadPurchase();
@@ -69,8 +69,10 @@ export default function Pay() {
     formDataPurchase.append("pending_amount", pendingAmount);
     formDataPurchase.append("status", purStatus);
 
+    
+
     await axios
-      .post("http://localhost:8080/NewPayment", formDataPayment)
+      .put(`http://localhost:8080/UpdatePurchase/${id}`, formDataPurchase)
       .then(() => {
         alert("success");
       })

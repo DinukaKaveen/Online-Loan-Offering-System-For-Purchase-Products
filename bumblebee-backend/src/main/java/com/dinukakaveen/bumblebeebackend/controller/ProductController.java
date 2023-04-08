@@ -72,6 +72,7 @@ public class ProductController {
                     product.setWarranty(newProduct.getWarranty());
                     product.setSupplier_id(newProduct.getSupplier_id());
                     product.setStatus(newProduct.getStatus());
+                    product.setImage(newProduct.getImage());
 
                     return ProductRepository.save(product);
                 }).orElseThrow(() -> new UserNotFoundException(id));
