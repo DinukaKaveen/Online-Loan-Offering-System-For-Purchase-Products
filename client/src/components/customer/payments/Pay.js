@@ -68,6 +68,15 @@ export default function Pay() {
     formDataPurchase.append("paid_amount", paidAmount);
     formDataPurchase.append("pending_amount", pendingAmount);
     formDataPurchase.append("status", purStatus);
+
+    await axios
+      .post("http://localhost:8080/NewPayment", formDataPayment)
+      .then(() => {
+        alert("success");
+      })
+      .catch((error) => {
+        alert(error);
+      });
   };
 
   return (
