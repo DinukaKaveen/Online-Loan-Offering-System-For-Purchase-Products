@@ -9,6 +9,7 @@ export default function Pay() {
     product_id: "",
     product_name: "",
     userId: "",
+    purchase_amount: "",
     paid_amount: "",
     pending_amount: "",
     status: ""
@@ -22,9 +23,18 @@ export default function Pay() {
 
   const paidAmount = Purchase.paid_amount + Payment.payment_amount;
   const pendingAmount = Purchase.pending_amount - Payment.payment_amount;
+  let purStatus = "";
 
-  console.log(paidAmount);
-  console.log(pendingAmount);
+  if(paidAmount < Purchase.purchase_amount){
+    purStatus = "Pending";
+  }
+  if(paidAmount == Purchase.purchase_amount){
+    purStatus = "Complete";
+  }
+
+  //console.log(paidAmount);
+  //console.log(pendingAmount);
+  //console.log(purStatus);
   
 
   useEffect(() => {
@@ -50,13 +60,14 @@ export default function Pay() {
     formDataPayment.append("installment_state", Payment.installment_state);
     formDataPayment.append("remarks", Payment.remarks);
     formDataPayment.append("product_id", Purchase.product_id);
+    formDataPayment.append("product_name", Purchase.product_name);
     formDataPayment.append("purchase_id", Purchase.purchase_id);
     formDataPayment.append("user_id", Purchase.userId);
 
     formDataPurchase.append("installment_state", Payment.installment_state);
-    //formDataPurchase.append("paid_amount", paidAmount);
-    //formDataPurchase.append("pending_amount", pendingAmount);
-    //formDataPurchase.append("status", PayPurchase.status);
+    formDataPurchase.append("paid_amount", paidAmount);
+    formDataPurchase.append("pending_amount", pendingAmount);
+    formDataPurchase.append("status", purStatus);
   };
 
   return (
