@@ -27,7 +27,7 @@ public class PurchaseController {
                 .orElseThrow(() -> new UserNotFoundException(id));
     }
 
-    @GetMapping("/UpdatePurchase/{id}")
+    @PostMapping("/UpdatePurchase/{id}")
     Purchase updatePurchase(@RequestBody Purchase updatePurchase, @PathVariable Integer id){
         return purchaseRepository.findById(id)
                 .map(purchase -> {
