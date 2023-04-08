@@ -26,4 +26,17 @@ public class PurchaseController {
         return purchaseRepository.findById(id)
                 .orElseThrow(() -> new UserNotFoundException(id));
     }
+
+    @GetMapping("/UpdatePurchase/{id}")
+    Purchase updatePurchase(@RequestBody Purchase updatePurchase, @PathVariable Integer id){
+        return purchaseRepository.findById(id)
+                .map(purchase -> {
+                    purchase.setPaid_amount(updatePurchase.getPaid_amount());
+                    purchase.setPending_amount((updatePurchase.getPending_amount()));
+                    purchase.setInstallment_state(updatePurchase.getInstallment_state());
+                    purchase.setStatus(updatePurchase.getStatus());
+
+                    return purchaseRepository.save(purchase);
+                }).orElseThrow(() -> new UserNotFoundException(id));
+    }
 }
