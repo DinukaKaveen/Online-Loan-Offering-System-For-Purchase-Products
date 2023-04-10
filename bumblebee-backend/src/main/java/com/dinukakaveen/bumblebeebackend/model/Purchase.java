@@ -15,9 +15,9 @@ public class Purchase {
     private String product_name;
     private Integer userId;
     private Integer qty;
-    private BigDecimal purchase_amount;
-    private BigDecimal paid_amount;
-    private BigDecimal pending_amount;
+    private Integer purchase_amount;
+    private Integer paid_amount;
+    private Integer pending_amount;
     private String status;
     private String installment_state;
 
@@ -37,6 +37,14 @@ public class Purchase {
         this.product_id = product_id;
     }
 
+    public String getProduct_name() {
+        return product_name;
+    }
+
+    public void setProduct_name(String product_name) {
+        this.product_name = product_name;
+    }
+
     public Integer getUserId() {
         return userId;
     }
@@ -53,27 +61,27 @@ public class Purchase {
         this.qty = qty;
     }
 
-    public BigDecimal getPurchase_amount() {
+    public Integer getPurchase_amount() {
         return purchase_amount;
     }
 
-    public void setPurchase_amount(BigDecimal purchase_amount) {
+    public void setPurchase_amount(Integer purchase_amount) {
         this.purchase_amount = purchase_amount;
     }
 
-    public BigDecimal getPaid_amount() {
+    public Integer getPaid_amount() {
         return paid_amount;
     }
 
-    public void setPaid_amount(BigDecimal paid_amount) {
+    public void setPaid_amount(Integer paid_amount) {
         this.paid_amount = paid_amount;
     }
 
-    public BigDecimal getPending_amount() {
+    public Integer getPending_amount() {
         return pending_amount;
     }
 
-    public void setPending_amount(BigDecimal pending_amount) {
+    public void setPending_amount(Integer pending_amount) {
         this.pending_amount = pending_amount;
     }
 

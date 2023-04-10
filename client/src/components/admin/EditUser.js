@@ -31,9 +31,10 @@ export default function RegisterCus() {
   const onInputChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
-  
+
   const onSubmit = async (e) => {
     e.preventDefault();
+
     await axios
       .put(`http://localhost:8080/admin/EditUser/${id}`, user)
       .then(() => {
@@ -41,7 +42,7 @@ export default function RegisterCus() {
       })
       .catch((error) => {
         console.error(error);
-        alert("fail");
+        alert(error);
       });
   };
 

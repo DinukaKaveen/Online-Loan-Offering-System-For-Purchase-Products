@@ -11,6 +11,7 @@ export default function Pay() {
     product_name: "",
     userId: "",
     purchase_amount: "",
+    qty: "",
     paid_amount: "",
     pending_amount: "",
     status: "",
@@ -20,11 +21,17 @@ export default function Pay() {
     payment_amount: "",
     installment_state: "",
     remarks: "",
+    paidAmount: ""
   });
+
+  const { payment_amount, installment_state, remarks } = Payment;
 
   const paidAmount = Purchase.paid_amount + Payment.payment_amount;
   const pendingAmount = Purchase.pending_amount - Payment.payment_amount;
   let purStatus = "";
+
+  const float_paidAmount = parseInt(paidAmount);
+  const float_pendingAmount = parseInt(pendingAmount);
 
   if (paidAmount < Purchase.purchase_amount) {
     purStatus = "Pending";
@@ -32,9 +39,12 @@ export default function Pay() {
   if (paidAmount == Purchase.purchase_amount) {
     purStatus = "Complete";
   }
+  if ("Full Payment" == Payment.installment_state) {
+    purStatus = "Complete";
+  }
 
-  //console.log(paidAmount);
-  //console.log(pendingAmount);
+  //console.log(decimal_paidAmount);
+  //console.log(decimal_pendingAmount);
   //console.log(purStatus);
 
   useEffect(() => {
@@ -54,7 +64,7 @@ export default function Pay() {
     e.preventDefault();
 
     const formDataPayment = new FormData();
-    const formDataPurchase = new FormData();
+    // const formDataPurchase = new FormData();
 
     formDataPayment.append("payment_amount", Payment.payment_amount);
     formDataPayment.append("installment_state", Payment.installment_state);
@@ -64,15 +74,22 @@ export default function Pay() {
     formDataPayment.append("purchase_id", Purchase.purchase_id);
     formDataPayment.append("user_id", Purchase.userId);
 
-    formDataPurchase.append("installment_state", Payment.installment_state);
-    formDataPurchase.append("paid_amount", paidAmount);
-    formDataPurchase.append("pending_amount", pendingAmount);
-    formDataPurchase.append("status", purStatus);
-
-    
+    // formDataPurchase.append("installment_state", Payment.installment_state);
+    // formDataPurchase.append("paid_amount", float_paidAmount);
+    // formDataPurchase.append("pending_amount", float_pendingAmount);
+    // formDataPurchase.append("status", purStatus);
 
     await axios
-      .put(`http://localhost:8080/UpdatePurchase/${id}`, formDataPurchase)
+      .post("http://localhost:8080/NewPayment", formDataPayment)
+      .then(() => {
+        alert("success");
+      })
+      .catch((error) => {
+        alert(error);
+      });
+
+    await axios
+      .put(`http://localhost:8080/UpdatePurchase/${id}`, Payment)
       .then(() => {
         alert("success");
       })
@@ -198,11 +215,11 @@ export default function Pay() {
                 Product Name
               </label>
               <input
-                type="number"
+                type="text"
                 id="product_name"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-100 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder=""
-                value={Purchase.product_id}
+                value={Purchase.product_name}
                 disabled
               />
             </div>
