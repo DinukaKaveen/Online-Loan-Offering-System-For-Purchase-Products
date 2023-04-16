@@ -21,31 +21,7 @@ export default function Pay() {
     payment_amount: "",
     installment_state: "",
     remarks: "",
-    paidAmount: ""
   });
-
-  const { payment_amount, installment_state, remarks } = Payment;
-
-  const paidAmount = Purchase.paid_amount + Payment.payment_amount;
-  const pendingAmount = Purchase.pending_amount - Payment.payment_amount;
-  let purStatus = "";
-
-  const float_paidAmount = parseInt(paidAmount);
-  const float_pendingAmount = parseInt(pendingAmount);
-
-  if (paidAmount < Purchase.purchase_amount) {
-    purStatus = "Pending";
-  }
-  if (paidAmount == Purchase.purchase_amount) {
-    purStatus = "Complete";
-  }
-  if ("Full Payment" == Payment.installment_state) {
-    purStatus = "Complete";
-  }
-
-  //console.log(decimal_paidAmount);
-  //console.log(decimal_pendingAmount);
-  //console.log(purStatus);
 
   useEffect(() => {
     loadPurchase();
@@ -63,8 +39,28 @@ export default function Pay() {
   const onSubmit = async (e) => {
     e.preventDefault();
 
+    const paidAmount = parseInt(Purchase.paid_amount) + parseInt(Payment.payment_amount);
+    const pendingAmount = Purchase.pending_amount - Payment.payment_amount;
+    let purStatus = "";
+
+    if (paidAmount < Purchase.purchase_amount) {
+      purStatus = "Pending";
+    }
+    if (paidAmount == Purchase.purchase_amount) {
+      purStatus = "Complete";
+    }
+    if ("Full Payment" == Payment.installment_state) {
+      purStatus = "Complete";
+    }
+
+    const data = {
+      paid_amount: paidAmount,
+      pending_amount: pendingAmount,
+      installment_state: Payment.installment_state,
+      status: purStatus,
+    };
+
     const formDataPayment = new FormData();
-    // const formDataPurchase = new FormData();
 
     formDataPayment.append("payment_amount", Payment.payment_amount);
     formDataPayment.append("installment_state", Payment.installment_state);
@@ -74,10 +70,7 @@ export default function Pay() {
     formDataPayment.append("purchase_id", Purchase.purchase_id);
     formDataPayment.append("user_id", Purchase.userId);
 
-    // formDataPurchase.append("installment_state", Payment.installment_state);
-    // formDataPurchase.append("paid_amount", float_paidAmount);
-    // formDataPurchase.append("pending_amount", float_pendingAmount);
-    // formDataPurchase.append("status", purStatus);
+    console.log(data);
 
     await axios
       .post("http://localhost:8080/NewPayment", formDataPayment)
@@ -89,9 +82,10 @@ export default function Pay() {
       });
 
     await axios
-      .put(`http://localhost:8080/UpdatePurchase/${id}`, Payment)
+      .put(`http://localhost:8080/UpdatePurchase/${id}`, data)
       .then(() => {
         alert("success");
+        window.location.reload();
       })
       .catch((error) => {
         alert(error);
@@ -198,7 +192,7 @@ export default function Pay() {
                 id="amount"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-100 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder=""
-                required
+                //required
                 name="payment_amount"
                 value={Payment.payment_amount}
                 onChange={(e) => onInputChange(e)}
@@ -233,7 +227,7 @@ export default function Pay() {
               <select
                 id="installment"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-100 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                required
+                //required
                 name="installment_state"
                 value={Payment.installment_state}
                 onChange={(e) => onInputChange(e)}
@@ -259,7 +253,7 @@ export default function Pay() {
             rows="8"
             className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-100 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Write your thoughts here..."
-            required
+            //required
             name="remarks"
             value={Payment.remarks}
             onChange={(e) => onInputChange(e)}
