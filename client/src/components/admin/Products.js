@@ -11,17 +11,17 @@ export default function Products() {
   }, []);
 
   const loadProducts = async () => {
-    const result = await axios.get("http://localhost:8080/admin/Products");
-    setProducts(result.data);
+    const result = await axios.get("http://localhost:8000/products");
+    setProducts(result.data.products);
   };
 
   const viewProduct = async (id) => {
-    const view = await axios.get(`http://localhost:8080/admin/Product/${id}`);
+    const view = await axios.get(`http://localhost:8000/view_product/${id}`);
     setProduct(view.data);
   };
 
   const deleteProduct = async (id) => {
-    await axios.delete(`http://localhost:8080/admin/DeleteProduct/${id}`);
+    await axios.delete(`http://localhost:8000/delete_product/${id}`);
     loadProducts();
   };
 

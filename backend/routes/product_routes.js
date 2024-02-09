@@ -5,8 +5,10 @@ const Product = require("../models/Product");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "E:/Projects/Bumble Bee/Bumble-Bee-Online-loan-offering-system-/uploads");
-    
+    cb(
+      null,
+      "E:/Projects/Bumble Bee/Bumble-Bee-Online-loan-offering-system-/uploads"
+    );
   },
   filename: (req, file, cb) => {
     cb(null, file.fieldname + "-" + Date.now() + file.originalname);
@@ -32,10 +34,25 @@ router.post("/add_product", upload.single("image"), (req, res) => {
   product
     .save()
     .then(() => {
-      res.status(200).json({ success: true, message: "Product added successfully" });
+      res
+        .status(200)
+        .json({ success: true, message: "Product added successfully" });
     })
     .catch((err) => {
       res.status(500).json({ success: false, message: err });
+    });
+});
+
+router.get("/products", (req, res) => {
+  Product.find()
+    .then((products) => {
+      return res.json({
+        success: true,
+        products: products,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
     });
 });
 
