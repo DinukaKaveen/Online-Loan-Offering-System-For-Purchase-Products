@@ -36,12 +36,17 @@ export default function NewProduct() {
     formData.append("image", product.image);
 
     await axios
-      .post("http://localhost:8080/admin/NewProduct", formData)
-      .then(() => {
-        alert("success");
+      .post('http://localhost:8000/add_product', formData)
+      .then((response) => {
+        if(response.data.success){
+          alert(response.data.message);
+        }
+        else{
+          alert(response.data.message);
+        }
       })
       .catch((error) => {
-        alert(error);
+        console.log(error);
       });
   };
 
