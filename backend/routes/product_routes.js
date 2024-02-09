@@ -5,9 +5,7 @@ const Product = require("../models/Product");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(
-      null,
-      "E:/Projects/Bumble Bee/Bumble-Bee-Online-loan-offering-system-/uploads"
+    cb(null, "E:/Projects/Bumble Bee/Bumble-Bee-Online-loan-offering-system-/uploads"
     );
   },
   filename: (req, file, cb) => {
@@ -47,7 +45,6 @@ router.get("/products", (req, res) => {
   Product.find()
     .then((products) => {
       return res.json({
-        success: true,
         products: products,
       });
     })
@@ -55,5 +52,18 @@ router.get("/products", (req, res) => {
       console.log(err);
     });
 });
+
+router.get("/view_product/:id", (req, res) => {
+  const id = req.params.id;
+  Product.findById(id)
+    .then((product) => {
+      return res.json({
+        product: product 
+      })
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+})
 
 module.exports = router;

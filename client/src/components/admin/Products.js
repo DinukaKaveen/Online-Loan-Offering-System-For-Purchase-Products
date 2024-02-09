@@ -16,8 +16,8 @@ export default function Products() {
   };
 
   const viewProduct = async (id) => {
-    const view = await axios.get(`http://localhost:8000/view_product/${id}`);
-    setProduct(view.data);
+    const result = await axios.get(`http://localhost:8000/view_product/${id}`);
+    setProduct(result.data.product);
   };
 
   const deleteProduct = async (id) => {
@@ -57,7 +57,7 @@ export default function Products() {
       selector: (row) => (
         <div>
           <button
-            onClick={() => viewProduct(row.product_id)}
+            onClick={() => viewProduct(row._id)}
             data-modal-target="defaultModal"
             data-modal-toggle="defaultModal"
             className="text-green-700 hover:text-white border border-green-700 hover:bg-green-800 font-medium rounded-lg px-2.5 py-1.5 text-sm text-center mr-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600"
@@ -254,7 +254,7 @@ export default function Products() {
           </div>
 
           <a
-            href={`/admin/EditProduct/${row.product_id}`}
+            href={`/admin/EditProduct/${row._id}`}
             type="button"
             className="text-yellow-700 hover:text-white border border-yellow-700 hover:bg-yellow-800 font-medium rounded-lg px-2.5 py-1.5 text-sm text-center mr-2 mb-2 dark:border-yellow-500 dark:text-yellow-500 dark:hover:text-white dark:hover:bg-yellow-600"
           >
@@ -262,7 +262,7 @@ export default function Products() {
           </a>
           <button
             type="button"
-            onClick={() => deleteProduct(row.product_id)}
+            onClick={() => deleteProduct(row._id)}
             className="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 font-medium rounded-lg px-2.5 py-1.5 text-sm text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600"
           >
             <i className="fa-solid fa-trash"></i>
