@@ -8,20 +8,20 @@ export default function NavBar() {
   const location = useLocation();
 
   if (
-    location.pathname === "/Home" ||
-    location.pathname === "/RegisterCustomer" ||
-    location.pathname === "/Purchases"
+    location.pathname === "/home" ||
+    location.pathname === "/register-customer" ||
+    location.pathname === "/purchases"
   ) {
 
     return <NavbarCus />;
 
   } else if (
     location.pathname === "/admin" ||
-    location.pathname === "/admin/Users" ||
-    location.pathname === "/admin/Products" ||
-    location.pathname === "/admin/UserPurchases" ||
-    location.pathname === "/admin/UserPayments" ||
-    location.pathname === "/admin/NewProduct"
+    location.pathname === "/admin/users" ||
+    location.pathname === "/admin/products" ||
+    location.pathname === "/admin/user-purchases" ||
+    location.pathname === "/admin/user-payments" ||
+    location.pathname === "/admin/new-product"
   ) {
 
     return <NavbarAdmin />;
