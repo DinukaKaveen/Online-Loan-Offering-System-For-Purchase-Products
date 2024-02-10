@@ -16,6 +16,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 router.post("/add_product", upload.single("image"), (req, res) => {
+    
   const product = new Product({
     product_code: req.body.product_code,
     product_name: req.body.product_name,
@@ -26,7 +27,7 @@ router.post("/add_product", upload.single("image"), (req, res) => {
     warranty: req.body.warranty,
     supplier_id: req.body.supplier_id,
     status: req.body.status,
-    image: req.file.path,
+    image: req.file.filename,
   });
 
   product

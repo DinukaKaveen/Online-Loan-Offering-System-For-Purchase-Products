@@ -12,6 +12,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.use(productRoutes);
+app.use("/uploads", express.static("E:/Projects/Bumble Bee/Bumble-Bee-Online-loan-offering-system-/uploads"));
 
 const PORT = process.env.PORT;
 

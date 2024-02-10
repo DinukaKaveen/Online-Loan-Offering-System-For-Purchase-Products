@@ -103,6 +103,13 @@ export default function Products() {
                   <form>
                     <div className="grid gap-6 mb-6 md:grid-cols-2">
                       <div>
+                        <img
+                          src={`http://localhost:8000/uploads/${product.image}`}
+                          style={{ width: "100px", height: "100px" }}
+                          alt="Product Image"
+                        />
+                      </div>
+                      <div>
                         <label
                           htmlFor="product_code"
                           className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray"
