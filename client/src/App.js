@@ -24,19 +24,19 @@ export default function App() {
         <NavBar />
         <Routes>
           <Route path="/" exact element={<LoginCus />}></Route>
-          <Route path="/Home" exact element={<HomeCus />}></Route>
-          <Route path="/RegisterCustomer" element={<RegisterCus />}></Route>
-          <Route path="/Purchases" element={<Purchases />}></Route>
-          <Route path="/Payments/:id" element={<Payments />}></Route>
-          <Route path="/ViewProduct" element={<ViewProduct />}></Route>
+          <Route path="/home" exact element={<HomeCus />}></Route>
+          <Route path="/register-customer" element={<RegisterCus />}></Route>
+          <Route path="/purchases" element={<Purchases />}></Route>
+          <Route path="/payments/:id" element={<Payments />}></Route>
+          <Route path="/view-product" element={<ViewProduct />}></Route>
           <Route path="/admin" element={<HomeAdmin />}></Route>
-          <Route path="/admin/Users" element={<Users />}></Route>
-          <Route path="/admin/EditUser/:id" element={<EditUser />}></Route>
-          <Route path="/admin/UserPurchases" element={<UserPurchases />}></Route>
-          <Route path="/admin/UserPayments" element={<UserPayments />}></Route>
-          <Route path="/admin/Products" element={<Products />}></Route>
-          <Route path="/admin/NewProduct" element={<NewProduct />}></Route>
-          <Route path="/admin/EditProduct/:id" element={<EditProduct />}></Route>
+          <Route path="/admin/users" element={<Users />}></Route>
+          <Route path="/admin/edit-user/:id" element={<EditUser />}></Route>
+          <Route path="/admin/user-purchases" element={<UserPurchases />}></Route>
+          <Route path="/admin/user-payments" element={<UserPayments />}></Route>
+          <Route path="/admin/products" element={<Products />}></Route>
+          <Route path="/admin/new-product" element={<NewProduct />}></Route>
+          <Route path="/admin/edit-product/:id" element={<EditProduct />}></Route>
 
           <Route path="/ToPay" element={<TopayPur />}></Route>
         </Routes>
