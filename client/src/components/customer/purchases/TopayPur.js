@@ -11,7 +11,7 @@ export default function TopayPur() {
   }, []);
 
   const loadUnpaidProducts = async () => {
-    const result = await axios.get(`http://localhost:8080/Purchase/${logging_id}/Unpaid`);
+    const result = await axios.get(`http://localhost:8000/Purchase/${logging_id}/Unpaid`);
     setUnpaidProducts(result.data);
   };
 
