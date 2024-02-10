@@ -27,7 +27,7 @@ export default function App() {
           <Route path="/home" exact element={<HomeCus />}></Route>
           <Route path="/register-customer" element={<RegisterCus />}></Route>
           <Route path="/purchases" element={<Purchases />}></Route>
-          <Route path="/payments/:id" element={<Payments />}></Route>
+          <Route path="/payments" element={<Payments />}></Route>
           <Route path="/view-product" element={<ViewProduct />}></Route>
           <Route path="/admin" element={<HomeAdmin />}></Route>
           <Route path="/admin/users" element={<Users />}></Route>
