@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const productRoutes = require("./routes/product_routes");
+const userRoutes = require("./routes/user_routes");
 const cors = require("cors");
 
 const app = express();
@@ -12,6 +13,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.use(productRoutes);
+app.use(userRoutes);
 app.use("/uploads", express.static("E:/Projects/Bumble Bee/Bumble-Bee-Online-loan-offering-system-/uploads"));
 
 const PORT = process.env.PORT;
