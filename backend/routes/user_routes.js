@@ -64,7 +64,7 @@ router.post("/user_login", async (req, res) => {
       // create sign in token
       const token = createToken(findUser._id);
       res.cookie("access-tokekn", token);
-      return res.status(200).json({ success: true });
+      return res.status(200).json({ success: true, user_id: findUser._id });
 
     } else {
       return res
