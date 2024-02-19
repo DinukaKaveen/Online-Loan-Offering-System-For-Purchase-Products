@@ -17,7 +17,6 @@ export default function HomeCus() {
       .then((response) => {
         if (response.data.verifyToken) {
           console.log(response.data.message);
-          
         } else {
           window.location.href = "/";
           console.log(response.data.message);

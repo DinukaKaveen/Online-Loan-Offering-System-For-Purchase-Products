@@ -8,12 +8,14 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 
 const app = express();
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+
+//app MiddleWare
 app.use(bodyParser.json());
 app.use(cookieParser());
+app.use(express.json());
 app.use(cors());
 
+//route MiddleWare
 app.use(productRoutes);
 app.use(userRoutes);
 app.use("/uploads", express.static("E:/Projects/Bumble Bee/Bumble-Bee-Online-loan-offering-system-/uploads"));

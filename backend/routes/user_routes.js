@@ -4,6 +4,7 @@ const router = express.Router();
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const cookie = require("cookie-parser");
 
 // user register
 router.post("/user_register", async (req, res) => {
@@ -66,6 +67,7 @@ router.post("/user_login", async (req, res) => {
     if (validPassword) {
       // create sign in token
       const token = createToken(findUser._id);
+      console.log(token);
       //store token in cookie
       res.cookie("access-token", token);
 

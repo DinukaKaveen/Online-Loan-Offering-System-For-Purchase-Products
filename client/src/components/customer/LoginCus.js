@@ -1,10 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useCookies  } from "react-cookie";
+//import { useCookies  } from "react-cookie";
 
 export default function LoginCus() {
-  const [cookies, setCookie] = useCookies(['access-token']);
+  //const [cookies, setCookie] = useCookies(['access-token']);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
@@ -19,7 +19,7 @@ export default function LoginCus() {
 
       if (response.data.success) {
         
-        setCookie('access-token', response.data.access_token, { path: '/' });
+        //setCookie('access-token', response.data.access_token, { path: '/' });
         sessionStorage.setItem("user_id", response.data.user_id);
         window.location.href = "/home";
 
