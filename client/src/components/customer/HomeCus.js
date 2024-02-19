@@ -7,8 +7,26 @@ export default function HomeCus() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
+    verifyToken();
     loadProducts();
   }, []);
+
+  const verifyToken = async () => {
+    await axios
+      .get("/verify_token")
+      .then((response) => {
+        if (response.data.verifyToken) {
+          console.log(response.data.message);
+          
+        } else {
+          window.location.href = "/";
+          console.log(response.data.message);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
 
   const loadProducts = async () => {
     const result = await axios.get("http://localhost:8000/products");
@@ -28,7 +46,7 @@ export default function HomeCus() {
           </p>
           <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
             <a
-              href="#"
+              href="/"
               className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
             >
               Get started
@@ -49,7 +67,7 @@ export default function HomeCus() {
               </svg>
             </a>
             <a
-              href="#"
+              href="/"
               className="inline-flex justify-center hover:text-gray-900 items-center py-3 px-5 sm:ms-4 text-base font-medium text-center text-white rounded-lg border border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400"
             >
               Learn more
@@ -69,7 +87,7 @@ export default function HomeCus() {
               and capital can unlock long-term value and drive economic growth.
             </p>
             <a
-              href="#"
+              href="/"
               className="text-blue-600 dark:text-blue-500 hover:underline font-medium text-lg inline-flex items-center"
             >
               Read more about our app
@@ -100,15 +118,15 @@ export default function HomeCus() {
               className="w-full max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
               style={{ margin: "50px", width: "280px" }}
             >
-              <a href="#">
+              <a href="/">
                 <img
                   className="p-8 rounded-t-lg"
                   src={`http://localhost:8000/uploads/${product.image}`}
-                  alt="product image"
+                  alt="product_image"
                 />
               </a>
               <div className="px-5 pb-5">
-                <a href="#">
+                <a href="/">
                   <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
                     {product.product_name}
                   </h5>
@@ -170,7 +188,7 @@ export default function HomeCus() {
                     {product.price}
                   </span>
                   <a
-                    href="#"
+                    href="/"
                     className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                   >
                     Add to List

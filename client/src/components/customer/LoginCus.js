@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useCookies  } from "react-cookie";
 
 export default function LoginCus() {
+  const [cookies, setCookie] = useCookies(['access-token']);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
@@ -15,19 +17,20 @@ export default function LoginCus() {
         password,
       });
 
-      if(response.data.success){
+      if (response.data.success) {
+        
+        setCookie('access-token', response.data.access_token, { path: '/' });
         sessionStorage.setItem("user_id", response.data.user_id);
         window.location.href = "/home";
-      }
-      else{
+
+      } else {
         setMessage(response.data.message);
       }
-      
     } catch (error) {
       const errorMessage = error.response
-          ? error.response.data.message
-          : "Network error";
-        setMessage(errorMessage);
+        ? error.response.data.message
+        : "Network error";
+      setMessage(errorMessage);
     }
   };
 

@@ -5,6 +5,7 @@ const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
+// user register
 router.post("/user_register", async (req, res) => {
   try {
     existingUser = await User.findOne({ email: req.body.email });
@@ -39,17 +40,19 @@ router.post("/user_register", async (req, res) => {
   }
 });
 
+
 const createToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRES_IN,
   });
 };
 
+// user login
 router.post("/user_login", async (req, res) => {
   try {
     const findUser = await User.findOne({ email: req.body.email });
 
-    if(!findUser) {
+    if (!findUser) {
       return res
         .status(400)
         .json({ success: false, message: "Email not found" });
@@ -63,18 +66,40 @@ router.post("/user_login", async (req, res) => {
     if (validPassword) {
       // create sign in token
       const token = createToken(findUser._id);
-      res.cookie("access-tokekn", token);
-      return res.status(200).json({ success: true, user_id: findUser._id });
+      //store token in cookie
+      res.cookie("access-token", token);
 
+      return res
+        .status(200)
+        .json({ success: true, user_id: findUser._id, access_token: token });
     } else {
       return res
         .status(400)
         .json({ success: false, message: "Invalid credentials" });
     }
-
   } catch (error) {
     console.log(error);
     res.status(500).json({ success: false, message: "Server error" });
+  }
+});
+
+// verify token
+router.get("/verify_token", async (req, res) => {
+  try {
+    const token = req.cookies["access-token"];
+
+    if (token) {
+      const validateToken = await jwt.verify(token, process.env.JWT_SECRET);
+      if (validateToken) {
+        res.json({ verifyToken: true, message: "Token Verified" });
+      } else {
+        res.json({ verifyToken: false, message: "Token Expired" });
+      }
+    } else {
+      res.json({ verifyToken: false, message: "Token Not Found" });
+    }
+  } catch (error) {
+    console.error(error);
   }
 });
 
