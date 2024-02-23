@@ -41,7 +41,6 @@ router.post("/user_register", async (req, res) => {
   }
 });
 
-
 const createToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRES_IN,
@@ -67,9 +66,15 @@ router.post("/user_login", async (req, res) => {
     if (validPassword) {
       // create sign in token
       const token = createToken(findUser._id);
-      console.log(token);
       //store token in cookie
       res.cookie("access-token", token);
+
+      //set session data
+      req.session.user = {
+        id: findUser._id,
+        name: findUser.name,
+        email: findUser.email,
+      };
 
       return res
         .status(200)

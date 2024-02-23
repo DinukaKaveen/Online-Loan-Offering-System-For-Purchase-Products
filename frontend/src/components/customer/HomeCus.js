@@ -7,19 +7,19 @@ export default function HomeCus() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    verifyToken();
+    //verifyToken();
     loadProducts();
   }, []);
 
   const verifyToken = async () => {
     await axios
-      .get("/verify_token")
+      .get("http://localhost:8000/verify_token")
       .then((response) => {
         if (response.data.verifyToken) {
           console.log(response.data.message);
         } else {
-          window.location.href = "/";
           console.log(response.data.message);
+          window.location.href = "/";
         }
       })
       .catch((err) => {
