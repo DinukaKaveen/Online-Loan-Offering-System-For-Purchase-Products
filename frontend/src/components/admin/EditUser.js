@@ -47,13 +47,15 @@ export default function RegisterCus() {
   };
 
   useEffect(() => {
+    const loadUser = async () => {
+      const result = await axios.get(`http://localhost:8080/admin/User/${id}`);
+      setUser(result.data);
+    };
+    
     loadUser();
   }, []);
 
-  const loadUser = async () => {
-    const result = await axios.get(`http://localhost:8080/admin/User/${id}`);
-    setUser(result.data);
-  };
+  
 
   return (
     <div>
