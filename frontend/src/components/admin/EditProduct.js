@@ -38,13 +38,15 @@ export default function NewProduct() {
   };
 
   useEffect(() => {
+    const loadProduct = async () => {
+      const product = await axios.get(`http://localhost:8080/admin/Product/${id}`);
+      setproduct(product.data);
+    };
+    
     loadProduct();
   }, []);
 
-  const loadProduct = async () => {
-    const product = await axios.get(`http://localhost:8080/admin/Product/${id}`);
-    setproduct(product.data);
-  };
+  
 
   return (
     <div>
