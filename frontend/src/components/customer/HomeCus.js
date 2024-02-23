@@ -8,7 +8,7 @@ export default function HomeCus() {
 
   useEffect(() => {
     //verifyToken();
-    loadProducts();
+    loadProducts(); 
   }, []);
 
   const verifyToken = async () => {
