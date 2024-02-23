@@ -15,7 +15,11 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: ["http://localhost:3000"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  }));
 
 //express session middleware
 app.use(
@@ -26,8 +30,9 @@ app.use(
     store: new MongoStore({mongoUrl: process.env.DB_URL}),
     cookie: {
       secure: false,
-      maxAge: 1000 * 60 * 60 * 24,
-      httpOnly: true,
+      //maxAge: 1000 * 60 * 60 * 24,
+      maxAge: 30 * 60 * 1000,
+      httpOnly: false,
     },
   })
 );

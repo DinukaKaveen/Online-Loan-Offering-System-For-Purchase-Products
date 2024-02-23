@@ -110,4 +110,32 @@ router.get("/verify_token", async (req, res) => {
   }
 });
 
+//protected route
+router.get("/protected", (req, res) => {
+  if (req.session.user) {
+    return res.json({
+      protected: true,
+      message: "Protected Route",
+      user: req.session.user.name,
+    });
+  } else {
+    return res.json({
+      protected: false,
+      message: "Unauthorized. Please login",
+    });
+  }
+});
+
+router.get("/logout", (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.error(err);
+    } else {
+      res.clearCookie("access-token");
+      res.clearCookie("connect.sid");
+      res.json({ logout: true, message: "Logged out successfully" });
+    }
+  });
+});
+
 module.exports = router;

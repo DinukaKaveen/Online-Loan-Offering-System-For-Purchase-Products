@@ -1,13 +1,28 @@
 import axios from "axios";
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-//import { useCookies  } from "react-cookie";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function LoginCus() {
-  //const [cookies, setCookie] = useCookies(['access-token']);
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+
+  axios.defaults.withCredentials = true;
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/protected")
+      .then((response) => {
+        if (response.data.protected) {
+          navigate("/home");
+        } else {
+          navigate("/");
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -18,11 +33,7 @@ export default function LoginCus() {
       });
 
       if (response.data.success) {
-        
-        //setCookie('access-token', response.data.access_token, { path: '/' });
-        sessionStorage.setItem("user_id", response.data.user_id);
         window.location.href = "/home";
-
       } else {
         setMessage(response.data.message);
       }

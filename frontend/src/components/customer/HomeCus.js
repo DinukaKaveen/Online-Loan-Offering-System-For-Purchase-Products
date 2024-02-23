@@ -6,10 +6,27 @@ import FooterCus from "./FooterCus";
 export default function HomeCus() {
   const [products, setProducts] = useState([]);
 
+  axios.defaults.withCredentials = true;
   useEffect(() => {
     //verifyToken();
-    loadProducts(); 
+    protectedRoute();
+    loadProducts();
   }, []);
+
+  const protectedRoute = async () => {
+    await axios
+      .get("http://localhost:8000/protected")
+      .then((response) => {
+        if (response.data.protected) {
+          console.log(response.data.message);
+        } else {
+          window.location.href = "/";
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
 
   const verifyToken = async () => {
     await axios
