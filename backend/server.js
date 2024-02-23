@@ -18,7 +18,7 @@ app.use(cors());
 //route MiddleWare
 app.use(productRoutes);
 app.use(userRoutes);
-app.use("/uploads", express.static("E:/Projects/Bumble Bee/Bumble-Bee-Online-loan-offering-system-/uploads"));
+app.use("/uploads", express.static("E:/GitHub Repositories/Bumble Bee/Bumble-Bee-Online-loan-offering-system-/uploads"));
 
 const PORT = process.env.PORT;
 

@@ -5,7 +5,7 @@ const Product = require("../models/Product");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "E:/Projects/Bumble Bee/Bumble-Bee-Online-loan-offering-system-/uploads"
+    cb(null, "E:/GitHub Repositories/Bumble Bee/Bumble-Bee-Online-loan-offering-system-/uploads"
     );
   },
   filename: (req, file, cb) => {
