@@ -73,7 +73,6 @@ router.post("/user_login", async (req, res) => {
       req.session.user = {
         id: findUser._id,
         name: findUser.name,
-        email: findUser.email,
       };
 
       return res
