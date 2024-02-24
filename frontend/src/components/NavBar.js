@@ -8,7 +8,7 @@ export default function NavBar() {
   const location = useLocation();
 
   if (
-    location.pathname === "/home" ||
+    location.pathname === "/" ||
     location.pathname === "/register-customer" ||
     location.pathname === "/purchases"
   ) {

@@ -14,9 +14,9 @@ export default function LoginCus() {
       .get("http://localhost:8000/protected")
       .then((response) => {
         if (response.data.protected) {
-          navigate("/home");
-        } else {
           navigate("/");
+        } else {
+          navigate("/login");
         }
       })
       .catch((err) => {
@@ -33,7 +33,7 @@ export default function LoginCus() {
       });
 
       if (response.data.success) {
-        window.location.href = "/home";
+        window.location.href = "/";
       } else {
         setMessage(response.data.message);
       }

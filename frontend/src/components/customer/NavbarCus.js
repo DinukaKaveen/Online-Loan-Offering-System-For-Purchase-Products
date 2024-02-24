@@ -8,7 +8,7 @@ export default function NavbarCus() {
       .get("http://localhost:8000/logout")
       .then((response) => {
         if (response.data.logout) {
-          window.location.href = "/";
+          window.location.href = "/login";
         }
       })
       .catch((err) => {

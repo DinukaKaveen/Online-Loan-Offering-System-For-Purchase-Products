@@ -23,8 +23,8 @@ export default function App() {
       <div>
         <NavBar />
         <Routes>
-          <Route path="/" exact element={<LoginCus />}></Route>
-          <Route path="/home" exact element={<HomeCus />}></Route>
+          <Route path="/login" exact element={<LoginCus />}></Route>
+          <Route path="/" exact element={<HomeCus />}></Route>
           <Route path="/register-customer" element={<RegisterCus />}></Route>
           <Route path="/purchases" element={<Purchases />}></Route>
           <Route path="/payments" element={<Payments />}></Route>

@@ -20,7 +20,7 @@ export default function HomeCus() {
         if (response.data.protected) {
           console.log(response.data.message);
         } else {
-          window.location.href = "/";
+          window.location.href = "/login";
         }
       })
       .catch((err) => {
@@ -36,7 +36,7 @@ export default function HomeCus() {
           console.log(response.data.message);
         } else {
           console.log(response.data.message);
-          window.location.href = "/";
+          window.location.href = "/login";
         }
       })
       .catch((err) => {
