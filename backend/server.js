@@ -27,8 +27,8 @@ app.use(
 app.use(
   session({
     secret: process.env.JWT_SECRET,
-    resave: false, 
-    saveUninitialized: false, 
+    resave: false,
+    saveUninitialized: false,
     store: new MongoStore({ mongoUrl: process.env.DB_URL }),
     cookie: {
       secure: false,
