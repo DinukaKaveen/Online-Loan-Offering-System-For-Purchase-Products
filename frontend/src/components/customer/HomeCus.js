@@ -2,8 +2,10 @@ import axios from "axios";
 import React from "react";
 import { useEffect, useState } from "react";
 import FooterCus from "./FooterCus";
+import { useNavigate } from "react-router-dom";
 
 export default function HomeCus() {
+  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
 
   axios.defaults.withCredentials = true;
@@ -20,7 +22,7 @@ export default function HomeCus() {
         if (response.data.protected) {
           console.log(response.data.message);
         } else {
-          window.location.href = "/login";
+          navigate("/login");
         }
       })
       .catch((err) => {
@@ -36,7 +38,7 @@ export default function HomeCus() {
           console.log(response.data.message);
         } else {
           console.log(response.data.message);
-          window.location.href = "/login";
+          navigate("/login");
         }
       })
       .catch((err) => {

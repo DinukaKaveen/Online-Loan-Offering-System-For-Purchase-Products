@@ -33,7 +33,7 @@ export default function LoginCus() {
       });
 
       if (response.data.success) {
-        window.location.href = "/";
+        navigate("/");
       } else {
         setMessage(response.data.message);
       }
