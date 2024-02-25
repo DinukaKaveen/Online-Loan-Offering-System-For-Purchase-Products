@@ -138,6 +138,7 @@ router.get("/logout", (req, res) => {
   });
 });
 
+//get user
 router.get("/get_user", (req, res) => {
   if (req.session.user) {
     return res.json({
