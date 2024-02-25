@@ -139,19 +139,22 @@ router.get("/logout", (req, res) => {
 });
 
 //get user
-router.get("/get_user", (req, res) => {
+router.get("/get_user", async (req, res) => {
   if (req.session.user) {
-    return res.json({
-      session: true,
-      user: req.session.user,
-    })
-  }
-  else {
+    const user = await User.findById(req.session.user.id);
+    if (user) {
+      return res.json({
+        session: true,
+        userFind: true,
+        user: user,
+      });
+    }
+  } else {
     return res.json({
       session: false,
       message: "User not found. Please login",
-    })
+    });
   }
-})
+});
 
 module.exports = router;
