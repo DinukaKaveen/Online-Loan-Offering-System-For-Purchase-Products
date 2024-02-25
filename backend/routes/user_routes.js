@@ -142,13 +142,13 @@ router.get("/logout", (req, res) => {
 router.get("/get_user", (req, res) => {
   if (req.session.user) {
     return res.json({
-      success: true,
+      session: true,
       user: req.session.user,
     })
   }
   else {
     return res.json({
-      success: false,
+      session: false,
       message: "User not found. Please login",
     })
   }
