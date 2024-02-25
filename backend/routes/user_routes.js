@@ -145,6 +145,7 @@ router.get("/get_session_user", async (req, res) => {
       return res.json({
         session: true,
         user: user,
+        message: "User found",
       });
     }
   } else {

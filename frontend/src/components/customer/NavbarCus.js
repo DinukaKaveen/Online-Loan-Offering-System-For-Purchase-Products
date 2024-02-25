@@ -23,9 +23,17 @@ export default function NavbarCus() {
   };
 
   const getUser = async () => {
-    const result = await axios.get("http://localhost:8000/get_session_user");
-    if (result.data.session) {
-      setUser(result.data.user);
+    try {
+      const result = await axios.get("http://localhost:8000/get_session_user");
+      if (result.data.session) {
+        setUser(result.data.user);
+      }
+      else {
+        setUser(null);
+      }
+
+    } catch (error) {
+      console.error("Error fetching user data:", error);
     }
   };
 
@@ -47,7 +55,7 @@ export default function NavbarCus() {
             </span>
           </a>
           <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            {user ? (
+            {user !== null ? (
               // Render this if there is a user
               <>
                 <button
