@@ -7,7 +7,7 @@ export default function PendingPur() {
   const [PendingProducts, setPendingProducts] = useState([]);
 
   useEffect(() => {
-    loadPendingProducts();
+    //loadPendingProducts();
   }, []);
 
   const loadPendingProducts = async () => {
