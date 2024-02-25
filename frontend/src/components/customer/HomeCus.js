@@ -3,6 +3,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import FooterCus from "./FooterCus";
 import { useNavigate } from "react-router-dom";
+import NavbarCus from "./NavbarCus";
 
 export default function HomeCus() {
   const navigate = useNavigate();
@@ -11,26 +12,9 @@ export default function HomeCus() {
 
   axios.defaults.withCredentials = true;
   useEffect(() => {
-    //verifyToken();
-    protectedRoute();
     loadProducts();
     getUser();
   }, []);
-
-  const protectedRoute = async () => {
-    await axios
-      .get("http://localhost:8000/protected")
-      .then((response) => {
-        if (response.data.protected) {
-          return;
-        } else {
-          navigate("/login");
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  };
 
   const verifyToken = async () => {
     await axios
@@ -49,7 +33,7 @@ export default function HomeCus() {
   };
 
   const getUser = async () => {
-    const result = await axios.get("http://localhost:8000/get_user");
+    const result = await axios.get("http://localhost:8000/get_session_user");
     setUser(result.data.user);
   };
 
@@ -59,19 +43,22 @@ export default function HomeCus() {
   };
 
   const addToCart = async (product) => {
-    const result = await axios.post("http://localhost:8000/add_to_cart", {
-      user_id: user.id,
-      product_id: product._id,
-      quantity: 1,
-    });
+    if (user) {
+      const result = await axios.post("http://localhost:8000/add_to_cart", {
+        user_id: user._id,
+        product_id: product._id,
+        quantity: 1,
+      });
 
-    if (result.data.success) {
-      alert(result.data.message);
+      if (result.data.success) {
+        alert(result.data.message);
+      } else {
+        alert(result.data.message);
+      }
+    } else {
+      navigate("/login");
     }
-    else {
-      alert(result.data.message);
-    }
-  }
+  };
 
   return (
     <div>
