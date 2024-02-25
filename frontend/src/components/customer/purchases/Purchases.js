@@ -1,13 +1,37 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import CompletePur from "./CompletePur";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import CompletePur from "../purchases/CompletePur";
 import FooterCus from "../FooterCus";
-import PendingPur from "./PendingPur";
-import TopayPur from "./TopayPur";
-import ReturnPur from "./ReturnPur";
-import CancelPur from "./CancelPur";
+import PendingPur from "../purchases/PendingPur";
+import TopayPur from "../purchases/TopayPur";
+import ReturnPur from "../purchases/ReturnPur";
+import CancelPur from "../purchases/CancelPur";
+import NavbarCus from "../NavbarCus";
+import axios from "axios";
 
 export default function Purchases() {
+  const navigate = useNavigate();
+
+  axios.defaults.withCredentials = true;
+  useEffect(() => {
+    protectedRoute();
+  }, []);
+
+  const protectedRoute = async () => {
+    await axios
+      .get("http://localhost:8000/protected")
+      .then((response) => {
+        if (response.data.protected) {
+          return;
+        } else {
+          navigate("/login");
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
   return (
     <div>
       <div style={{ margin: "50px" }}>
