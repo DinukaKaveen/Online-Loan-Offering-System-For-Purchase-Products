@@ -137,7 +137,7 @@ router.get("/logout", (req, res) => {
   });
 });
 
-//get user
+//get session user
 router.get("/get_session_user", async (req, res) => {
   if (req.session.user) {
     const user = await User.findById(req.session.user.id);
