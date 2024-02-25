@@ -16,31 +16,46 @@ router.post("/add_to_cart", async (req, res) => {
     // If the product is already in the cart, update the quantity
     if (existingCartItem) {
       existingCartItem.quantity += quantity;
+
+      await existingCartItem
+        .updateOne({ quantity: existingCartItem.quantity })
+        .then((response) => {
+          if (response) {
+            return res.status(200).json({
+              success: true,
+              message: "Product quantity updated successfully",
+            });
+          } else {
+            return res.status(401).json({
+              success: false,
+              message: "Failed to update product quantity",
+            });
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     } else {
+      // If the product is not in the cart, create a new cart item
       const newCartItem = new Cart({
         user_id,
         product_id,
         quantity,
       });
 
-      // If the product is not in the cart, create a new cart item
       await newCartItem
         .save()
         .then((response) => {
           if (response) {
-            return res
-              .status(200)
-              .json({
-                success: true,
-                message: "Product added to cart successfully",
-              });
+            return res.status(200).json({
+              success: true,
+              message: "Product added to cart successfully",
+            });
           } else {
-            return res
-              .status(401)
-              .json({
-                success: false,
-                message: "Failed to add product to cart",
-              });
+            return res.status(401).json({
+              success: false,
+              message: "Failed to add product to cart",
+            });
           }
         })
         .catch((err) => {

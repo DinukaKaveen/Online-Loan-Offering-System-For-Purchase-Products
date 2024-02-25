@@ -7,12 +7,14 @@ import { useNavigate } from "react-router-dom";
 export default function HomeCus() {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
+  const [user, setUser] = useState([]);
 
   axios.defaults.withCredentials = true;
   useEffect(() => {
     //verifyToken();
     protectedRoute();
     loadProducts();
+    getUser();
   }, []);
 
   const protectedRoute = async () => {
@@ -20,7 +22,7 @@ export default function HomeCus() {
       .get("http://localhost:8000/protected")
       .then((response) => {
         if (response.data.protected) {
-          console.log(response.data.message);
+          return;
         } else {
           navigate("/login");
         }
@@ -46,10 +48,30 @@ export default function HomeCus() {
       });
   };
 
+  const getUser = async () => {
+    const result = await axios.get("http://localhost:8000/get_user");
+    setUser(result.data.user);
+  };
+
   const loadProducts = async () => {
     const result = await axios.get("http://localhost:8000/products");
     setProducts(result.data.products);
   };
+
+  const addToCart = async (product) => {
+    const result = await axios.post("http://localhost:8000/add_to_cart", {
+      user_id: user.id,
+      product_id: product._id,
+      quantity: 1,
+    });
+
+    if (result.data.success) {
+      alert(result.data.message);
+    }
+    else {
+      alert(result.data.message);
+    }
+  }
 
   return (
     <div>
@@ -205,12 +227,12 @@ export default function HomeCus() {
                   <span className="text-xl font-bold text-gray-900 dark:text-white">
                     {product.price}
                   </span>
-                  <a
-                    href="/"
+                  <button
+                    onClick={() => addToCart(product)}
                     className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                   >
                     Add to List
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>

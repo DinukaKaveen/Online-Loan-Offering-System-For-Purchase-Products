@@ -6,6 +6,7 @@ const MongoStore = require("connect-mongo");
 const bodyParser = require("body-parser");
 const productRoutes = require("./routes/product_routes");
 const userRoutes = require("./routes/user_routes");
+const cartRoutes = require("./routes/cart_routes");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 
@@ -42,6 +43,7 @@ app.use(
 //route MiddleWare
 app.use(productRoutes);
 app.use(userRoutes);
+app.use(cartRoutes);
 app.use(
   "/uploads",
   express.static(

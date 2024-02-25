@@ -115,7 +115,7 @@ router.get("/protected", (req, res) => {
     return res.json({
       protected: true,
       message: "Protected Route",
-      user: req.session.user.name,
+      user: req.session.user,
     });
   } else {
     return res.json({
@@ -125,6 +125,7 @@ router.get("/protected", (req, res) => {
   }
 });
 
+//logout session
 router.get("/logout", (req, res) => {
   req.session.destroy((err) => {
     if (err) {
@@ -136,5 +137,20 @@ router.get("/logout", (req, res) => {
     }
   });
 });
+
+router.get("/get_user", (req, res) => {
+  if (req.session.user) {
+    return res.json({
+      success: true,
+      user: req.session.user,
+    })
+  }
+  else {
+    return res.json({
+      success: false,
+      message: "User not found. Please login",
+    })
+  }
+})
 
 module.exports = router;
