@@ -67,4 +67,26 @@ router.post("/add_to_cart", async (req, res) => {
   }
 });
 
+// get cart by user
+router.get("/get_cart/:user_id", async (req, res) => {
+  try {
+    const user_id = req.params.user_id;
+    const cart = await Cart.find({ user_id });
+
+    if (cart) {
+      return res.status(200).json({
+        success: true,
+        cartItems: cart,
+      });
+    } else {
+      return res.status(400).json({
+        success: false,
+        message: "Cart not found",
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 module.exports = router;
