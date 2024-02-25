@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 export default function NavbarCus() {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState([]);
 
   useEffect(() => {
     getUser();
@@ -23,7 +23,7 @@ export default function NavbarCus() {
   };
 
   const getUser = async () => {
-    const result = await axios.get("http://localhost:8000/get_user");
+    const result = await axios.get("http://localhost:8000/get_session_user");
     if (result.data.session) {
       setUser(result.data.user);
     }
@@ -47,72 +47,73 @@ export default function NavbarCus() {
             </span>
           </a>
           <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            <button
-              type="button"
-              className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-              id="user-menu-button"
-              aria-expanded="false"
-              data-dropdown-toggle="user-dropdown"
-              data-dropdown-placement="bottom"
-            >
-              <span className="sr-only">Open user menu</span>
-              <img
-                className="w-8 h-8 rounded-full"
-                src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                alt="user_photo"
-              />
-            </button>
-
             {user ? (
               // Render this if there is a user
-              <div
-                className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
-                id="user-dropdown"
-              >
-                <div className="px-4 py-3">
-                  <span className="block text-sm text-gray-900 dark:text-white">
-                    {user.name}
-                  </span>
-                  <span className="block text-sm  text-gray-500 truncate dark:text-gray-400">
-                    {user.email}
-                  </span>
+              <>
+                <button
+                  type="button"
+                  className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                  id="user-menu-button"
+                  aria-expanded="false"
+                  data-dropdown-toggle="user-dropdown"
+                  data-dropdown-placement="bottom"
+                >
+                  <span className="sr-only">Open user menu</span>
+                  <img
+                    className="w-8 h-8 rounded-full"
+                    src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+                    alt="user_photo"
+                  />
+                </button>
+                <div
+                  className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
+                  id="user-dropdown"
+                >
+                  <div className="px-4 py-3">
+                    <span className="block text-sm text-gray-900 dark:text-white">
+                      {user.name}
+                    </span>
+                    <span className="block text-sm  text-gray-500 truncate dark:text-gray-400">
+                      {user.email}
+                    </span>
+                  </div>
+                  <ul className="py-2" aria-labelledby="user-menu-button">
+                    <li>
+                      <a
+                        href="/"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                      >
+                        Dashboard
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/purchases"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                      >
+                        Cart
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                      >
+                        Settings
+                      </a>
+                    </li>
+                  </ul>
+                  <div className="py-1">
+                    <button
+                      onClick={handleLogout}
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                      style={{ width: "100%", textAlign: "left" }}
+                    >
+                      Sign out
+                    </button>
+                  </div>
                 </div>
-                <ul className="py-2" aria-labelledby="user-menu-button">
-                  <li>
-                    <a
-                      href="/"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                    >
-                      Dashboard
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                    >
-                      Cart
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                    >
-                      Settings
-                    </a>
-                  </li>
-                </ul>
-                <div className="py-1">
-                  <button
-                    onClick={handleLogout}
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                    style={{ width: "100%", textAlign: "left" }}
-                  >
-                    Sign out
-                  </button>
-                </div>
-              </div>
+              </>
             ) : (
               // Render this if there is no user
               <>
