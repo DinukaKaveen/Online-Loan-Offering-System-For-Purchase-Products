@@ -115,7 +115,6 @@ router.get("/protected", (req, res) => {
     return res.json({
       protected: true,
       message: "Protected Route",
-      user: req.session.user,
     });
   } else {
     return res.json({
@@ -139,13 +138,12 @@ router.get("/logout", (req, res) => {
 });
 
 //get user
-router.get("/get_user", async (req, res) => {
+router.get("/get_session_user", async (req, res) => {
   if (req.session.user) {
     const user = await User.findById(req.session.user.id);
     if (user) {
       return res.json({
         session: true,
-        userFind: true,
         user: user,
       });
     }
