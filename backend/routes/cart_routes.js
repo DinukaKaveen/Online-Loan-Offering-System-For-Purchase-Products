@@ -89,4 +89,39 @@ router.get("/get_cart/:user_id", async (req, res) => {
   }
 });
 
+// Update quantity in the cart
+router.put("/update-quantity/:cartItemId", async (req, res) => {
+  try {
+    const cartItemId = req.params.cartItemId;
+    const { quantity } = req.body;
+    const cartItem = await Cart.findById(cartItemId);
+
+    if (!cartItem) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Cart item not found" });
+    }
+
+    cartItem.quantity = quantity;
+    await cartItem.save();
+
+    res.json({ success: true, message: "Quantity updated in the cart" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: "Server Error" });
+  }
+});
+
+// Remove item from the cart
+router.delete("/remove-from-cart/:cartItemId", async (req, res) => {
+  try {
+    const cartItemId = req.params.cartItemId;
+    await Cart.findByIdAndDelete(cartItemId);
+    res.json({ success: true, message: "Product removed from the cart" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: "Server Error" });
+  }
+});
+
 module.exports = router;

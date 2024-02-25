@@ -3,37 +3,41 @@ import React, { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
 
 export default function TopayPur() {
-  const logging_id = sessionStorage.getItem("user_id");
-  const [UnpaidProducts, setUnpaidProducts] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [user, setUser] = useState([]);
 
   useEffect(() => {
-    //loadUnpaidProducts();
+    getUser();
+    loadCartItems();
   }, []);
 
-  const loadUnpaidProducts = async () => {
-    const result = await axios.get(`http://localhost:8000/Purchase/${logging_id}/Unpaid`);
-    setUnpaidProducts(result.data);
+  const getUser = async () => {
+    const result = await axios.get("http://localhost:8000/get_session_user");
+    setUser(result.data.user);
   };
+
+  const loadCartItems = async () => {
+    const result = await axios.get(`http://localhost:8000/get_cart/${user._id}`);
+    setCartItems(result.data.cartItems);
+
+    //extract product ids from cart items
+    const productIds = cartItems.map((item) => item.product_id);
+
+    //fetch product details from product ids
+    const products = await axios.post("http://localhost:8000/get_products_by_ids", { productIds } );
+    setProducts(products.data.products);
+  }; 
 
   const columns = [
     {
-      name: "Purchase ID",
-      selector: (row) => row.purchase_id,
-      sortable: true,
-    },
-    {
-      name: "Product ID",
-      selector: (row) => row.product_id,
-      sortable: true,
-    },
-    {
-      name: "Qty",
-      selector: (row) => row.qty,
+      name: "Product Name",
+      selector: (row) => row.product_name,
       sortable: true,
     },
     {
       name: "Price",
-      selector: (row) => row.purchase_amount,
+      selector: (row) => row.price,
       sortable: true,
     },
     {
@@ -53,13 +57,6 @@ export default function TopayPur() {
           >
             <i className="fa-solid fa-xmark"></i>&nbsp;Cancel
           </button>
-          <a
-            href={`/Payments/${row.purchase_id}`}
-            className="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
-          >
-            Pay&nbsp;&nbsp;
-            <i className="fa-sharp fa-solid fa-angle-right"></i>
-          </a>
         </div>
       ),
     },
@@ -69,7 +66,7 @@ export default function TopayPur() {
     <div>
       <DataTable
         columns={columns}
-        data={UnpaidProducts}
+        data={products}
         //fixedHeader
         responsive
         highlightOnHover
