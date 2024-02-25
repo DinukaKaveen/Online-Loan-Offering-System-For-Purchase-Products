@@ -24,7 +24,7 @@ export default function NavbarCus() {
 
   const getUser = async () => {
     const result = await axios.get("http://localhost:8000/get_user");
-    if(result.data.session){
+    if (result.data.session) {
       setUser(result.data.user);
     }
   };
@@ -91,7 +91,7 @@ export default function NavbarCus() {
                       href="/"
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                     >
-                      Settings
+                      Cart
                     </a>
                   </li>
                   <li>
@@ -99,18 +99,19 @@ export default function NavbarCus() {
                       href="/"
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                     >
-                      Earnings
+                      Settings
                     </a>
                   </li>
-                  <li>
-                    <button
-                      onClick={handleLogout}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                    >
-                      Sign out
-                    </button>
-                  </li>
                 </ul>
+                <div className="py-1">
+                  <button
+                    onClick={handleLogout}
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                    style={{ width: "100%", textAlign: "left" }}
+                  >
+                    Sign out
+                  </button>
+                </div>
               </div>
             ) : (
               // Render this if there is no user
