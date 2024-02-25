@@ -4,7 +4,7 @@ const Cart = require("../models/Cart");
 const Product = require("../models/Product");
 const User = require("../models/User");
 
-// add to cart
+// add to cart and update cart
 router.post("/add_to_cart", async (req, res) => {
   try {
     const { user_id, product_id, quantity } = req.body;
