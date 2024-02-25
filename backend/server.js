@@ -33,8 +33,8 @@ app.use(
     store: new MongoStore({ mongoUrl: process.env.DB_URL }),
     cookie: {
       secure: false,
-      //maxAge: 1000 * 60 * 60 * 24, //1day
-      maxAge: 30 * 60 * 1000, //30min
+      maxAge: 1000 * 60 * 60 * 24, //1day
+      //maxAge: 30 * 60 * 1000, //30min
       httpOnly: true,
     },
   })
