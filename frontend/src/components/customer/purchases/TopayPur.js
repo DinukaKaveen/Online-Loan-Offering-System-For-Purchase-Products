@@ -8,26 +8,31 @@ export default function TopayPur() {
   const [user, setUser] = useState([]);
 
   useEffect(() => {
-    getUser();
     loadCartItems();
   }, []);
 
-  const getUser = async () => {
-    const result = await axios.get("http://localhost:8000/get_session_user");
-    setUser(result.data.user);
-  };
-
   const loadCartItems = async () => {
+
+    //get user
+    const sessionUser = await axios.get("http://localhost:8000/get_session_user");
+    setUser(sessionUser.data.user);
+    console.log(sessionUser.data.user._id);
+
+    //get cart items
     const result = await axios.get(`http://localhost:8000/get_cart/${user._id}`);
     setCartItems(result.data.cartItems);
+    console.log(result.data.cartItems);
 
     //extract product ids from cart items
-    const productIds = cartItems.map((item) => item.product_id);
+    const productIds = result.data.cartItems.map((item) => item.product_id);
+    console.log(productIds);
 
     //fetch product details from product ids
-    const products = await axios.post("http://localhost:8000/get_products_by_ids", { productIds } );
+    const products = await axios.post("http://localhost:8000/get_products_by_ids", { productIds });
     setProducts(products.data.products);
-  }; 
+    console.log(products.data.products);
+  };
+
 
   const columns = [
     {
@@ -40,6 +45,7 @@ export default function TopayPur() {
       selector: (row) => row.price,
       sortable: true,
     },
+
     {
       name: "Action",
       width: "320px",
