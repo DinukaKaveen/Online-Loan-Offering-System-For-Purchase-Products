@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 export default function NavbarCus() {
-  const [user, setUser] = useState([]);
+  const [sessionUser, setSessionUser] = useState([]);
 
   useEffect(() => {
     getUser();
@@ -26,10 +26,10 @@ export default function NavbarCus() {
     try {
       const result = await axios.get("http://localhost:8000/get_session_user");
       if (result.data.session) {
-        setUser(result.data.user);
+        setSessionUser(result.data.user);
       }
       else {
-        setUser(null);
+        setSessionUser(null);
       }
 
     } catch (error) {
@@ -55,7 +55,7 @@ export default function NavbarCus() {
             </span>
           </a>
           <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            {user !== null ? (
+            {sessionUser !== null ? (
               // Render this if there is a user
               <>
                 <button
@@ -79,10 +79,10 @@ export default function NavbarCus() {
                 >
                   <div className="px-4 py-3">
                     <span className="block text-sm text-gray-900 dark:text-white">
-                      {user.name}
+                      {sessionUser.name}
                     </span>
                     <span className="block text-sm  text-gray-500 truncate dark:text-gray-400">
-                      {user.email}
+                      {sessionUser.email}
                     </span>
                   </div>
                   <ul className="py-2" aria-labelledby="user-menu-button">
