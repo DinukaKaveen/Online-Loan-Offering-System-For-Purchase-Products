@@ -35,11 +35,9 @@ export default function TopayPur() {
     let quantityTotal = 0;
     let priceTotal = 0;
 
-    for (const item of result.data.cartItems) {
-      quantityTotal += item.quantity;
-    }
-
     for (const cartItem of result.data.cartItems) {
+      quantityTotal += cartItem.quantity;
+      
       for (const product of products.data.products) {
         if (cartItem.product_id === product._id) {
           priceTotal += product.price * cartItem.quantity;
