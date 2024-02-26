@@ -6,6 +6,9 @@ export default function TopayPur() {
   const [products, setProducts] = useState([]);
   const [user, setUser] = useState([]);
 
+  const [totalQuantity, setTotalQuantity] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
+
   useEffect(() => {
     loadCartItems();
   }, []);
@@ -32,6 +35,13 @@ export default function TopayPur() {
       { productIds }
     );
     setProducts(products.data.products);
+
+    // Calculate total quantity and total price
+    const quantityTotal = result.data.cartItems.reduce((acc, item) => acc + item.quantity, 0);
+    const priceTotal = result.data.cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+
+    setTotalQuantity(isNaN(quantityTotal) ? 0 : quantityTotal);
+    setTotalPrice(isNaN(priceTotal) ? 0 : priceTotal);
   };
 
   return (
@@ -144,12 +154,12 @@ export default function TopayPur() {
           </tbody>
           <tfoot>
             <tr className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-              <th scope="row" class="px-6 py-3 text-base">
+              <th scope="row" className="px-6 py-3 text-base">
                 Total
               </th>
               <td className="px-6 py-3"></td>
-              <td className="px-6 py-3">3</td>
-              <td className="px-6 py-3">21,000</td>
+              <td className="px-6 py-3">{totalQuantity}</td>
+              <td className="px-6 py-3">{totalPrice.toFixed(2)}</td>
               <td className="px-6 py-3"></td>
             </tr>
           </tfoot>
