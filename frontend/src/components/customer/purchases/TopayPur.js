@@ -15,22 +15,20 @@ export default function TopayPur() {
 
     //get user
     const sessionUser = await axios.get("http://localhost:8000/get_session_user");
+    const userId = sessionUser.data.user._id;
     setUser(sessionUser.data.user);
-    console.log(sessionUser.data.user._id);
 
     //get cart items
-    const result = await axios.get(`http://localhost:8000/get_cart/${user._id}`);
+    const result = await axios.get(`http://localhost:8000/get_cart/${userId}`);
+    const userCart = result.data.cartItems;
     setCartItems(result.data.cartItems);
-    console.log(result.data.cartItems);
 
     //extract product ids from cart items
-    const productIds = result.data.cartItems.map((item) => item.product_id);
-    console.log(productIds);
+    const productIds = userCart.map((item) => item.product_id);
 
     //fetch product details from product ids
     const products = await axios.post("http://localhost:8000/get_products_by_ids", { productIds });
     setProducts(products.data.products);
-    console.log(products.data.products);
   };
 
 
