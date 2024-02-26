@@ -37,11 +37,23 @@ export default function TopayPur() {
     setProducts(products.data.products);
 
     // Calculate total quantity and total price
-    const quantityTotal = result.data.cartItems.reduce((acc, item) => acc + item.quantity, 0);
-    const priceTotal = result.data.cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    let quantityTotal = 0;
+    let priceTotal = 0;
 
-    setTotalQuantity(isNaN(quantityTotal) ? 0 : quantityTotal);
-    setTotalPrice(isNaN(priceTotal) ? 0 : priceTotal);
+    for (const item of result.data.cartItems) {
+      quantityTotal += item.quantity;
+    }
+
+    for (const cartItem of result.data.cartItems) {
+      for (const product of products.data.products) {
+        if (cartItem.product_id === product._id) {
+          priceTotal += product.price * cartItem.quantity;
+        }
+      }
+    }
+
+    setTotalQuantity(quantityTotal);
+    setTotalPrice(priceTotal);
   };
 
   return (
