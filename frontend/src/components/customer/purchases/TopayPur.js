@@ -15,7 +15,9 @@ export default function TopayPur() {
 
   const loadCartItems = async () => {
     //get user
-    const sessionUser = await axios.get("http://localhost:8000/get_session_user");
+    const sessionUser = await axios.get(
+      "http://localhost:8000/get_session_user"
+    );
     const userId = sessionUser.data.user._id;
     setUser(sessionUser.data.user);
 
@@ -28,7 +30,10 @@ export default function TopayPur() {
     const productIds = userCart.map((item) => item.product_id);
 
     //fetch product details from product ids
-    const products = await axios.post("http://localhost:8000/get_products_by_ids",{ productIds });
+    const products = await axios.post(
+      "http://localhost:8000/get_products_by_ids",
+      { productIds }
+    );
     setProducts(products.data.products);
 
     // Calculate total quantity and total price
@@ -37,7 +42,7 @@ export default function TopayPur() {
 
     for (const cartItem of result.data.cartItems) {
       quantityTotal += cartItem.quantity;
-      
+
       for (const product of products.data.products) {
         if (cartItem.product_id === product._id) {
           priceTotal += product.price * cartItem.quantity;
@@ -62,7 +67,7 @@ export default function TopayPur() {
                 Product
               </th>
               <th scope="col" className="px-6 py-3">
-                Qty
+                Quantity
               </th>
               <th scope="col" className="px-6 py-3">
                 Price
@@ -144,7 +149,7 @@ export default function TopayPur() {
                   </div>
                 </td>
                 <td className="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                  {product.price}
+                  {product.price.toFixed(2)}
                 </td>
                 <td className="px-6 py-4">
                   <a
@@ -158,14 +163,20 @@ export default function TopayPur() {
             ))}
           </tbody>
           <tfoot>
-            <tr className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr className="text-lg text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-white">
               <th scope="row" className="px-6 py-3 text-base">
                 Total
               </th>
               <td className="px-6 py-3"></td>
               <td className="px-6 py-3">{totalQuantity}</td>
               <td className="px-6 py-3">{totalPrice.toFixed(2)}</td>
-              <td className="px-6 py-3"></td>
+              <td className="px-6 py-3">
+                <button className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+                  <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                    Make Payment
+                  </span>
+                </button>
+              </td>
             </tr>
           </tfoot>
         </table>
