@@ -24,7 +24,7 @@ export default function Pay() {
   });
 
   useEffect(() => {
-    loadPurchase();
+    //loadPurchase();
   }, []);
 
   const loadPurchase = async () => {
