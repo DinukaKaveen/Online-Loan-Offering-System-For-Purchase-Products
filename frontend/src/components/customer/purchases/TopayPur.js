@@ -15,9 +15,7 @@ export default function TopayPur() {
 
   const loadCartItems = async () => {
     //get user
-    const sessionUser = await axios.get(
-      "http://localhost:8000/get_session_user"
-    );
+    const sessionUser = await axios.get("http://localhost:8000/get_session_user");
     const userId = sessionUser.data.user._id;
     setUser(sessionUser.data.user);
 
@@ -30,10 +28,7 @@ export default function TopayPur() {
     const productIds = userCart.map((item) => item.product_id);
 
     //fetch product details from product ids
-    const products = await axios.post(
-      "http://localhost:8000/get_products_by_ids",
-      { productIds }
-    );
+    const products = await axios.post("http://localhost:8000/get_products_by_ids",{ productIds });
     setProducts(products.data.products);
 
     // Calculate total quantity and total price
