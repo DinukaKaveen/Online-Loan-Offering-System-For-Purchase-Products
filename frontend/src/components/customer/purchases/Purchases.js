@@ -198,11 +198,6 @@ export default function Purchases() {
         </div>
       </div>
 
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
       <FooterCus />
     </div>
   );
