@@ -189,9 +189,9 @@ export default function TopayPur() {
                   className="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
                 >
                   <div className="relative w-full max-w-4xl max-h-full">
-                    <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                    <div className="relative bg-white rounded-lg shadow dark:bg-gray-20">
                       <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                        <h3 className="text-xl font-medium text-gray-900 dark:text-white">
+                        <h3 className="text-xl font-medium text-gray-900 dark:text-gray-900">
                           Payment Form
                         </h3>
                         <button
