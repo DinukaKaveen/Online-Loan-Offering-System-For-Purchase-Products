@@ -8,13 +8,12 @@ import PaymentHistory from "./PaymentHistory";
 export default function Payments() {
   return (
     <div>
-      <NavbarCus />
       <div style={{ margin: "50px" }}>
         <nav className="flex mb-4" aria-label="Breadcrumb">
           <ol className="inline-flex items-center space-x-1 md:space-x-3">
             <li className="inline-flex items-center">
-              <Link
-                to={"/"}
+              <a
+                href="/"
                 className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray"
               >
                 <svg
@@ -38,11 +37,11 @@ export default function Payments() {
                     clipRule="evenodd"
                   ></path>
                 </svg>
-              </Link>
+              </a>
             </li>
             <li className="inline-flex items-center">
-              <Link
-                to={"/Purchases"}
+              <a
+                href="/purchases"
                 className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray"
               >
                 <svg
@@ -67,7 +66,7 @@ export default function Payments() {
                     clipRule="evenodd"
                   ></path>
                 </svg>
-              </Link>
+              </a>
             </li>
             <li aria-current="page">
               <div className="flex items-center">
@@ -83,67 +82,154 @@ export default function Payments() {
         </h2>
         <br />
 
-        <div className="mb-4 border-b border-gray-200 dark:border-gray-200">
-          <ul
-            className="flex flex-wrap -mb-px text-md font-medium text-center"
-            id="myTab"
-            data-tabs-toggle="#myTabContent"
-            role="tablist"
-          >
-            <li className="mr-2" role="presentation">
-              <button
-                className="inline-block p-4 border-b-2 rounded-t-lg"
-                id="pay-tab"
-                data-tabs-target="#pay"
-                type="button"
-                role="tab"
-                aria-controls="pay"
-                aria-selected="true"
-              >
-                Make Payment
-              </button>
-            </li>
-            <li className="mr-2" role="presentation">
-              <button
-                className="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
-                id="payments-tab"
-                data-tabs-target="#payments"
-                type="button"
-                role="tab"
-                aria-controls="payments"
-                aria-selected="false"
-              >
-                Payment History
-              </button>
-            </li>
-          </ul>
-        </div>
-
-        <div id="myTabContent">
-          <div
-            className="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-200"
-            id="pay"
-            role="tabpanel"
-            aria-labelledby="pay-tab"
-          >
-            <Pay />
+        <div className="grid gap-6 mb-6 md:grid-cols-5">
+          <div>
+            <div className="relative z-0 w-full mb-6 group">
+              <input
+                value={"15000.00"}
+                className="block py-2.5 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-900 dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                disabled
+              />
+              <label className="peer-focus:font-medium absolute text-lg text-gray-500 dark:text-gray-700 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                Total Loan
+              </label>
+            </div>
           </div>
-          <div
-            className="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-200"
-            id="payments"
-            role="tabpanel"
-            aria-labelledby="payments-tab"
-          >
-            <PaymentHistory />
+
+          <div>
+            <div className="relative z-0 w-full mb-6 group">
+              <input
+                value={"7000.00"}
+                className="block py-2.5 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-900 dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                disabled
+              />
+              <label className="peer-focus:font-medium absolute text-lg text-gray-500 dark:text-gray-700 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                Used Amount
+              </label>
+            </div>
+          </div>
+
+          <div>
+            <div className="relative z-0 w-full mb-6 group">
+              <input
+                value={"7000.00"}
+                className="block py-2.5 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-900 dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                disabled
+              />
+              <label className="peer-focus:font-medium absolute text-lg text-gray-500 dark:text-gray-700 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                Paid Amount
+              </label>
+            </div>
+          </div>
+
+          <div>
+            <div className="relative z-0 w-full mb-6 group">
+              <input
+                value={"3000.00"}
+                className="block py-2.5 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-900 dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                disabled
+              />
+              <label className="peer-focus:font-medium absolute text-lg text-gray-500 dark:text-gray-700 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                Pending Amount
+              </label>
+            </div>
+          </div>
+
+          <div>
+            <div className="relative z-0 w-full mb-6 group">
+              <input
+                value={"8000.00"}
+                className="block py-2.5 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-900 dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                disabled
+              />
+              <label className="peer-focus:font-medium absolute text-lg text-gray-500 dark:text-gray-700 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                Loan Balance
+              </label>
+            </div>
           </div>
         </div>
       </div>
 
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+      <div className="relative overflow-x-auto" style={{ margin: "20px" }}>
+        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-700">
+          <thead className="text-sm text-gray-900 uppercase dark:text-gray-700">
+            <tr>
+              <th scope="col" className="px-6 py-3">
+                Payment ID
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Date (D:M:Y)
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Time
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Installment State
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Payment Type
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Amount
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="bg-white dark:bg-gray-300">
+              <th
+                scope="row"
+                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-gray-700"
+              >
+                #209688
+              </th>
+              <td className="px-6 py-4">14/02/2023</td>
+              <td className="px-6 py-4">17:23:55</td>
+              <td className="px-6 py-4">1st Installment</td>
+              <td className="px-6 py-4">Credit/Debit</td>
+              <td className="px-6 py-4">$2999</td>
+            </tr>
+            <tr className="bg-white dark:bg-gray-300">
+              <th
+                scope="row"
+                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-gray-700"
+              >
+                #209689
+              </th>
+              <td className="px-6 py-4">17/02/2023</td>
+              <td className="px-6 py-4">7:21:44</td>
+              <td className="px-6 py-4">2nd Installment</td>
+              <td className="px-6 py-4">Credit/Debit</td>
+              <td className="px-6 py-4">$1999</td>
+            </tr>
+            <tr className="bg-white dark:bg-gray-300">
+              <th
+                scope="row"
+                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-gray-700"
+              >
+                #209687
+              </th>
+              <td className="px-6 py-4">10/01/2023</td>
+              <td className="px-6 py-4">10:27:25</td>
+              <td className="px-6 py-4">3rd Installment</td>
+              <td className="px-6 py-4">Credit/Debit</td>
+              <td className="px-6 py-4">$99</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr className="font-semibold text-gray-900 dark:text-gray-700">
+              <th scope="row" className="px-6 py-3 text-base">
+                Total
+              </th>
+              <td className="px-6 py-3"></td>
+              <td className="px-6 py-3"></td>
+              <td className="px-6 py-3"></td>
+              <td className="px-6 py-3"></td>
+              <td className="px-6 py-3">21,000</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
       <FooterCus />
     </div>
   );

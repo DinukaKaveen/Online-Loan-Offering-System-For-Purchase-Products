@@ -10,7 +10,8 @@ export default function NavBar() {
   if (
     location.pathname === "/" ||
     location.pathname === "/register-customer" ||
-    location.pathname === "/purchases"
+    location.pathname === "/purchases" ||
+    location.pathname === "/payments"
   ) {
 
     return <NavbarCus />;
