@@ -39,7 +39,8 @@ export default function Pay() {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    const paidAmount = parseInt(Purchase.paid_amount) + parseInt(Payment.payment_amount);
+    const paidAmount =
+      parseInt(Purchase.paid_amount) + parseInt(Payment.payment_amount);
     const pendingAmount = Purchase.pending_amount - Payment.payment_amount;
     let purStatus = "";
 
@@ -232,7 +233,7 @@ export default function Pay() {
                 value={Payment.installment_state}
                 onChange={(e) => onInputChange(e)}
               >
-                <option selected>Select Installment State</option>
+                <option defaultValue={""}>Select Installment State</option>
                 <option value={"1st Installment"}>1st Installment</option>
                 <option value={"2nd Installment"}>2nd Installment</option>
                 <option value={"3rd Installment"}>3rd Installment</option>
