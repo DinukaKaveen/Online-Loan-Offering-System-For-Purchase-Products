@@ -47,7 +47,7 @@ app.use(cartRoutes);
 app.use(
   "/uploads",
   express.static(
-    "E:/GitHub Repositories/Bumble Bee/Bumble-Bee-Online-loan-offering-system-/uploads"
+    "E:/GitHub Repositories/Bumble Bee/Online-Loan-Offering-System-For-Purchase-Products/uploads"
   )
 );
 
