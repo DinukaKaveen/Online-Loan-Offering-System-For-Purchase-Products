@@ -15,7 +15,8 @@ const orderSchema = new mongoose.Schema({
     },
   ],
   user_id: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
     required: true,
   },
   total_price: {
@@ -28,6 +29,7 @@ const orderSchema = new mongoose.Schema({
   },
   date_time: {
     type: Date,
+    default: Date.now(),
     required: true,
   },
   status: {
