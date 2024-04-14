@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 export default function Pay() {
+  const [message, setMessage] = useState([]);
 
   const [Purchase, setPurchase] = useState({
     purchase_id: "",
@@ -26,7 +27,7 @@ export default function Pay() {
   }, []);
 
   const loadPurchase = async () => {
-    const result = await axios.get(`http://localhost:8080/Purchase/`);
+    const result = await axios.get(`http://localhost:8000/Purchase/`);
     setPurchase(result.data);
   };
 
@@ -37,7 +38,35 @@ export default function Pay() {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    
+    const sessionUser = await axios.get("http://localhost:8000/get_session_user");
+    const userId = sessionUser.data.user._id;
+
+    const cart = await axios.get(`http://localhost:8000/get_cart/${userId}`);
+
+    await axios
+      .post("http://localhost:8000/create_order", {
+        products: [
+          cart.data.cartItems.map((item) => ({
+            product_id: item.product_id,
+            quantity: item.quantity,
+          })),
+        ],
+        user_id: userId,
+        total_price: 5000,
+        paid_amount: 1000,
+        date_time: Date.now(),
+      })
+      .then((response) => {
+        if(response.data.success){
+          setMessage(response.data.message);
+        }
+        else{
+          setMessage(response.data.message);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -211,6 +240,7 @@ export default function Pay() {
         >
           <i className="fa-solid fa-credit-card"></i>&nbsp; Pay Now
         </button>
+        {message}
       </form>
     </div>
   );

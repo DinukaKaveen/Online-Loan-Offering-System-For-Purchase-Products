@@ -7,6 +7,7 @@ const bodyParser = require("body-parser");
 const productRoutes = require("./routes/product_routes");
 const userRoutes = require("./routes/user_routes");
 const cartRoutes = require("./routes/cart_routes");
+const orderRoutes = require("./routes/order_routes");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 
@@ -44,6 +45,7 @@ app.use(
 app.use(productRoutes);
 app.use(userRoutes);
 app.use(cartRoutes);
+app.use(orderRoutes);
 app.use(
   "/uploads",
   express.static(

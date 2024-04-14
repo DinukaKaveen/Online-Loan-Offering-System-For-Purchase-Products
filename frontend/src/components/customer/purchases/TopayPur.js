@@ -5,7 +5,6 @@ import Pay from "../payments/Pay";
 export default function TopayPur() {
   const [cartItems, setCartItems] = useState([]);
   const [products, setProducts] = useState([]);
-  const [user, setUser] = useState([]);
 
   const [totalQuantity, setTotalQuantity] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -20,7 +19,6 @@ export default function TopayPur() {
       "http://localhost:8000/get_session_user"
     );
     const userId = sessionUser.data.user._id;
-    setUser(sessionUser.data.user);
 
     //get cart items
     const result = await axios.get(`http://localhost:8000/get_cart/${userId}`);
