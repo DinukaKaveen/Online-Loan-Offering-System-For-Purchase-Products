@@ -54,7 +54,6 @@ export default function Pay() {
         user_id: userId,
         total_price: 5000,
         paid_amount: 1000,
-        date_time: Date.now(),
       })
       .then((response) => {
         if(response.data.success){
