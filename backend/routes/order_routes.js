@@ -8,7 +8,6 @@ router.post("/create_order", async (req, res) => {
     user_id: req.body.user_id,
     total_price: req.body.total_price,
     paid_amount: req.body.paid_amount,
-    date_time: req.body.date_time,
   });
 
   order
