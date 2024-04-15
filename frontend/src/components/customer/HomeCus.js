@@ -48,6 +48,7 @@ export default function HomeCus() {
         user_id: user._id,
         product_id: product._id,
         quantity: 1,
+        price: product.price
       });
 
       if (result.data.success) {

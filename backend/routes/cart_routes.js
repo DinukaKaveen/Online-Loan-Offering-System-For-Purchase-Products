@@ -7,18 +7,20 @@ const User = require("../models/User");
 // add to cart and update cart
 router.post("/add_to_cart", async (req, res) => {
   try {
-    const { user_id, product_id, quantity } = req.body;
+    const { user_id, product_id, quantity, price } = req.body;
+
     const existingCartItem = await Cart.findOne({
       user_id,
       product_id,
     });
+    const usedAmount = await User.findOne({})
 
     // If the product is already in the cart, update the quantity
     if (existingCartItem) {
-      existingCartItem.quantity += quantity;
+      const updateQty = existingCartItem.quantity + quantity;
 
       await existingCartItem
-        .updateOne({ quantity: existingCartItem.quantity })
+        .updateOne({ quantity: updateQty })
         .then((response) => {
           if (response) {
             return res.status(200).json({
@@ -35,6 +37,13 @@ router.post("/add_to_cart", async (req, res) => {
         .catch((err) => {
           console.log(err);
         });
+
+      await User.findByIdAndUpdate(
+        user_id,
+        { used_amount: price * updateQty },
+        { new: true }
+      );
+
     } else {
       // If the product is not in the cart, create a new cart item
       const newCartItem = new Cart({
@@ -42,6 +51,12 @@ router.post("/add_to_cart", async (req, res) => {
         product_id,
         quantity,
       });
+
+      await User.findByIdAndUpdate(
+        user_id,
+        { used_amount: price },
+        { new: true }
+      );
 
       await newCartItem
         .save()
