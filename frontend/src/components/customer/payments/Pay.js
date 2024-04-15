@@ -45,15 +45,13 @@ export default function Pay() {
 
     await axios
       .post("http://localhost:8000/create_order", {
-        products: [
-          cart.data.cartItems.map((item) => ({
-            product_id: item.product_id,
-            quantity: item.quantity,
-          })),
-        ],
+        products: cart.data.cartItems.map((item) => ({
+          product_id: item.product_id,
+          quantity: item.quantity,
+        })),
         user_id: userId,
-        total_price: 5000,
-        paid_amount: 1000,
+        total_price: "5000",
+        paid_amount: "1000",
       })
       .then((response) => {
         if(response.data.success){
