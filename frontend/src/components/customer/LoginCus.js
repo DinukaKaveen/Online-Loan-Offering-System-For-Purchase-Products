@@ -142,7 +142,7 @@ export default function LoginCus() {
           <p className="mt-2 text-center text-sm text-gray-600">
             New to Bumble Bee?&nbsp;
             <Link
-              to={"/RegisterCustomer"}
+              to={"/register-customer"}
               className="font-medium text-blue-600 hover:text-blue-700 underline"
             >
               Create an account
