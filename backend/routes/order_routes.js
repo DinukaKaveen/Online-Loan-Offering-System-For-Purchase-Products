@@ -13,7 +13,7 @@ router.post("/create_order", async (req, res) => {
 
     const newOrder = await order.save();
     if (newOrder) {
-      return res.status(200).json({ success: true, message: "Order Created" });
+      return res.status(200).json({ success: true, message: "Order Created Successfully" });
     } else {
       return res.status(400).json({ success: false, message: "Order Fail" });
     }

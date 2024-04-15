@@ -54,10 +54,9 @@ export default function Pay() {
         paid_amount: "1000",
       })
       .then((response) => {
-        if(response.data.success){
+        if (response.data.success) {
           setMessage(response.data.message);
-        }
-        else{
+        } else {
           setMessage(response.data.message);
         }
       })
@@ -237,8 +236,9 @@ export default function Pay() {
         >
           <i className="fa-solid fa-credit-card"></i>&nbsp; Pay Now
         </button>
-        {message}
       </form>
+      <br></br>
+      <p style={{ color: "black" }}>{message}</p>
     </div>
   );
 }
