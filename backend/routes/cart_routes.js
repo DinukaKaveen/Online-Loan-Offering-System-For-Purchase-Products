@@ -13,7 +13,7 @@ router.post("/add_to_cart", async (req, res) => {
       user_id,
       product_id,
     });
-    const usedAmount = await User.findOne({})
+    const user = await User.findById(user_id);
 
     // If the product is already in the cart, update the quantity
     if (existingCartItem) {
@@ -40,7 +40,7 @@ router.post("/add_to_cart", async (req, res) => {
 
       await User.findByIdAndUpdate(
         user_id,
-        { used_amount: price * updateQty },
+        { used_amount: user.used_amount + price },
         { new: true }
       );
 
@@ -54,7 +54,7 @@ router.post("/add_to_cart", async (req, res) => {
 
       await User.findByIdAndUpdate(
         user_id,
-        { used_amount: price },
+        { used_amount: user.used_amount + price },
         { new: true }
       );
 
