@@ -5,6 +5,7 @@ import Pay from "../payments/Pay";
 export default function TopayPur() {
   const [cartItems, setCartItems] = useState([]);
   const [products, setProducts] = useState([]);
+  const [userId, setUserId] = useState([]);
 
   const [totalQuantity, setTotalQuantity] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -17,11 +18,12 @@ export default function TopayPur() {
     //get user
     const sessionUser = await axios.get("http://localhost:8000/get_session_user");
     const userId = sessionUser.data.user._id;
+    setUserId(userId);
 
     //get cart items
     const result = await axios.get(`http://localhost:8000/get_cart/${userId}`);
     const userCart = result.data.cartItems;
-    setCartItems(result.data.cartItems);
+    setCartItems(userCart);
 
     //extract product ids from cart items
     const productIds = userCart.map((item) => item.product_id);
@@ -54,10 +56,24 @@ export default function TopayPur() {
   //--------------------------------------------------------------------------------------------------------
   //Remove Cart Item
 
-  const removeCartItem = async (product) => {
+  const removeCartItem = async (id, price, qty) => {
+
+    const remove = await axios.delete(`http://localhost:8000/remove-from-cart/${id}`, {
+      data: {
+        user_id: userId,
+        price: price,
+        qty: qty
+      }
+    });
+
+    if(remove.data.success){
+      alert(remove.data.message);
+    }
+    else{
+      alert(remove.data.message);
+    }
 
   }
-
 
 
   return (
@@ -159,7 +175,7 @@ export default function TopayPur() {
                 </td>
                 <td className="px-6 py-4">
                   <a
-                    onClick={() => removeCartItem(product)}
+                    onClick={() => removeCartItem(product._id, product.price, cartItems[index].quantity)}
                     className="font-medium text-red-600 dark:text-red-500 hover:underline"
                   >
                     Remove

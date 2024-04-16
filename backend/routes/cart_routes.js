@@ -128,11 +128,24 @@ router.put("/update-quantity/:cartItemId", async (req, res) => {
 });
 
 // Remove item from the cart
-router.delete("/remove-from-cart/:cartItemId", async (req, res) => {
+router.delete("/remove-from-cart/:product_id", async (req, res) => {
   try {
-    const cartItemId = req.params.cartItemId;
-    await Cart.findByIdAndDelete(cartItemId);
-    res.json({ success: true, message: "Product removed from the cart" });
+    
+    const product_id = req.params.product_id;
+    const user_id = req.body.user_id;
+    const price = req.body.price;
+    const qty = req.body.qty;
+    
+    const deleteProduct = await Cart.findOneAndDelete({ product_id: product_id });
+    if(!deleteProduct){
+      return res.json({ success: false, message: "Product delete fail" });
+    }
+
+    //Update user's used amount
+    
+
+    return res.json({ success: true, message: "Product removed from the cart" });
+
   } catch (error) {
     console.error(error);
     res.status(500).json({ success: false, message: "Server Error" });
