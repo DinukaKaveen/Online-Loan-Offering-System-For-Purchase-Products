@@ -15,9 +15,7 @@ export default function TopayPur() {
 
   const loadCartItems = async () => {
     //get user
-    const sessionUser = await axios.get(
-      "http://localhost:8000/get_session_user"
-    );
+    const sessionUser = await axios.get("http://localhost:8000/get_session_user");
     const userId = sessionUser.data.user._id;
 
     //get cart items
@@ -52,6 +50,15 @@ export default function TopayPur() {
     setTotalQuantity(quantityTotal);
     setTotalPrice(priceTotal);
   };
+
+  //--------------------------------------------------------------------------------------------------------
+  //Remove Cart Item
+
+  const removeCartItem = async (product) => {
+
+  }
+
+
 
   return (
     <div>
@@ -152,7 +159,7 @@ export default function TopayPur() {
                 </td>
                 <td className="px-6 py-4">
                   <a
-                    href="/"
+                    onClick={() => removeCartItem(product)}
                     className="font-medium text-red-600 dark:text-red-500 hover:underline"
                   >
                     Remove
