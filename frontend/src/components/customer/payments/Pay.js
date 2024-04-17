@@ -2,19 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 export default function Pay() {
+  const [user, setUser] = useState([]);
   const [message, setMessage] = useState([]);
-
-  const [Purchase, setPurchase] = useState({
-    purchase_id: "",
-    product_id: "",
-    product_name: "",
-    userId: "",
-    purchase_amount: "",
-    qty: "",
-    paid_amount: "",
-    pending_amount: "",
-    status: "",
-  });
 
   const [Payment, setPayment] = useState({
     payment_amount: "",
@@ -23,12 +12,12 @@ export default function Pay() {
   });
 
   useEffect(() => {
-    //loadPurchase();
+    loadUser();
   }, []);
 
-  const loadPurchase = async () => {
-    const result = await axios.get(`http://localhost:8000/Purchase/`);
-    setPurchase(result.data);
+  const loadUser = async () => {
+    const sessionUser = await axios.get("http://localhost:8000/get_session_user");
+    setUser(sessionUser.data.user);
   };
 
   const onInputChange = (e) => {
@@ -38,10 +27,7 @@ export default function Pay() {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    const sessionUser = await axios.get("http://localhost:8000/get_session_user");
-    const userId = sessionUser.data.user._id;
-
-    const cart = await axios.get(`http://localhost:8000/get_cart/${userId}`);
+    const cart = await axios.get(`http://localhost:8000/get_cart/${user._id}`);
 
     await axios
       .post("http://localhost:8000/create_order", {
@@ -49,7 +35,7 @@ export default function Pay() {
           product_id: item.product_id,
           quantity: item.quantity,
         })),
-        user_id: userId,
+        user_id: user._id,
         total_price: "5000",
         paid_amount: "1000",
       })
@@ -66,12 +52,12 @@ export default function Pay() {
   };
 
   return (
-    <div style={{ padding: "30px" }}>
+    <div style={{ padding: "50px" }}>
       <div className="grid gap-6 mb-6 md:grid-cols-5">
         <div>
           <div className="relative z-0 w-full mb-6 group">
             <input
-              value={"15000.00"}
+              value={String(user.total_amount)}
               className="block py-2.5 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-900 dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               disabled
             />
@@ -84,7 +70,7 @@ export default function Pay() {
         <div>
           <div className="relative z-0 w-full mb-6 group">
             <input
-              value={"7000.00"}
+              value={String(user.used_amount)}
               className="block py-2.5 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-900 dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               disabled
             />
@@ -97,7 +83,7 @@ export default function Pay() {
         <div>
           <div className="relative z-0 w-full mb-6 group">
             <input
-              value={Purchase.paid_amount}
+              value={String(user.paid_amount)}
               className="block py-2.5 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-900 dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               disabled
             />
@@ -110,7 +96,7 @@ export default function Pay() {
         <div>
           <div className="relative z-0 w-full mb-6 group">
             <input
-              value={Purchase.pending_amount}
+              value={String(user.used_amount - user.paid_amount)}
               className="block py-2.5 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-900 dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               disabled
             />
@@ -123,7 +109,7 @@ export default function Pay() {
         <div>
           <div className="relative z-0 w-full mb-6 group">
             <input
-              value={"8000.00"}
+              value={String(user.total_amount - user.used_amount)}
               className="block py-2.5 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-900 dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               disabled
             />
@@ -190,7 +176,7 @@ export default function Pay() {
           </label>
           <textarea
             id="remarks"
-            rows="8"
+            rows="3"
             className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-100 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Write your thoughts here..."
             name="remarks"
