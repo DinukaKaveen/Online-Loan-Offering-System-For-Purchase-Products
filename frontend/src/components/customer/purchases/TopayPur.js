@@ -53,6 +53,39 @@ export default function TopayPur() {
     setTotalPrice(priceTotal);
   };
 
+
+  const [combinedData, setCombinedData] = useState([]);
+
+  // Fetch cart and product details and combine them
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        //get user
+        const sessionUser = await axios.get("http://localhost:8000/get_session_user");
+        const userData = sessionUser.data.user;
+
+        const cartResult = await axios.get(`http://localhost:8000/get_cart/${userData._id}`);
+        const productResult = await axios.get("http://localhost:8000/products");
+
+        const cartItems = cartResult.data.cartItems;
+        const products = productResult.data.products;
+
+        // Combine cart details with product details based on product ID
+        const combinedData = cartItems.map(cartItem => {
+          const product = products.find(product => product._id === cartItem.product_id);
+          return { ...cartItem, product };
+        });
+
+        setCombinedData(combinedData);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+
   //--------------------------------------------------------------------------------------------------------
   //Remove Cart Item
   const removeCartItem = async (id, price, qty) => {
@@ -77,6 +110,17 @@ export default function TopayPur() {
 
   return (
     <div>
+      <h1>Combined Data</h1>
+      <ul>
+        {combinedData.map(item => (
+          <li key={item._id}>
+            <div>Product Name: {item.product.product_name}</div>
+            <div>Quantity: {item.quantity}</div>
+            <div>Price: {item.product.price}</div>
+          </li>
+        ))}
+      </ul>
+
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-200 dark:text-gray-400">
