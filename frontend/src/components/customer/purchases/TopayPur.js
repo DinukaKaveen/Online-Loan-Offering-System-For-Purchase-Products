@@ -3,9 +3,8 @@ import React, { useEffect, useState } from "react";
 import Pay from "../payments/Pay";
 
 export default function TopayPur() {
-  const [cartItems, setCartItems] = useState([]);
-  const [products, setProducts] = useState([]);
   const [user, setUser] = useState([]);
+  const [combinedData, setCombinedData] = useState([]);
 
   const [totalQuantity, setTotalQuantity] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -15,34 +14,46 @@ export default function TopayPur() {
   }, []);
 
   const loadCartItems = async () => {
+
     //get user
     const sessionUser = await axios.get("http://localhost:8000/get_session_user");
     const userData = sessionUser.data.user;
     setUser(userData);
 
-    //get cart items
-    const result = await axios.get(`http://localhost:8000/get_cart/${userData._id}`);
-    const userCart = result.data.cartItems;
-    setCartItems(userCart);
+    const cartResult = await axios.get(`http://localhost:8000/get_cart/${userData._id}`);
+    const productResult = await axios.get("http://localhost:8000/products");
 
-    //extract product ids from cart items
-    const productIds = userCart.map((item) => item.product_id);
+    const cartItems = cartResult.data.cartItems;
+    const products = productResult.data.products;
 
-    //fetch product details from product ids
-    const products = await axios.post(
-      "http://localhost:8000/get_products_by_ids",
-      { productIds }
-    );
-    setProducts(products.data.products);
+    // Combine cart details with product details based on product ID
+    const combinedData = cartItems.map(cartItem => {
+      const product = products.find(product => product._id === cartItem.product_id);
+      return { ...cartItem, product };
+    });
 
+    setCombinedData(combinedData);
+      
+
+    // //extract product ids from cart items
+    // const productIds = userCart.map((item) => item.product_id);
+
+    // //fetch product details from product ids
+    // const products = await axios.post(
+    //   "http://localhost:8000/get_products_by_ids",
+    //   { productIds }
+    // );
+    // setProducts(products.data.products);
+
+    
     // Calculate total quantity and total price
     let quantityTotal = 0;
     let priceTotal = 0;
 
-    for (const cartItem of result.data.cartItems) {
+    for (const cartItem of cartItems) {
       quantityTotal += cartItem.quantity;
 
-      for (const product of products.data.products) {
+      for (const product of products) {
         if (cartItem.product_id === product._id) {
           priceTotal += product.price * cartItem.quantity;
         }
@@ -52,38 +63,6 @@ export default function TopayPur() {
     setTotalQuantity(quantityTotal);
     setTotalPrice(priceTotal);
   };
-
-
-  const [combinedData, setCombinedData] = useState([]);
-
-  // Fetch cart and product details and combine them
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        //get user
-        const sessionUser = await axios.get("http://localhost:8000/get_session_user");
-        const userData = sessionUser.data.user;
-
-        const cartResult = await axios.get(`http://localhost:8000/get_cart/${userData._id}`);
-        const productResult = await axios.get("http://localhost:8000/products");
-
-        const cartItems = cartResult.data.cartItems;
-        const products = productResult.data.products;
-
-        // Combine cart details with product details based on product ID
-        const combinedData = cartItems.map(cartItem => {
-          const product = products.find(product => product._id === cartItem.product_id);
-          return { ...cartItem, product };
-        });
-
-        setCombinedData(combinedData);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData();
-  }, []);
 
 
   //--------------------------------------------------------------------------------------------------------
@@ -110,17 +89,6 @@ export default function TopayPur() {
 
   return (
     <div>
-      <h1>Combined Data</h1>
-      <ul>
-        {combinedData.map(item => (
-          <li key={item._id}>
-            <div>Product Name: {item.product.product_name}</div>
-            <div>Quantity: {item.quantity}</div>
-            <div>Price: {item.product.price}</div>
-          </li>
-        ))}
-      </ul>
-
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-200 dark:text-gray-400">
@@ -143,20 +111,20 @@ export default function TopayPur() {
             </tr>
           </thead>
           <tbody>
-            {products.map((product, index) => (
+            {combinedData.map((item) => (
               <tr
-                key={index}
+                key={item._id}
                 className="bg-white border-b dark:bg-gray-80 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-250"
               >
                 <td className="p-4">
                   <img
-                    src={`http://localhost:8000/uploads/${product.image}`}
+                    src={`http://localhost:8000/uploads/${item.product.image}`}
                     className="w-16 md:w-32 max-w-full max-h-full"
                     alt="product_image"
                   />
                 </td>
                 <td className="px-6 py-4 font-semibold text-gray-900 dark:text-gray-900">
-                  {product.product_name}
+                  {item.product.product_name}
                 </td>
                 <td className="px-6 py-4">
                   <div className="flex items-center">
@@ -186,7 +154,7 @@ export default function TopayPur() {
                         type="number"
                         id="first_product"
                         className="bg-gray-50 w-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-80 dark:border-gray-300 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        value={cartItems.find(item => item.product_id === product._id)?.quantity || 0}
+                        value={item.quantity}
                         onChange={(e) => {}}
                       />
                     </div>
@@ -214,11 +182,11 @@ export default function TopayPur() {
                   </div>
                 </td>
                 <td className="px-6 py-4 font-semibold text-gray-900 dark:text-gray-900">
-                  {product.price.toFixed(2)}
+                  {item.product.price.toFixed(2)}
                 </td>
                 <td className="px-6 py-4">
                   <a
-                    onClick={() => removeCartItem(product._id, product.price, cartItems[index].quantity)}
+                    onClick={() => removeCartItem(item._id, item.product.price, item.quantity)}
                     className="font-medium text-red-600 dark:text-red-500 hover:underline"
                   >
                     Remove
