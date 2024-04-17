@@ -133,6 +133,7 @@ router.delete("/remove-from-cart/:product_id", async (req, res) => {
     const user = req.body.user;
     const price = req.body.price;
     const qty = req.body.qty;
+    const total = price * qty;
 
     const deleteProduct = await Cart.findOneAndDelete({ product_id: product_id, });
     if (!deleteProduct) {
@@ -142,7 +143,7 @@ router.delete("/remove-from-cart/:product_id", async (req, res) => {
     //Update user's used amount
     await User.findByIdAndUpdate(
       user._id, 
-      { used_amount: user.used_amount - price * qty },
+      { used_amount: user.used_amount - total },
       { new: true }
     );
 
