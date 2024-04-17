@@ -84,7 +84,6 @@ export default function TopayPur() {
     else{
       alert(remove.data.message);
     }
-
   }
 
   return (
