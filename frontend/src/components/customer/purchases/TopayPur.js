@@ -194,8 +194,8 @@ export default function TopayPur() {
               <td className="px-6 py-3">{totalPrice.toFixed(2)}</td>
               <td className="px-6 py-3">
                 <button
-                  data-modal-target="large-modal"
-                  data-modal-toggle="large-modal"
+                  data-modal-target="extralarge-modal"
+                  data-modal-toggle="extralarge-modal"
                   type="button"
                   className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800"
                 >
@@ -205,11 +205,11 @@ export default function TopayPur() {
                 </button>
 
                 <div
-                  id="large-modal"
+                  id="extralarge-modal"
                   tabIndex="-1"
                   className="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
                 >
-                  <div className="relative w-full max-w-4xl max-h-full">
+                  <div className="relative w-full max-w-5xl max-h-full">
                     <div className="relative bg-white rounded-lg shadow dark:bg-gray-20">
                       <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                         <h3 className="text-xl font-medium text-gray-900 dark:text-gray-900">
