@@ -5,7 +5,7 @@ import Pay from "../payments/Pay";
 export default function TopayPur() {
   const [cartItems, setCartItems] = useState([]);
   const [products, setProducts] = useState([]);
-  const [userId, setUserId] = useState([]);
+  const [user, setUser] = useState([]);
 
   const [totalQuantity, setTotalQuantity] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -17,11 +17,11 @@ export default function TopayPur() {
   const loadCartItems = async () => {
     //get user
     const sessionUser = await axios.get("http://localhost:8000/get_session_user");
-    const userId = sessionUser.data.user._id;
-    setUserId(userId);
+    const userData = sessionUser.data.user;
+    setUser(userData);
 
     //get cart items
-    const result = await axios.get(`http://localhost:8000/get_cart/${userId}`);
+    const result = await axios.get(`http://localhost:8000/get_cart/${userData._id}`);
     const userCart = result.data.cartItems;
     setCartItems(userCart);
 
@@ -60,7 +60,7 @@ export default function TopayPur() {
 
     const remove = await axios.delete(`http://localhost:8000/remove-from-cart/${id}`, {
       data: {
-        user_id: userId,
+        user: user,
         price: price,
         qty: qty
       }

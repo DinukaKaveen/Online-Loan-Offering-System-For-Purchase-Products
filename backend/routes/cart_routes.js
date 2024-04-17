@@ -43,7 +43,6 @@ router.post("/add_to_cart", async (req, res) => {
         { used_amount: user.used_amount + price },
         { new: true }
       );
-
     } else {
       // If the product is not in the cart, create a new cart item
       const newCartItem = new Cart({
@@ -130,21 +129,27 @@ router.put("/update-quantity/:cartItemId", async (req, res) => {
 // Remove item from the cart
 router.delete("/remove-from-cart/:product_id", async (req, res) => {
   try {
-    
     const product_id = req.params.product_id;
-    const user_id = req.body.user_id;
+    const user = req.body.user;
     const price = req.body.price;
     const qty = req.body.qty;
-    
-    const deleteProduct = await Cart.findOneAndDelete({ product_id: product_id });
-    if(!deleteProduct){
+
+    const deleteProduct = await Cart.findOneAndDelete({ product_id: product_id, });
+    if (!deleteProduct) {
       return res.json({ success: false, message: "Product delete fail" });
     }
 
     //Update user's used amount
-    
+    await User.findByIdAndUpdate(
+      user._id, 
+      { used_amount: user.used_amount - price * qty },
+      { new: true }
+    );
 
-    return res.json({ success: true, message: "Product removed from the cart" });
+    return res.json({
+      success: true,
+      message: "Product removed from the cart",
+    });
 
   } catch (error) {
     console.error(error);
