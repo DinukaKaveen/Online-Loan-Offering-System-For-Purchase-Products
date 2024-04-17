@@ -67,13 +67,13 @@ export default function TopayPur() {
 
     if(remove.data.success){
       alert(remove.data.message);
+      window.location.href = "/purchases";
     }
     else{
       alert(remove.data.message);
     }
 
   }
-
 
   return (
     <div>
@@ -142,7 +142,7 @@ export default function TopayPur() {
                         type="number"
                         id="first_product"
                         className="bg-gray-50 w-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-80 dark:border-gray-300 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        value={cartItems[index].quantity}
+                        value={cartItems.find((item) => item.product_id === product._id)?.quantity || 0}
                         onChange={(e) => {}}
                       />
                     </div>
