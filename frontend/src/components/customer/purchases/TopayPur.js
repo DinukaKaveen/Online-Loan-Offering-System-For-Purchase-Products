@@ -35,17 +35,17 @@ export default function TopayPur() {
     setCombinedData(combinedData);
       
 
-    // //extract product ids from cart items
+    // extract product ids from cart items
     // const productIds = userCart.map((item) => item.product_id);
 
-    // //fetch product details from product ids
+    // fetch product details from product ids
     // const products = await axios.post(
     //   "http://localhost:8000/get_products_by_ids",
     //   { productIds }
     // );
     // setProducts(products.data.products);
 
-    
+
     // Calculate total quantity and total price
     let quantityTotal = 0;
     let priceTotal = 0;
