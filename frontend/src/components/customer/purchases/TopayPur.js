@@ -55,7 +55,6 @@ export default function TopayPur() {
 
   //--------------------------------------------------------------------------------------------------------
   //Remove Cart Item
-
   const removeCartItem = async (id, price, qty) => {
 
     const remove = await axios.delete(`http://localhost:8000/remove-from-cart/${id}`, {
