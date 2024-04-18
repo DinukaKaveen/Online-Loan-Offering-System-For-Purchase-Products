@@ -20,11 +20,11 @@ const orderSchema = new mongoose.Schema({
     required: true,
   },
   total_price: {
-    type: String,
+    type: Number,
     required: true,
   },
   paid_amount: {
-    type: String,
+    type: Number,
     required: true,
   },
   date_time: {
@@ -32,8 +32,11 @@ const orderSchema = new mongoose.Schema({
     default: Date.now(),
     required: true,
   },
+  installment_state: {
+    type: String,
+    required: true,
+  },
   status: {
-    default: "Installment",
     type: String,
     required: true,
   },
