@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Order = require("../models/Order");
 const User = require("../models/User");
+const Cart = require("../models/Cart");
 
 router.post("/create_order", async (req, res) => {
   try {
@@ -21,7 +22,11 @@ router.post("/create_order", async (req, res) => {
     const newOrder = await order.save();
     if (newOrder) {
 
+      //update user and delete products from cart
       await User.findByIdAndUpdate(user._id, { paid_amount: user.paid_amount + paid_amount });
+      for(const product of products){
+        await Cart.findOneAndDelete({ product_id: product.product_id });
+      }
 
       return res.status(200).json({ success: true, message: "Order Created Successfully" });
     } else {
