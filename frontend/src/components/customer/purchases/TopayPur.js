@@ -92,7 +92,7 @@ export default function TopayPur() {
         {combinedData.length === 0 ? (
 
           <div
-            className="flex items-center p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-white dark:text-blue-400"
+            className="flex items-center p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-100 dark:text-blue-400"
             role="alert"
           >
             <svg
