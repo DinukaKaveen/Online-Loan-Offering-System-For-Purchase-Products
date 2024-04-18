@@ -21,7 +21,7 @@ router.post("/create_order", async (req, res) => {
     const newOrder = await order.save();
     if (newOrder) {
 
-      await User.findOneAndUpdate(user._id, { paid_amount: user.paid_amount + paid_amount });
+      await User.findByIdAndUpdate(user._id, { paid_amount: user.paid_amount + paid_amount });
 
       return res.status(200).json({ success: true, message: "Order Created Successfully" });
     } else {
