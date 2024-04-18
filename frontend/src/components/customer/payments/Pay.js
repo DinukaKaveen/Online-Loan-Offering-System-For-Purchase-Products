@@ -36,7 +36,7 @@ export default function Pay() {
           product_id: item.product_id,
           quantity: item.quantity,
         })),
-        user_id: user._id,
+        user: user,
         total_price: user.used_amount,
         paid_amount: Payment.payment_amount,
         installment_state: Payment.installment_state,
