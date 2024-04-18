@@ -36,6 +36,10 @@ const orderSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  remarks: {
+    type: String,
+    required: true,
+  },
   status: {
     type: String,
     required: true,

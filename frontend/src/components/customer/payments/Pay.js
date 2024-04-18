@@ -26,6 +26,7 @@ export default function Pay() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    const status = Payment.installment_state === "Full Payment" ? "Complete" : "Pending";
 
     const cart = await axios.get(`http://localhost:8000/get_cart/${user._id}`);
 
@@ -36,8 +37,11 @@ export default function Pay() {
           quantity: item.quantity,
         })),
         user_id: user._id,
-        total_price: "5000",
-        paid_amount: "1000",
+        total_price: user.used_amount,
+        paid_amount: Payment.payment_amount,
+        installment_state: Payment.installment_state,
+        remarks: Payment.remarks,
+        status: status
       })
       .then((response) => {
         if (response.data.success) {
