@@ -2,11 +2,21 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 export default function PendingPur() {
-  const [PendingProducts, setPendingProducts] = useState([]);
+  const [pendingOrders, setPendingOrders] = useState([]);
 
   useEffect(() => {
-    //loadPendingProducts();
+    loadPendingOrders();
   }, []);
+
+  const loadPendingOrders = async () => {
+
+    //get user
+    const sessionUser = await axios.get("http://localhost:8000/get_session_user");
+    const userData = sessionUser.data.user;
+
+    const orders = await axios.get(`http://localhost:8000/get_orders/${userData._id}/Pending`);
+    setPendingOrders(orders.data.pendingOrders);
+  }
 
   return (
     <div>
@@ -21,12 +31,6 @@ export default function PendingPur() {
           >
             <span className="flex items-center">
               Order ID: | Date: | Price: | Paid Amount: | Pending Amount: &nbsp;
-              <button
-                type="button"
-                class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
-              >
-                Make Payment
-              </button>
             </span>
             <svg
               data-accordion-icon
@@ -73,6 +77,13 @@ export default function PendingPur() {
                 </p>
               </div>
             </div>
+            <br></br>
+            <button
+              type="button"
+              className="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
+            >
+              Make Payment
+            </button>
           </div>
         </div>
       </div>
