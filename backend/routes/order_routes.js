@@ -55,9 +55,9 @@ router.get("/get_orders/:user_id/:status", async (req, res) => {
 
   try {
 
-    const order = await Order.findOne({ user_id: user_id, status: status });
-    if (order) {
-      return res.status(200).json({ success: true, pendingOrders: order });
+    const orders = await Order.find({ user_id: user_id, status: status });
+    if (orders) {
+      return res.status(200).json({ success: true, pendingOrders: orders });
     } else {
       return res
         .status(404)
