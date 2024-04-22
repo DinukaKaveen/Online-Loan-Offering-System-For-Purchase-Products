@@ -32,7 +32,7 @@ export default function PendingPur() {
                 aria-controls={`accordion-open-body-${index}`}
               >
                 <span className="flex items-center">
-                  Order ID: {order._id} | Date: | Price: | Paid Amount: | Pending Amount:
+                  Order ID: {order._id} | Date: {order.date_time} | Price:  | Paid Amount: {order.paid_amount} | Pending Amount: {order.total_price - order.paid_amount}
                   &nbsp;
                 </span>
                 <svg
