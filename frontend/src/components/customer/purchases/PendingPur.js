@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 
 export default function PendingPur() {
   const [pendingOrders, setPendingOrders] = useState([]);
+  const [combinedData, setCombinedData] = useState([]);
 
   useEffect(() => {
     loadPendingOrders();
@@ -15,7 +16,14 @@ export default function PendingPur() {
     const userData = sessionUser.data.user;
 
     const orders = await axios.get(`http://localhost:8000/get_orders/${userData._id}/Pending`);
+    const productResult = await axios.get("http://localhost:8000/products");
+
     setPendingOrders(orders.data.pendingOrders);
+
+    const pendingOrders = orders.data.pendingOrders;
+    const products = productResult.data.products;
+
+
   }
 
   return (
@@ -55,7 +63,7 @@ export default function PendingPur() {
             </h2>
             <div
               id={`accordion-open-body-${index}`}
-              className="hidden"
+              className="open"
               aria-labelledby={`accordion-open-heading-${index}`}
             >
               <div className="p-5 border border-t-0 border-gray-200 dark:border-gray-700">
