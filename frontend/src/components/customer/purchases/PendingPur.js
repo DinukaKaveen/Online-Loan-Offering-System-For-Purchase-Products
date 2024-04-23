@@ -19,6 +19,7 @@ export default function PendingPur() {
     const productResult = await axios.get("http://localhost:8000/products");
 
     setPendingOrders(orders.data.pendingOrders);
+    console.log(orders.data.pendingOrders[0].products)
 
     const pendingOrders = orders.data.pendingOrders;
     const products = productResult.data.products;
