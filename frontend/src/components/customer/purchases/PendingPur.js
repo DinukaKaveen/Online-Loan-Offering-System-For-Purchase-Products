@@ -30,12 +30,9 @@ export default function PendingPur() {
         {pendingOrders.map((order, index) => (
           <div key={index}>
             <h2 id={`accordion-open-heading-${index}`}>
-              <button
-                type="button"
+              <div
+                
                 className="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-gray-200 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
-                data-accordion-target={`#accordion-open-body-${index}`}
-                aria-expanded="false"
-                aria-controls={`accordion-open-body-${index}`}
               >
                 <span className="flex items-center">
                   Order ID: {order._id} | Date: {order.date_time} | Price: | Paid Amount: {order.paid_amount} | Pending Amount: {order.total_price - order.paid_amount}
@@ -45,30 +42,10 @@ export default function PendingPur() {
                   className="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
                 >
                   Make Payment
-                </button>
-                <svg
-                  data-accordion-icon
-                  className="w-3 h-3 rotate-180 shrink-0"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 10 6"
-                >
-                  <path
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M9 5 5 1 1 5"
-                  />
-                </svg>
-              </button>
+                </button> 
+              </div>
             </h2>
-            <div
-              id={`accordion-open-body-${index}`}
-              className="open"
-              aria-labelledby={`accordion-open-heading-${index}`}
-            >
+            <div>
               {pendingOrders[index].products.map((item, index2) => (
                 <div key={index2} className="p-5 border border-t-0 border-gray-200 dark:border-gray-700">
                   <div className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-300 dark:bg-gray-100">
