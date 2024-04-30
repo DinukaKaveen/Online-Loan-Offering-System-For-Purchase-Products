@@ -35,7 +35,7 @@ export default function PendingPur() {
                 className="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-gray-200 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
               >
                 <span className="flex items-center">
-                  Order ID: {order._id} | Date: {order.date_time} | Price: | Paid Amount: {order.paid_amount} | Pending Amount: {order.total_price - order.paid_amount}
+                  Order ID: {order._id} | Date: {order.date_time} | Price: {order.total_price} | Paid Amount: {order.paid_amount} | Pending Amount: {order.total_price - order.paid_amount}
                 </span>
                 <button
                   type="button"
