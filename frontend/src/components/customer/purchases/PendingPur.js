@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 
 export default function PendingPur() {
   const [pendingOrders, setPendingOrders] = useState([]);
-  const [combinedData, setCombinedData] = useState([]);
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     loadPendingOrders();
@@ -16,16 +16,12 @@ export default function PendingPur() {
     const userData = sessionUser.data.user;
 
     const orders = await axios.get(`http://localhost:8000/get_orders/${userData._id}/Pending`);
-    const productResult = await axios.get("http://localhost:8000/products");
+    const products = await axios.get("http://localhost:8000/products");
 
     setPendingOrders(orders.data.pendingOrders);
+    setProducts(products.data.products);
 
-    console.log(orders.data.pendingOrders[0].products);
-
-    const pendingOrders = orders.data.pendingOrders;
-    const products = productResult.data.products;
-
-
+    //console.log(orders.data.pendingOrders[0].products);
   }
 
   return (
@@ -83,16 +79,16 @@ export default function PendingPur() {
                     />
                     <div className="flex flex-col justify-between p-4 leading-normal">
                       <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-gray-700">
-                        {item.product_id}
+                        {products.find((product) => product._id === item.product_id) ?. product_name || "N/A"}
                       </h5>
                       <p className="mb-3 font-normal text-gray-700 dark:text-gray-600">
-                        Price:
+                        Price: {products.find((product) => product._id === item.product_id) ?. price || "N/A"}
                       </p>
                       <p className="mb-3 font-normal text-gray-700 dark:text-gray-600">
-                        Qty:
+                        Qty: {item.quantity}
                       </p>
                       <p className="mb-3 font-normal text-gray-700 dark:text-gray-600">
-                        Warranty:
+                        Warranty: {products.find((product) => product._id === item.product_id) ?. warranty || "N/A"}
                       </p>
                     </div>
                   </div>
